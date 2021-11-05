@@ -1,0 +1,1 @@
+installutil Core.FolderAction.WinService.exe

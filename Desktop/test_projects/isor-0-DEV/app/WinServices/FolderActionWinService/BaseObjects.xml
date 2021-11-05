@@ -1,0 +1,2314 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BaseObjects</name>
+    </assembly>
+    <members>
+        <member name="T:cz.ctgroup.isor.BaseObjects.baseAllowedProperty">
+            <summary>
+            objekt povolení vlastnosti
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseAllowedProperty.#ctor(cz.ctgroup.db.DBLib,System.String)">
+            <summary>
+            konstruktor, volá základní konstruktor
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseAllowedProperty.#ctor(cz.ctgroup.db.DBLib,System.String,System.Int64)">
+            <summary>
+            konstruktor, volá základní konstruktor
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+            <param name="iD0">id objektu, kteýr má být nahrán</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseAllowedProperty.setMyEntity">
+            <summary>
+            nastavení DB tabulky do které objekt zapisuje
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseAllowedProperty.Load(System.Int64)">
+            <summary>
+            nahrání objektu, vrací true pokud se podařilo úspěšně objekt nahrát, jinak
+            false, při nahrání jsou nahrány i špecifické hodnoty PropertyValue do proměnné
+            Values
+            </summary>
+            <param name="iD">id objektu, který má být nahrán</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseAllowedProperty.Save(System.Boolean,System.Int64)">
+            <summary>
+            uložení objektu
+            </summary>
+            <param name="saveAlways">příznak zda má být uloženo vždy</param>
+            <param name="iDUser">identifikace uživatele, který operaci provádí</param>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseAllowedProperty.IdProperty">
+            <summary>
+            typ vlastnosti
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseAllowedProperty.Id0">
+            <summary>
+            id objektu ke kterému je vlastnost povolená
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseAllowedProperty.ValidFrom">
+            <summary>
+            počáteční datum platnosti povolení
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseAllowedProperty.ValidTo">
+            <summary>
+            konečné datum povolení platnosti
+            </summary>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.baseException">
+            <summary>
+            základní třída pro výjimky aplikace
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.baseException.mRetId">
+            <summary>
+            id záznamu na kterém došlo k chybě
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.baseException.ErrorTable">
+            <summary>
+            tabulka chybových zpráv
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.baseException.LogExceptions">
+            <summary>
+            příznak zda mají být výjimky logovány do databáze
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseException.#cctor">
+            <summary>
+            statický konstruktor generující prvotní tabulku chybových zpráv
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseException.#ctor(System.Int32,cz.ctgroup.isor.BaseObjects.baseObject)">
+            <summary>
+            konstruktor
+            </summary>
+            <param name="iError">identifikátor chyby</param>
+            <param name="oBase">instance objektu kde k chybě došlo</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseException.#ctor(System.String,System.Int64,cz.ctgroup.isor.BaseObjects.baseObject)">
+            <summary>
+            konstruktor
+            </summary>
+            <param name="sMessage">chybová zpráva</param>
+            <param name="iRet">návratová hodnota</param>
+            <param name="oBase">objekt ve kterém chyba nastala</param>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseException.RetId">
+            <summary>
+            vrátí id záznamu na kterém došlo k chybě
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseException.ReturnCheck(System.Int64,System.Int64,cz.ctgroup.isor.BaseObjects.baseObject)">
+            <summary>
+            otestuje zda výsledek odpovídá očekáváním pokud ne tak vznikne výjimka, jinak
+            vrací hodnotu, kterou testoval
+            </summary>
+            <param name="toCheck">co má být otestováno</param>
+            <param name="mustReturn">očekávaná hodnota</param>
+            <param name="oBase">objekt pro který testování provádíme</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseException.MinusCheck(System.Int64,cz.ctgroup.isor.BaseObjects.baseObject)">
+            <summary>
+            otestuje zda vstupní hodnota je menší než nula a pokud ano tak vznikne výjimka,
+            jinak vrací stejnou hodnotu, která byla testována
+            </summary>
+            <param name="toCheck">hodnota k otestování</param>
+            <param name="oBase">objekt pro který testování probíhá</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseException.MinusCheck(System.Int64,System.String,cz.ctgroup.isor.BaseObjects.baseObject)">
+            <summary>
+            otestuje zda vstupní hodnota je menší než nula a pokud ano tak vznikne výjimka,
+            jinak vrací stejnou hodnotu, která byla testována
+            </summary>
+            <param name="toCheck">hodnota k otestování</param>
+            <param name="message">zpáva, kterou má výjimka obsahovat</param>
+            <param name="oBase">objekt pro který testování probíhá</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseException.MinusZeroCheck(System.Int64,System.String,cz.ctgroup.isor.BaseObjects.baseObject)">
+            <summary>
+            otestuje zda vstupní hodnota je menší, nebo rovna nule a pokud ano tak vznikne
+            výjimka, jinak vrací stejnou hodnotu, která byla testována
+            </summary>
+            <param name="toCheck">hodnota, která má být otestována</param>
+            <param name="message">zpráva do výjimky</param>
+            <param name="oBase">objekt pro který testujeme</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseException.BoolCheck(System.Boolean,cz.ctgroup.isor.BaseObjects.baseObject)">
+            <summary>
+            otestuje zda vstupní hodnota je false a pokud ano tak vznikne výjimka, jinak
+            vrací stejnou hodnotu, která byla testována
+            </summary>
+            <param name="toCheck">hodnota, která má být otestována</param>
+            <param name="oBase">objekt pro který testujeme</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseException.BoolCheck(System.Boolean,System.String,cz.ctgroup.isor.BaseObjects.baseObject)">
+            <summary>
+            otestuje zda vstupní hodnota je false a pokud ano tak vznikne výjimka, jinak
+            vrací stejnou hodnotu, která byla testována
+            </summary>
+            <param name="toCheck">hodnota, která má být otestována</param>
+            <param name="message">zpráva do výjimky</param>
+            <param name="oBase">objekt pro který testujeme</param>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.baseLanguage">
+            <summary>
+            třída pro jazyky
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseLanguage.#ctor(cz.ctgroup.db.DBLib,System.String)">
+            <summary>
+            konstruktor, volá základní konstruktor
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseLanguage.#ctor(cz.ctgroup.db.DBLib,System.String,System.Int64)">
+            <summary>
+            konstruktor, volá základní konstruktor
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+            <param name="iD0">id objektu, který má být nahrán</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseLanguage.setMyEntity">
+            <summary>
+            nastavení DB tabulky do které objekt zapisuje
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseLanguage.Load(System.Int64)">
+            <summary>
+            nahrání objektu, vrací true pokud se podařilo úspěšně objekt nahrát, jinak
+            false, při nahrání jsou nahrány i špecifické hodnoty PropertyValue do proměnné
+            Values
+            </summary>
+            <param name="iD">id objektu, který má být nahrán</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseLanguage.Load(System.String)">
+            <summary>
+            nahrání objektu podle kódu jazyka
+            </summary>
+            <param name="codeLanguage">kód jazyka, který mý být nahrán</param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseLanguage.Save(System.Boolean,System.Int64)">
+            <summary>
+            uložení objektu
+            </summary>
+            <param name="saveAlways">příznak zda má být uloženo vždy</param>
+            <param name="iDUser">identifikace uživatele, který operaci provádí</param>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseLanguage.Code">
+            <summary>
+            kód jazyka
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseLanguage.Name">
+            <summary>
+            jméno jazyka
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseLanguage.SelfName">
+            <summary>
+            vlastni jmeno jazyka
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseLanguage.IsSystem">
+            <summary>
+            retezec zda jazyk je systémový
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseLanguage.IsSystemBool">
+            <summary>
+            priznak zda jazyk je systémový
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseLanguage.ValidFrom">
+            <summary>
+            počáteční datum platnosti jazyka
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseLanguage.ValidTo">
+            <summary>
+            koncové datum platnosti jazyka
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseLanguage.GetValidLanguages(System.String)">
+            <summary>
+            získání aktuálně platných jazyků
+            </summary>
+            <param name="nameInLanguageCode">kód jazyka ve kterém mají být získána jména
+            jazyků</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseLanguage.GetValidLanguages(System.String,System.DateTime)">
+            <summary>
+            získání platných jazyků k zadanému datu
+            </summary>
+            <param name="nameInLanguageCode">kód jazyka ve kterém mají být získána jména jazyků</param>
+            <param name="now">datum ke kterému získáváme platné jazyky</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseLanguage.GetAllLanguages(System.String)">
+            <summary>
+            Získání všech jazyků (i neplatných)
+            </summary>
+            <param name="nameInLanguageCode">kód jazyka ve kterém mají být získána jména jazyků</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseLanguage.GetObjectNamesInLanguages(System.Int64,System.String[])">
+            <summary>
+            Ziska platne jazyky a jmena objektu v nich.
+            </summary>
+            <param name="idObject">ID objektu, jehoz jmena hledame.</param>
+            <param name="excludeLang">Seznam kodu jazyku, pro ktere nechceme jmeno objektu.</param>
+            <returns>Seznam jazyku a nazvu objektu.</returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseLanguage.EndLanguage(System.Int64)">
+            <summary>
+            ukončení platnosti jazyka - nastavení validto na aktuální datum mínus jedna
+            vteřina. Před ukončení dojde ke kontrole zda je možné jazyk smazat. Pokud není
+            je vyvoálna výjimka. Jinak je jazyk smazán a je vráceno jeho ID
+            </summary>
+            <param name="idUser">id uživatele, který jazyk ukončuje</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseLanguage.GetIdLanguageByCode(cz.ctgroup.db.DBLib,System.String)">
+            <summary>
+            vrátí ID language podle kódu
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.baseList">
+            <summary>
+            hodnota číselníku
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseList.#ctor(cz.ctgroup.db.DBLib,System.String)">
+            <summary>
+            konstruktor, který volá základní konstruktor
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseList.#ctor(cz.ctgroup.db.DBLib,System.String,System.Int64)">
+            <summary>
+            konstruktor, který volá základní konstruktor
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+            <param name="iD0">id objektu, který má být nahrán</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseList.setMyEntity">
+            <summary>
+            nastavení DB tabulky do které objekt zapisuje
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseList.Load(System.Int64)">
+            <summary>
+            nahrání objektu, vrací true pokud se podařilo úspěšně objekt nahrát, jinak
+            false, při nahrání jsou nahrány i specifické hodnoty PropertyValue do proměnné
+            Values
+            </summary>
+            <param name="iD">id objektu, který má být nahrán</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseList.Save(System.Boolean,System.Int64)">
+            <summary>
+            uložení objektu
+            </summary>
+            <param name="saveAlways">příznak zda má být uloženo vždy</param>
+            <param name="iDUser">identifikace uživatele, který operaci provádí</param>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseList.IdListGroup">
+            <summary>
+            id číselníku
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseList.Code">
+            <summary>
+            kód hodnoty číselníku
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseList.Name">
+            <summary>
+            jméno v zadaném jazyce
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseList.OrderNum">
+            <summary>
+            pořádí v číselníku
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseList.IsSystem">
+            <summary>
+            retezec systémovosti hodnoty
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseList.IsSystemBool">
+            <summary>
+            priznak zda jazyk je systémový
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseList.ValidFrom">
+            <summary>
+            počáteční datum platnosti hodnoty číselníku
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseList.ValidTo">
+            <summary>
+            koncové datum platnosti hodnoty číselníku
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseList.EndList(System.Int64)">
+            <summary>
+            ukončí platnost hodnoty číselníku
+            </summary>
+            <param name="idUser">id uživatele, který hodnotu číselníku ukončuje</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseList.GetIdByCode(cz.ctgroup.db.DBLib,System.String,System.Int64)">
+            <summary>
+            vrátí Id
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="Code">Kód</param>
+            <param name="IdListGroup">Id skupiny</param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseList.GetIdByCodeCode(cz.ctgroup.db.DBLib,System.String,System.String)">
+            <summary>
+            vrátí Id
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="Code">Kód</param>
+            <param name="ListGroupCode">Id skupiny</param>
+            <returns></returns>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.baseListGroup">
+            <summary>
+            číselník
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseListGroup.#ctor(cz.ctgroup.db.DBLib,System.String)">
+            <summary>
+            konstruktor, který volá základní konstruktor
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseListGroup.#ctor(cz.ctgroup.db.DBLib,System.String,System.Int64)">
+            <summary>
+            konstruktor, který volá základní konstruktor
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+            <param name="iD0">id objektu, který má být nahráno</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseListGroup.setMyEntity">
+            <summary>
+            nastavení DB tabulky do které objekt zapisuje
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseListGroup.Load(System.Int64)">
+            <summary>
+            nahrání objektu, vrací true pokud se podařilo úspěšně objekt nahrát, jinak
+            false, při nahrání jsou nahrány i špecifické hodnoty PropertyValue do proměnné
+            Values
+            </summary>
+            <param name="iD">id objektu, který má být nahrán</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseListGroup.Save(System.Boolean,System.Int64)">
+            <summary>
+            uložení objektu
+            </summary>
+            <param name="saveAlways">příznak zda má být uloženo vždy</param>
+            <param name="iDUser">identifikace uživatele, který operaci provádí</param>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseListGroup.IdListGroupOver">
+            <summary>
+            id nadřazeného číselníku
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseListGroup.Code">
+            <summary>
+            kód číselníku
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseListGroup.Name">
+            <summary>
+            jméno číselníku
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseListGroup.IsSystem">
+            <summary>
+            příznak systémovosti číselníku
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseListGroup.IsSystemBool">
+            <summary>
+            priznak zda ciselnik je systémový
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseListGroup.ValidFrom">
+            <summary>
+            počáteční datum platnosti číselníku
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseListGroup.ValidTo">
+            <summary>
+            koncové datum platnosti číselníku
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseListGroup.GetListGroups(System.String,System.Boolean)">
+            <summary>
+            získání číselníků platných v aktuální datum
+            </summary>
+            <param name="codeLanguage">jazyk ve kterém budou názvy číselníků</param>
+            <param name="allGroups">pokud je true, ziska i neplatne ciselniky</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseListGroup.GetListGroups(System.String,System.DateTime,System.Boolean)">
+            <summary>
+            získání číselníků platných v dane datum
+            </summary>
+            <param name="codeLanguage">jazyk ve kterém budou názvy číselníků</param>
+            <param name="now">datum ke kterému získáváme číselníky</param>
+            <param name="allGroups">pokud je true, ziska i neplatne ciselniky</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseListGroup.GetListGroups(System.String,System.Boolean,System.String)">
+            <summary>
+            získání číselníků platných v aktuální datum
+            </summary>
+            <param name="codeLanguage">jazyk ve kterém budou názvy číselníků</param>
+            <param name="allGroups">pokud je true, ziska i neplatne ciselniky</param>
+            <param name="excludeCode">kod ciselniku, ktery se vynecha (i jeho podciselniky)</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseListGroup.GetListGroups(System.String,System.DateTime,System.Boolean,System.String)">
+            <summary>
+            získání číselníků platných v zadaný datum
+            </summary>
+            <param name="codeLanguage">jazyk ve kterém budou názvy číselníků</param>
+            <param name="now">datum ke kterému získáváme číselníky</param>
+            <param name="allGroups">pokud je true, ziska i neplatne ciselniky</param>
+            <param name="excludeCode">kod ciselniku, ktery se vynecha (i jeho podciselniky)</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseListGroup.GetValidLists">
+            <summary>
+            získání hodnot číselníku platných v akuální datum
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseListGroup.GetValidLists(System.DateTime)">
+            <summary>
+            získání hodnot číselníku platných v zadaný datum
+            </summary>
+            <param name="now">datum ke kterému získáváme číselníky</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseListGroup.GetAllLists">
+            <summary>
+            získání všech hodnot číselníku
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseListGroup.EndListGroup(System.Int64)">
+            <summary>
+            ukončí platnost číselníku
+            </summary>
+            <param name="idUser">id uživatele, který číselník ukončuje</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseListGroup.GetListGroupByCode(cz.ctgroup.db.DBLib,System.String)">
+            <summary>
+            vrátí IdListGroup podle kodu
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="Code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseListGroup.GetListGroupMaxOrdernum(cz.ctgroup.db.DBLib,System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="idListGroup"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.baseLog">
+            <summary>
+            základní třída pro logování operací
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseLog.#ctor(cz.ctgroup.db.DBLib,System.String)">
+            <summary>
+            konstruktor, volá základní konstruktor
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseLog.#ctor(cz.ctgroup.db.DBLib,System.String,System.Int64)">
+            <summary>
+            konstruktor - volá základní konstruktor
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+            <param name="iD">id objektu</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseLog.setMyEntity">
+            <summary>
+            nastavení DB tabulky do které objekt zapisuje
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseLog.Load(System.Int64)">
+            <summary>
+            nahrání objektu, vrací true pokud se podařilo úspěšně objekt nahrát, jinak
+            false, při nahrání jsou nahrány i špecifické hodnoty PropertyValue do proměnné
+            Values
+            </summary>
+            <param name="iD">id objektu, který má být nahrán</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseLog.Load(System.Int64,System.String)">
+            <summary>
+            Načete objekt podle id objektu a jeho operace
+            </summary>
+            <param name="idObject"></param>
+            <param name="operation"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseLog.Save(System.Boolean,System.Int64)">
+            <summary>
+            uložení objektu
+            </summary>
+            <param name="saveAlways">příznak zda má být uloženo vždy</param>
+            <param name="iDUser">identifikace uživatele, který operaci provádí</param>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseLog.Operation">
+            <summary>
+            provedená operace
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseLog.Note">
+            <summary>
+            poznámka
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseLog.DateTime">
+            <summary>
+            datum a čas provedení operace
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseLog.IdUser">
+            <summary>
+            id uživatele, který operaci provedl
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseLog.Id0">
+            <summary>
+            id objektu nad kterým byla operace provedena
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseLog.Result">
+            <summary>
+            výsledek operace
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseLog.IdLogPlace">
+            <summary>
+            misto volani logu
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseLog.CreateLog(cz.ctgroup.db.DBLib,System.Int64,System.String,System.Int64,System.Int64,System.String,System.Int64)">
+            <summary>
+            statická metoda, která slouží k přímému logování bez existence objektu
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="LogId0">id objektu nad kterým je logování prováděno</param>
+            <param name="LogOperation">prováděná operace</param>
+            <param name="IdLogUser">id uživatele, který operaci provádí</param>
+            <param name="IdLogPlace">id místa odkud ji provádí</param>
+            <param name="Note">poznámka k operaci</param>
+            <param name="Result">výsledek operace</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseLog.GetObjectLogs(cz.ctgroup.db.DBLib,System.Int64)">
+            <summary>
+            statická metoda, která slouží načtení logu pro určený objekt
+            </summary>
+            <param name="aDb"></param>
+            <param name="aIdObject"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.baseName">
+            <summary>
+            jméno pro základní objekty
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseName.#ctor(cz.ctgroup.db.DBLib,System.String)">
+            <summary>
+            konstruktor, volá základní konstruktor
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseName.#ctor(cz.ctgroup.db.DBLib,System.String,System.Int64)">
+            <summary>
+            konstruktor, volá základní konstruktor
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+            <param name="iD0">id objektu, který má být nahrán</param>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseName.Name">
+            <summary>
+            jméno
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseName.Shortname">
+            <summary>
+            zkrácené jméno
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseName.setMyEntity">
+            <summary>
+            nastavení DB tabulky do které objekt zapisuje
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseName.Load(System.Int64)">
+            <summary>
+            nahrání objektu, vrací true pokud se podařilo úspěšně objekt nahrát, jinak
+            false, při nahrání jsou nahrány i špecifické hodnoty PropertyValue do proměnné
+            Values
+            </summary>
+            <param name="iD">id objektu, který má být nahrán</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseName.Save(System.Boolean,System.Int64)">
+            <summary>
+            uložení objektu
+            </summary>
+            <param name="saveAlways">příznak zda má být uloženo vždy</param>
+            <param name="iDUser">identifikace uživatele, který operaci provádí</param>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.baseObject">
+            <summary>
+            základní objekt od kterého budou děděny všechny další objekty
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.baseObject.mCodeLanguage">
+            <summary>
+            kód jazyka ve kterém bude objekt vytvořen
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.baseObject.mDB">
+            <summary>
+            objekt přístupu k databázi
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.baseObject.mID">
+            <summary>
+            identifikátor záznamu
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.baseObject.mEntity">
+            <summary>
+            jméno databázové tabulky do které objekt patří
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.baseObject.mLastError">
+            <summary>
+            popis vzniklé výjimky
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.baseObject.mIsLoaded">
+            <summary>
+            příznak zda se povedlo objekt úspěnšně nahrát z DB
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.baseObject.mIsChanged">
+            <summary>
+            příznak zda došlo ke změně objektu
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.baseObject.mIsIDForced">
+            <summary>
+            příznak toho zda id objektu bylo vnuceno
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.baseObject.mValues">
+            <summary>
+            tabulka obsahují specifické hodnoty objektu k jejímu načtení dojde při prvním
+            vyžádání hodnoty z ní, nebo při prvním zápisu hodnoty do ní, v případě nového
+            objektu by měla být tabulka prázdná. Jako klíč je použit kód Property a jako
+            hodnota je pak příslušná basePropertyValue. Změny hodnot v tabulce nejsou přímo
+            povoleny dochází k nim pouze přostřednictvím funce SetValue
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.baseObject.mIdPlace">
+            <summary>
+            id místa odkud byl vznik objektu iniciován
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.#ctor">
+            <summary>
+            implicitní konstruktor -  volá konstrktor s parametry a jazyk nastaví na CZ a
+            třídu pro přístup k DB na null, ID nevkládá
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.#ctor(cz.ctgroup.db.DBLib,System.String)">
+            <summary>
+            konstruktor, který nastaví objekt připojení k databázi, jazyk objektu a volá
+            funkci setMyEntity pro nastavení entity
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka ve kterém bude objekt fungovat</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.#ctor(cz.ctgroup.db.DBLib,System.String,System.Int64)">
+            <summary>
+            konstruktor, který nastaví objekt připojení k databázi, jazyk objektu a volá
+            funkci setMyEntity pro nastavení entity a na konec volá funci nahrání objektu
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka ve kterém bude objekt fungovat</param>
+            <param name="iD">primární identifikátor objektu, který má být nahrán</param>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseObject.CodeLanguage">
+            <summary>
+            kód jazyka ve kterém bude objekt vytvořen
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseObject.DB">
+            <summary>
+            objekt přístupu k databázi
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseObject.ID">
+            <summary>
+            identifikátor záznamu
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseObject.Entity">
+            <summary>
+            jméno databázové tabulky do které objekt patří
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseObject.LastError">
+            <summary>
+            popis vzniklé výjimky
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseObject.IsLoaded">
+            <summary>
+            příznak zda se povedlo objekt úspěnšně nahrát z DB
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseObject.IsChanged">
+            <summary>
+            příznak zda došlo ke změně objektu
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseObject.IsIDForced">
+            <summary>
+            příznak toho zda id objektu bylo vnuceno
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseObject.LastErrorMessage">
+            <summary>
+            zpráva z poslední výjimky - pouze pro čtení
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseObject.LastErrorText">
+            <summary>
+            vrací textovou reprezentaci poslední chyby
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.setMyEntity">
+            <summary>
+            nastavení DB tabulky do které objekt zapisuje
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.Load(System.Int64)">
+            <summary>
+            nahrání objektu, vrací true pokud se podařilo úspěšně objekt nahrát, jinak
+            false, při nahrání jsou nahrány i špecifické hodnoty PropertyValue do proměnné
+            Values
+            </summary>
+            <param name="iD">id objektu, který má být nahrán</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.Reload(System.Int64)">
+            <summary>
+            znovunahrání objektu, vrací true pokud se to podaří
+            </summary>
+            <param name="iD">id objektu, který má být nahrán</param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.Save(System.Boolean,System.Int64)">
+            <summary>
+            uložení objektu
+            </summary>
+            <param name="saveAlways">příznak zda má být uloženo vždy</param>
+            <param name="iDUser">identifikace uživatele, který operaci provádí</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.Save(System.Int64)">
+            <summary>
+            uložení objektu, ukládá se pouze pokud došlo ke změně
+            </summary>
+            <param name="iDUser">identifikátor uživatele, který ukládání provádí</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.Save">
+            <summary>
+            uložení objektu pouze pokud byl změně a bez uživatele, tedy jako ID bude
+            vložena hodnota 0
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.setNewId">
+            <summary>
+            vygenerování nového ID pro objekt, nastaví vlastnost ID a zároveň vygenerované
+            ID vrací jako návratovou hodnotu
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.SetForceID(System.Int64)">
+            <summary>
+            pevné nastavení ID
+            </summary>
+            <param name="iD">id, které má být natvrdo použito</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.BoolCheck(System.Boolean)">
+            <summary>
+            otestuje zda vstupní hodnota je false a pokud ano tak vznikne výjimka, jinak
+            vrací stejnou hodnotu, která byla testována
+            </summary>
+            <param name="b">hodnota k otestování</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.BoolCheck(System.Boolean,System.String)">
+            <summary>
+            otestuje zda vstupní hodnota je false a pokud ano tak vznikne výjimka, jinak
+            vrací stejnou hodnotu, která byla testována
+            </summary>
+            <param name="b">hodnota k otestování</param>
+            <param name="message">zpráva do výjimky při nevyhovující hodnotě</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.MinusCheck(System.Int64)">
+            <summary>
+            otestuje zda vstupní hodnota jemenší než 0 a pokud ano tak vznikne výjimka,
+            jinak vrací stejnou hodnotu, která byla testována
+            </summary>
+            <param name="p">hodnota k otestování</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.MinusCheck(System.Int64,System.String)">
+            <summary>
+            otestuje zda vstupní hodnota jemenší než 0 a pokud ano tak vznikne výjimka,
+            jinak vrací stejnou hodnotu, která byla testována
+            </summary>
+            <param name="p">hodnota k otestování</param>
+            <param name="message">zpráva do výjimky při nevyhovující hodnotě</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.GetRelationships(System.Byte,System.String,System.String)">
+            <summary>
+            vrátí platné relace objektu podle jejího typu, jako id je použito ID objektu
+            </summary>
+            <param name="myPosition">pozice id v relaci</param>
+            <param name="roleTypeCode">kód typu relace</param>
+            <param name="roleTypeGroup">kód skupiny relací</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.NewIdToRelationship(System.Byte,System.Int64,System.String,System.String)">
+            <summary>
+            založení nové relace mezi objekty, bez kontroly její existence, vrací id
+            založené vazby
+            </summary>
+            <param name="myPosition">pozice objektu ve vazbě</param>
+            <param name="idSec">id druhého objektu ve vazbě</param>
+            <param name="codeRoleType">kód role</param>
+            <param name="roleTypeGroup">kód skupiny typů rolí</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.SetIdToRelationship(System.Byte,System.Int64,System.String,System.String)">
+            <summary>
+            pokud existuje platná relace zadaného typu pro objekt je pouze upravena, jinak
+            je vytvořena relace nová, vrací id vytvořené / upravené relace
+            </summary>
+            <param name="myPosition">pozice objektu v relaci</param>
+            <param name="idSec">id druhého objektu v relaci</param>
+            <param name="codeRoleType">kód typu relace</param>
+            <param name="roleTypegroup">kód skupiny typů relace</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.EndRelationship(System.Byte,System.String,System.String)">
+            <summary>
+            ukončí všechny platné relace zadaného typu objektu
+            </summary>
+            <param name="myPosition">pozice objektu v relaci</param>
+            <param name="codeRoleType">kód typu relace</param>
+            <param name="roleTypegroup">kód skupiny typů relace</param>
+            <returns>v případě úspěchu vrací 1, jinak -1</returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.EndRelationship(System.Int64,System.Int64,System.Int64)">
+            <summary>
+            ukončí platnou relaci podle idRoleType
+            </summary>
+            <param name="id0">pozice objektu v relaci</param>
+            <param name="id1">kód skupiny typů relace</param>
+            <param name="idRoleType">kód typu relace</param>
+            <returns>v případě úspěchu vrací 1, jinak -1</returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.GetValue(System.String)">
+            <summary>
+            získání hodnoty pro objekt pode kódu typu hodnoty z tabulky hodnot objektu
+            Values
+            </summary>
+            <param name="propertyCode">kód typu hodnoty, který má být získán</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.SetValue(System.String,System.Object)">
+            <summary>
+            nastavuje hodnotu podle kódu, provedená operace se neloguje, protože funkce je určena pro
+            volání ze Save a tam už logování je
+            </summary>
+            <param name="propertyCode">kód typu hodnoty</param>
+            <param name="value">hodnota pro objekt</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.SetValue(System.String,System.Object,System.Int64)">
+            <summary>
+            nastavuje hodnotu podle kódu, provedenou operaci loguje
+            </summary>
+            <param name="propertyCode">kód typu hodnoty</param>
+            <param name="value">hodnota pro objekt</param>
+            <param name="idUser">id uživatele, který operaci provádí</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.NewValue(System.String,System.Object)">
+            <summary>
+            založí novou hodnotu pro objekt, vrací ID založené hodnoty
+            </summary>
+            <param name="propertyCode">kód typu hodnoty</param>
+            <param name="value">hodnota</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.EndValue(System.String)">
+            <summary>
+            ukončí platnost hodnoty podle typu hodnoty
+            </summary>
+            <param name="propertyCode">kód typu hodnoty</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.SetValueObject(cz.ctgroup.isor.BaseObjects.basePropertyValue,System.String,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="mValue">objekt hodnoty objektu</param>
+            <param name="propertyType">kód datového typu typu hodnoty</param>
+            <param name="value">hodnota</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.ExistValue(System.String)">
+            <summary>
+            vrátí true/false zda existuje pro objekt hodnota
+            </summary>
+            <param name="propertyCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.GetPropertyList">
+            <summary>
+            vrátí seznam všech kódů vlastností objektu
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.SetLog(System.String,System.Int64,System.String,System.Int64)">
+            <summary>
+            zalogování provedené operace nad id objektu a v aktuální čas a s idplace
+            objektu
+            </summary>
+            <param name="operation">prováděná operace</param>
+            <param name="iDUser">id uživatele, který operaci provádí</param>
+            <param name="note">poznámka</param>
+            <param name="result">výsledek operace</param>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseObject.IdPlace">
+            <summary>
+            id místa odkud byl vznik objektu iniciován
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.SetName(System.String,System.Int64)">
+            <summary>
+            nastaví jméno objektu v zadaném jazyce. Pokud již jméno v daném jazyce existuje
+            pak ho upraví, jinak vytvoří nové. Funkce se volá ze Save objektu, pokud má
+            objekt jméno. Navrací id uloženého jména. Pro uložení jména jsou použity
+            objekty baseObjectName a baseName
+            </summary>
+            <param name="name">jméno, které má být nastaveno</param>
+            <param name="idUser">id uzivatele, ktery ulozeni provadi</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.SetName(cz.ctgroup.db.DBLib,System.String,System.Int64,System.String,System.Int64,System.Int64)">
+            <summary>
+            Staticka metoda na ulozeni jmena objektu.
+            </summary>
+            <param name="DB"></param>
+            <param name="codeLanguage"></param>
+            <param name="idObject"></param>
+            <param name="name"></param>
+            <param name="idUser"></param>
+            <param name="idPlace"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.SetState(System.String)">
+            <summary>
+            nastaví stav objektu, pokud je stav různý od nastavovaného, jinak pouze vrací
+            id aktuálního objektu stavu. Původní stav objektu je zneplatněn a je vytvořen
+            stav nový. Funkce se volá ze Save objektu, pokud má objekt stav. Navrací id
+            objektu uloženého stavu. Pro uložení objektu je použit objekt baseObjectState
+            </summary>
+            <param name="stateCode">kód stavu</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.SetState(System.String,System.String)">
+            <summary>
+            nastaví stav objektu, pokud je stav různý od nastavovaného, ...
+            přetížená metoda, pokud objekt používá jiný číselník satvů než "STATES"
+            </summary>
+            <param name="stateCode">kód stavu</param>
+            <param name="stateGroupCode">kód číselníku stavů</param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.GenNewObjectCode(System.String,System.Int32)">
+            <summary>
+            vygeneruje nový kód objektu pro zadaný prefix. Funkce je používána v Save
+            objektu pokud má objekt generovaný kód. Vrací vygenerovaný kód. Pokusí se v
+            tabulce SequenceCode najít příslušný prefix. Pokud ho najde pak vezme aktuálně
+            uloženou hodnotu, přičte jedna a modifikuje aktuálně platnou hodnotu na novou.
+            Pokud záznam neexistuje pak bude vytovřen nový a jako aktuální hodnota je
+            použito 1.  Hodnotu pak zleva doplní nulami tak aby výsledný kód po připojení
+            za prefix měl požadovanou délku.
+            
+            Generování probíhá tak, že pokud se upravuje existující prefix pak musí být
+            tento řádek zamčen a pokud se generuje nový řádek pro prefix pak je uzamčena
+            celá tabulka. Proto také generování kód musí probíhat v oddělené transakci.
+            </summary>
+            <param name="codePrefix">prefix kódu</param>
+            <param name="length">výsledná délka kódu</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.GenNewObjectCode(cz.ctgroup.db.DBLib,System.String,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codePrefix"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.GetAllowedProperties">
+            <summary>
+            získání povolených vlastností objektu k aktuálnímu datu
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.GetAllowedProperties(System.DateTime)">
+            <summary>
+            získání povolených vlastností objektu k zadanému datu
+            </summary>
+            <param name="now">datum pro který získáváme povolené vlastnosti</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.GetAllowedProperties(cz.ctgroup.db.DBLib,System.String,System.Int64)">
+            <summary>
+            získání povolených vlastností objektu k zadanému datu
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka ve kterém heldáme vlastnosti</param>
+            <param name="idObject">id objektu pro který hledáme povolené vlastnosti</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.GetAllowedProperties(cz.ctgroup.db.DBLib,System.String,System.Int64,System.DateTime)">
+            <summary>
+            získání povolených vlastností objektu k zadanému datu
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka ve kterém heldáme vlastnosti</param>
+            <param name="idObject">id objektu pro který hledáme povolené
+            vlastnosti</param>
+            <param name="now">datum pro který získáváme povolené vlastnosti</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.AddAllowedProperty(System.String,System.Int64)">
+            <summary>
+            přidá k objektu novou povolenou vlastnost, pokud již je vlastnost přidána pak
+            ji nechá. Vrací id existujícího povolení, nebo nově založeného povolení
+            vlastnosti objektu
+            </summary>
+            <param name="propertyCode">kód property, která má být přidána jako
+            povolená</param>
+            <param name="idUser">id uživatele, který vlastnost doplňuje</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.AddAllowedProperty(cz.ctgroup.db.DBLib,System.String,System.Int64,System.Int64,System.Int64)">
+            <summary>
+            přidá k objektu novou povolenou vlastnost, pokud již je vlastnost přidána pak
+            ji nechá. Vrací id existujícího povolení, nebo nově založeného povolení
+            vlastnosti objektu
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="propertyCode">kód property, která má být přidána jako povolená</param>
+            <param name="idObject">id objektu ke kterému přidáváme vlastnost</param>
+            <param name="idUser">id uživatele, který vlastnost doplňuje</param>
+            <param name="idPlace">id místa odkud je vlastnost doplňována</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.EndAllowedProperty(System.String,System.Int64)">
+            <summary>
+            ukončí platnost povolení vlastnoti k objektu k aktuálnímu datu - jedna vteřina
+            </summary>
+            <param name="propertyCode">kód vlastnosti, která má být ukončena</param>
+            <param name="idUser">id uživatele, který vlastnost odebírá</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.EndAllowedProperty(cz.ctgroup.db.DBLib,System.String,System.Int64,System.Int64,System.Int64)">
+            <summary>
+            ukončí platnost povolení vlastnoti k objektu k aktuálnímu datu - jedna vteřina
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="propertyCode">kód vlastnosti, která má být ukončena</param>
+            <param name="idObject">id objektu od kterého vlastnost odebíráme</param>
+            <param name="idUser">id uživatele, který vlastnost odebírá</param>
+            <param name="idPlace">id místa odkud je vlastnost odebírána</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.GetObjectName">
+            <summary>
+            funkce ziska jmeno objektu v ulozenem jazyce
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.GetObjectName(System.String)">
+            <summary>
+            funkce ziska jmeno objektu v danem jazyce
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.GetAllNames">
+            <summary>
+            funkce získá všechna platná jména pro všechny jazyky
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.GetObjectStateCode">
+            <summary>
+            funkce ziska kod stavu objektu
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.GetObjectStateName">
+            <summary>
+            funkce ziska jmeno stavu objektu v ulozenem jazyce
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.GetObjectStateName(System.String)">
+            <summary>
+            funkce ziska jmeno objektu v danem jazyce
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.LoadValues">
+            <summary>
+            přidá property objektu do hashtable
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.ReplaceDBNulls(System.Data.DataTable)">
+            <summary>
+            Nahradí v datatablu DBNulls na minvalue
+            </summary>
+            <param name="dt">datatable</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.ReplaceDBNulls(System.Data.DataSet)">
+            <summary>
+            Nahradí v datasetu DBNulls na minvalue
+            </summary>
+            <param name="ds">DataSet</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.GetIdListStringOfInt64(System.Int64[])">
+            <summary>
+            Metoda dostane v paramteru pole int ze ktereho udela
+            string oddelene carkou. Pouziti je v pripade kdyz
+            potrebujeme udelat do databaze dotaz WHERE in(1,2,3,...)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.GetObjectsPropertyValues(cz.ctgroup.db.DBLib,System.Int64[])">
+            <summary>
+            Vrati vlastnosti mnoziny dokumentu jako DataTable
+            </summary>
+            <param name="db">Pripojeni k db</param>
+            <param name="IdObject">Pole ID objektu</param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObject.GetPropertyValues">
+            <summary>
+            Funkce vrati hodnoty vsech property jako tabulku.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.baseObjectName">
+            <summary>
+            vazba objektu na jméno v jazyce
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObjectName.#ctor(cz.ctgroup.db.DBLib,System.String)">
+            <summary>
+            konstruktor, volá základní kontruktor
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObjectName.#ctor(cz.ctgroup.db.DBLib,System.String,System.Int64)">
+            <summary>
+            konstruktor, volá základní kontruktor
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+            <param name="iD0">id objektu, který má být nahrán</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObjectName.setMyEntity">
+            <summary>
+            nastavení DB tabulky do které objekt zapisuje
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObjectName.Load(System.Int64)">
+            <summary>
+            nahrání objektu, vrací true pokud se podařilo úspěšně objekt nahrát, jinak
+            false, při nahrání jsou nahrány i špecifické hodnoty PropertyValue do proměnné
+            Values
+            </summary>
+            <param name="iD">id objektu, který má být nahrán</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObjectName.Save(System.Boolean,System.Int64)">
+            <summary>
+            uložení objektu
+            </summary>
+            <param name="saveAlways">příznak zda má být uloženo vždy</param>
+            <param name="iDUser">identifikace uživatele, který operaci provádí</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObjectName.LoadByIdObject(System.Int64)">
+            <summary>
+            nahrání jména podle id objektu ke kterému jméno v aktuální datum hledáme, vrací
+            true pokud se podařilo jméno nahrát
+            </summary>
+            <param name="iD0">id objektu ke kterému hledáme jméno</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObjectName.LoadByIdObject(System.Int64,System.DateTime)">
+            <summary>
+            nahrání jména podle id objektu ke kterému jméno v zadaný datum hledáme, vrací
+            true pokud se podařilo jméno nahrát
+            </summary>
+            <param name="iD0">id objektu ke kterému hledáme jméno</param>
+            <param name="now">datum ke kterému hledáme platné jméno</param>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseObjectName.Id0">
+            <summary>
+            id objektu ke kterému jméno patří
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseObjectName.IdLanguage">
+            <summary>
+            id jazyka
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseObjectName.IdName">
+            <summary>
+            id jména
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseObjectName.ValidFrom">
+            <summary>
+            počáteční datum platnosti jména pro objekt v jazyce
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseObjectName.ValidTo">
+            <summary>
+            koncové datum platnosti jména objektu v jazyce
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObjectName.SetIdLanguage(System.String)">
+            <summary>
+            nastavení IdLanguage podle kódu, vrací nalezené IdLanguage
+            </summary>
+            <param name="codeLanguage">kód jazyka</param>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.baseObjectState">
+            <summary>
+            vazba objektu na jméno v jazyce
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObjectState.#ctor(cz.ctgroup.db.DBLib,System.String)">
+            <summary>
+            konstruktor, volá základní kontruktor
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObjectState.#ctor(cz.ctgroup.db.DBLib,System.String,System.Int64)">
+            <summary>
+            konstruktor, volá základní kontruktor
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+            <param name="iD0">id objektu, který má být nahrán</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObjectState.setMyEntity">
+            <summary>
+            nastavení DB tabulky do které objekt zapisuje
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObjectState.Load(System.Int64)">
+            <summary>
+            nahrání objektu, vrací true pokud se podařilo úspěšně objekt nahrát, jinak
+            false, při nahrání jsou nahrány i špecifické hodnoty PropertyValue do proměnné
+            Values
+            </summary>
+            <param name="iD">id objektu, který má být nahrán</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObjectState.Save(System.Boolean,System.Int64)">
+            <summary>
+            uložení objektu
+            </summary>
+            <param name="saveAlways">příznak zda má být uloženo vždy</param>
+            <param name="iDUser">identifikace uživatele, který operaci provádí</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObjectState.LoadByIdObject(System.Int64)">
+            <summary>
+            nahrání stavu podle id objektu ke kterému stav v aktuální datum hledáme, vrací
+            true pokud se podařilo stav nahrát
+            </summary>
+            <param name="iD0">id objektu ke kterému hledáme jméno</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObjectState.LoadByIdObject(System.Int64,System.DateTime)">
+            <summary>
+            nahrání stavu podle id objektu ke kterému stav v zadaný datum hledáme, vrací
+            true pokud se podařilo stav nahrát
+            </summary>
+            <param name="iD0">id objektu ke kterému hledáme jméno</param>
+            <param name="now">datum ke kterému hledáme platné jméno</param>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseObjectState.Id0">
+            <summary>
+            id objektu ke kterému stav patří
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseObjectState.IdStateType">
+            <summary>
+            id typu stavu
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseObjectState.ValidFrom">
+            <summary>
+            počáteční datum platnosti stavu pro objekt
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseObjectState.ValidTo">
+            <summary>
+            koncové datum platnosti stavu objektu
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObjectState.SetIdStateType(System.String)">
+            <summary>
+            nastavení IdStateType podle kódu, vrací nalezené IdStateType, stavu jsou v List
+            pod specifickým ListGroup
+            </summary>
+            <param name="codeStateType">kód stavu</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseObjectState.GetIdStateByCode(cz.ctgroup.db.DBLib,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeStateType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.baseProperty">
+            <summary>
+            typy vlastností
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseProperty.#ctor(cz.ctgroup.db.DBLib,System.String)">
+            <summary>
+            konstruktor, který volá základní konstruktor
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseProperty.#ctor(cz.ctgroup.db.DBLib,System.String,System.Int64)">
+            <summary>
+            konstruktor, který volá základní konstruktor
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+            <param name="iD0">id objektu, který má být nahrán</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseProperty.setMyEntity">
+            <summary>
+            nastavení DB tabulky do které objekt zapisuje
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseProperty.Load(System.Int64)">
+            <summary>
+            nahrání objektu, vrací true pokud se podařilo úspěšně objekt nahrát, jinak
+            false, při nahrání jsou nahrány i specifické hodnoty PropertyValue do proměnné
+            Values
+            </summary>
+            <param name="iD">id objektu, který má být nahrán</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseProperty.Save(System.Boolean,System.Int64)">
+            <summary>
+            uložení objektu
+            </summary>
+            <param name="saveAlways">příznak zda má být uloženo vždy</param>
+            <param name="iDUser">identifikace uživatele, který operaci provádí</param>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseProperty.Code">
+            <summary>
+            kód typu vlastnosti
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseProperty.Name">
+            <summary>
+            jméno vlastnosti v zadaném jazyce
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseProperty.DataType">
+            <summary>
+            datový typ vlastnosti
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseProperty.IsSystem">
+            <summary>
+            retezec systémovovsti typu vlastnosti
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseProperty.IsSystemBool">
+            <summary>
+            priznak systémovovsti typu vlastnosti
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseProperty.ValidFrom">
+            <summary>
+            počáteční datum platnosti vlastnosti
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseProperty.ValidTo">
+            <summary>
+            koncové datum platnosti vlastnosti
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseProperty.GetValidProperties(cz.ctgroup.db.DBLib,System.String)">
+            <summary>
+            získání platných vlastností k aktuálnímu datu
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka pro jméno vlastnosti</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseProperty.GetValidProperties(cz.ctgroup.db.DBLib,System.String,System.DateTime)">
+            <summary>
+            získání platných vlastností k zadanému datu
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka pro vlastnost</param>
+            <param name="now">datum ke kterému hledáme platné vlastnosti</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseProperty.GetAllProperties(cz.ctgroup.db.DBLib,System.String)">
+            <summary>
+            získání všech vlastností (i neplatných)
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka pro vlastnost</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseProperty.EndProperty(System.Int64)">
+            <summary>
+            
+            </summary>
+            <param name="idUser">id uživatele, který vlastnost ukončuje</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseProperty.GetIdPropertyByCode(cz.ctgroup.db.DBLib,System.String)">
+            <summary>
+            vrátí ID property podle kódu
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeProperty"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.basePropertyValue">
+            <summary>
+            třída pro specifické hodnoty objektů
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.basePropertyValue.#ctor(cz.ctgroup.db.DBLib,System.String)">
+            <summary>
+            konstruktor, volá základní konstruktor
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.basePropertyValue.#ctor(cz.ctgroup.db.DBLib,System.String,System.Int64)">
+            <summary>
+            konstruktor, volá základní konstruktor
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+            <param name="ID">id objektu, který má být nahrán</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.basePropertyValue.setMyEntity">
+            <summary>
+            nastavení DB tabulky do které objekt zapisuje
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.basePropertyValue.Load(System.Int64)">
+            <summary>
+            nahrání objektu, vrací true pokud se podařilo úspěšně objekt nahrát, jinak
+            false
+            </summary>
+            <param name="iD">id objektu, který má být nahrán</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.basePropertyValue.Load(System.Int64,System.String)">
+            <summary>
+            nahrání hodnoty podle typu hodnoty a id objektu ke kterému hodnota patřím vrací
+            true pokud se podařilo úspěšně objekt nahrát, jinak false
+            </summary>
+            <param name="iD0">id objektu, ke kterému hodnotu heldáme</param>
+            <param name="propertyCode">kód typu hodnoty</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.basePropertyValue.Save(System.Boolean,System.Int64)">
+            <summary>
+            uložení objektu
+            </summary>
+            <param name="saveAlways">příznak zda má být uloženo vždy</param>
+            <param name="iDUser">identifikace uživatele, který operaci provádí</param>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.basePropertyValue.Id0">
+            <summary>
+            id objektu ke kterému hodnota patří
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.basePropertyValue.IdProperty">
+            <summary>
+            id typu hodnoty
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.basePropertyValue.NumberValue">
+            <summary>
+            numerická hodnota
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.basePropertyValue.DateValue">
+            <summary>
+            datumová hodnota
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.basePropertyValue.StringValue">
+            <summary>
+            řetězcová hodnota
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.basePropertyValue.TextValue">
+            <summary>
+            dlouhý řetězec
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.basePropertyValue.BlobValue">
+            <summary>
+            binární objekt
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.basePropertyValue.IdList">
+            <summary>
+            id z číselníku
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.basePropertyValue.ValidFrom">
+            <summary>
+            počáteční datum platnosti hodnoty pro objekt
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.basePropertyValue.ValidTo">
+            <summary>
+            koncové datum platnosti hodnoty pro objekt
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.basePropertyValue.SetIdProperty(System.String)">
+            <summary>
+            nastavení id typu hodnoty podle kódu, vrací nalezené id typu hodnoty
+            </summary>
+            <param name="propertyCode">kód typu hodnoty</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.basePropertyValue.ExistPropertyValueForObject(cz.ctgroup.db.DBLib,System.Int64,System.String)">
+            <summary>
+            zjistí, zda daný objekt má přiřazenu propertyvalue
+            </summary>
+            <param name="DB"></param>
+            <param name="idObject"></param>
+            <param name="propertyCode"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.baseRelationship">
+            <summary>
+            vazba mezi objekty
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseRelationship.#ctor(cz.ctgroup.db.DBLib,System.String)">
+            <summary>
+            konstruktor, volá základní konstruktor
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseRelationship.#ctor(cz.ctgroup.db.DBLib,System.String,System.Int64)">
+            <summary>
+            konstruktor, který volá konstruktor základní třídy
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+            <param name="id">id objektu, který míá být načten</param>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseRelationship.Id0">
+            <summary>
+            první id do vazby
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseRelationship.Id1">
+            <summary>
+            druhé id do vazby
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseRelationship.IdRoleType">
+            <summary>
+            typ vazby
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseRelationship.ValidFrom">
+            <summary>
+            poáteční datum platnosti vazby
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseRelationship.ValidTo">
+            <summary>
+            koncové datum platnosti vazby
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseRelationship.NumberValue1">
+            <summary>
+            ciselna hodnota k vazbe
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseRelationship.SetRoleType(System.String,System.String)">
+            <summary>
+            nastavení id typu vazby podle kódu typu vazby a kódu skupiny typů vazeb, vrací
+            nalezené ID typu vazby
+            </summary>
+            <param name="codeRoleType">kód typu vazby</param>
+            <param name="codeRoleTypeGroup">kód skupiny typů vazeb</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseRelationship.setMyEntity">
+            <summary>
+            nastavení DB tabulky do které objekt zapisuje
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseRelationship.Load(System.Int64)">
+            <summary>
+            nahrání objektu, vrací true pokud se podařilo úspěšně objekt nahrát, jinak
+            false
+            </summary>
+            <param name="iD">id objektu, který má být nahrán</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseRelationship.Load(System.Byte,System.Int64,System.String,System.String)">
+            <summary>
+            nahraje vazbu podle id objektu a typu vazby, pokud se to podaří vrací true
+            </summary>
+            <param name="myPosition">kde ve vazbě se vstupní ID nachází</param>
+            <param name="idObject">id objektu ve vazbě</param>
+            <param name="roleTypeCode">kód typu vazby</param>
+            <param name="roleTypeGroup">kód skupiny typu vazby</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseRelationship.Load(System.Int64,System.Int64,System.Int64,System.Boolean)">
+            <summary>
+            nahraje vazbu mezi objekty podle typu
+            </summary>
+            <param name="id0"></param>
+            <param name="id1"></param>
+            <param name="idRoleType"></param>
+            <param name="includeInvalid"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseRelationship.Save(System.Boolean,System.Int64)">
+            <summary>
+            uložení objektu
+            </summary>
+            <param name="saveAlways">příznak zda má být uloženo vždy</param>
+            <param name="iDUser">identifikace uživatele, který operaci provádí</param>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.baseRoleType">
+            <summary>
+            typ vazby mezi objekty
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseRoleType.#ctor(cz.ctgroup.db.DBLib,System.String)">
+            <summary>
+            konstruktor, který volá základní konstruktor
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseRoleType.#ctor(cz.ctgroup.db.DBLib,System.String,System.Int64)">
+            <summary>
+            konstruktor, který volá základní konstruktor
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+            <param name="iD0">id objektu, který má být nahrán</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseRoleType.setMyEntity">
+            <summary>
+            nastavení DB tabulky do které objekt zapisuje
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseRoleType.Load(System.Int64)">
+            <summary>
+            nahrání objektu, vrací true pokud se podařilo úspěšně objekt nahrát, jinak
+            false, při nahrání jsou nahrány i špecifické hodnoty PropertyValue do proměnné
+            Values
+            </summary>
+            <param name="iD">id objektu, který má být nahrán</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseRoleType.Save(System.Boolean,System.Int64)">
+            <summary>
+            uložení objektu
+            </summary>
+            <param name="saveAlways">příznak zda má být uloženo vždy</param>
+            <param name="iDUser">identifikace uživatele, který operaci provádí</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseRoleType.GetIdRoleTypeByCodeAndGroup(cz.ctgroup.db.DBLib,System.String,System.Int64)">
+            <summary>
+            vrátí ID roletype podle kódu a id skupiny
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeRoleType">Kod vztahu</param>
+            <param name="idRoleTypeGroup">ID skupiny vztahu</param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseRoleType.AddRelationShipRole(cz.ctgroup.db.DBLib,System.Int64,System.Int64,System.String,System.Int64,System.Int64,System.Boolean)">
+            <summary>
+            Zaklada novou vazbu mezi dvema subjekty s danym tipem vazby
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="id0"></param>
+            <param name="id1"></param>
+            <param name="codeRoleType"></param>
+            <param name="idRoleTypeGroup"></param>
+            <param name="idUser"></param>
+            <param name="ignoreExistRelation"></param>
+            <returns>Vraci id nove zalozeneho objektu, nebo uz stavajiciho pokud byl</returns>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseRoleType.Code">
+            <summary>
+            kód typu vazby
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseRoleType.Name">
+            <summary>
+            jméno typu vazby v zadaném jazyce
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseRoleType.IdRoleTypeGroup">
+            <summary>
+            skupina typů vazeb
+            </summary>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.baseRoleTypeGroup">
+            <summary>
+            skupina typů vazeb
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseRoleTypeGroup.#ctor(cz.ctgroup.db.DBLib,System.String)">
+            <summary>
+            konstruktor, který volá základní konstruktor
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseRoleTypeGroup.#ctor(cz.ctgroup.db.DBLib,System.String,System.Int64)">
+            <summary>
+            konstruktor, který volá základní konstruktor
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka</param>
+            <param name="iD0">id objektu, který má být nahrán</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseRoleTypeGroup.setMyEntity">
+            <summary>
+            nastavení DB tabulky do které objekt zapisuje
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseRoleTypeGroup.Load(System.Int64)">
+            <summary>
+            nahrání objektu, vrací true pokud se podařilo úspěšně objekt nahrát, jinak
+            false, při nahrání jsou nahrány i špecifické hodnoty PropertyValue do proměnné
+            Values
+            </summary>
+            <param name="iD">id objektu, který má být nahrán</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseRoleTypeGroup.Save(System.Boolean,System.Int64)">
+            <summary>
+            uložení objektu
+            </summary>
+            <param name="saveAlways">příznak zda má být uloženo vždy</param>
+            <param name="iDUser">identifikace uživatele, který operaci provádí</param>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseRoleTypeGroup.GetIdRoleTypeGroupByCode(cz.ctgroup.db.DBLib,System.String)">
+            <summary>
+            vrátí ID roletypegroup podle kódu
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeRoleTypeGroup"></param>
+            <returns></returns>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseRoleTypeGroup.Code">
+            <summary>
+            kód skupiny vazeb
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.isor.BaseObjects.baseRoleTypeGroup.Name">
+            <summary>
+            jméno skupiny v zadaném jazyce
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseRoleTypeGroup.GetRoleTypes">
+            <summary>
+            získání platných typů vazeb ve skupině
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.baseRoleTypeGroup.GetRoleTypeGroups(cz.ctgroup.db.DBLib,System.String)">
+            <summary>
+            získání platných skupin typů vazeb k aktuálnímu datu
+            </summary>
+            <param name="DB">objekt připojení k DB (DBLib)</param>
+            <param name="codeLanguage">kód jazyka pro názvy skupin</param>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.baseServices">
+            <summary>
+            metody pro COVENANT číselníky
+            </summary>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.searchParameters">
+            <summary>
+            třída umožňující definici vyhledávacích parametrů
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.searchParameters.columnName">
+            <summary>
+            jméno sloupce, který má být prohledáván
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.searchParameters.relationOperator">
+            <summary>
+            operátor se kterým má být porovnání prováděno
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.searchParameters.value">
+            <summary>
+            hledaná hodnota
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.searchParameters.sortOrder">
+            <summary>
+            pořadí vyhledávání
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.searchParameters.#ctor">
+            <summary>
+            konstruktor
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.BaseObjects.searchParameters.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            konstruktor
+            </summary>
+            <param name="columnName">jméno prolrdávaného sloupce</param>
+            <param name="relationOperator">operator použitý pro porovnání</param>
+            <param name="value">hledaná hodnota</param>
+            <param name="sortOrder">pořadí výsledku</param>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.LanguageInfo">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.LanguageInfo.IdLanguage">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.LanguageInfo.Code">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.LanguageInfo.Name">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.LanguageInfo.SelfName">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.LanguageInfo.IsSystem">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.LanguageInfo.ValidFrom">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.LanguageInfo.ValidTo">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.GetLanguageResult">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetLanguageResult.Language">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetLanguageResult.Failed">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetLanguageResult.ErrorText">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.SaveResult">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.SaveResult.IdSavedObject">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.SaveResult.Failed">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.SaveResult.ErrorText">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.PropertyInfo">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.PropertyInfo.IdProperty">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.PropertyInfo.Code">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.PropertyInfo.Name">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.PropertyInfo.DataType">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.PropertyInfo.IsSystem">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.PropertyInfo.ValidFrom">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.PropertyInfo.ValidTo">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.GetPropertyResult">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetPropertyResult.Property">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetPropertyResult.Failed">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetPropertyResult.ErrorText">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.RoleTypeGroupInfo">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.RoleTypeGroupInfo.IdRoleTypeGroup">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.RoleTypeGroupInfo.Code">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.RoleTypeGroupInfo.Name">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.GetRoleTypeGroupResult">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetRoleTypeGroupResult.RoleTypeGroup">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetRoleTypeGroupResult.Failed">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetRoleTypeGroupResult.ErrorText">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.RoleTypeInfo">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.RoleTypeInfo.IdRoleType">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.RoleTypeInfo.Code">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.RoleTypeInfo.Name">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.RoleTypeInfo.IdRoleTypeGroup">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.GetRoleTypeResult">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetRoleTypeResult.RoleType">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetRoleTypeResult.Failed">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetRoleTypeResult.ErrorText">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.ListGroupInfo">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.ListGroupInfo.IdListGroup">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.ListGroupInfo.IdListGroupOver">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.ListGroupInfo.Code">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.ListGroupInfo.Name">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.ListGroupInfo.IsSystem">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.ListGroupInfo.ValidFrom">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.ListGroupInfo.ValidTo">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.GetListGroupResult">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetListGroupResult.ListGroup">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetListGroupResult.Failed">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetListGroupResult.ErrorText">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.ListInfo">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.ListInfo.IdList">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.ListInfo.IdListGroup">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.ListInfo.Code">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.ListInfo.Name">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.ListInfo.OrderNum">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.ListInfo.IsSystem">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.ListInfo.ValidFrom">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.ListInfo.ValidTo">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.GetListResult">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetListResult.List">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetListResult.Failed">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetListResult.ErrorText">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.LogInfo">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.LogInfo.IdLog">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.LogInfo.Operation">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.LogInfo.Note">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.LogInfo.DateTime">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.LogInfo.IdUser">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.LogInfo.Id0">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.LogInfo.Result">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.LogInfo.IdLogPlace">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.GetLogResult">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetLogResult.Log">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetLogResult.Failed">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetLogResult.ErrorText">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.GetRelationShipInfo">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetRelationShipInfo.IdRelationShipRole">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetRelationShipInfo.Id0">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetRelationShipInfo.Id1">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetRelationShipInfo.IdRoleType">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetRelationShipInfo.ValidFrom">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetRelationShipInfo.ValidTo">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetRelationShipInfo.NumberValue1">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.GetRelationShipResult">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetRelationShipResult.GetRelationShip">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetRelationShipResult.Failed">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetRelationShipResult.ErrorText">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="T:cz.ctgroup.isor.BaseObjects.GetRelationShipsResult">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetRelationShipsResult.GetRelationShips">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetRelationShipsResult.Failed">
+            <remmarks>
+            </remmarks>
+        </member>
+        <member name="F:cz.ctgroup.isor.BaseObjects.GetRelationShipsResult.ErrorText">
+            <remmarks>
+            </remmarks>
+        </member>
+    </members>
+</doc>

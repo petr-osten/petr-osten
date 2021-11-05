@@ -1,0 +1,28 @@
+﻿
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the c:\_ISOR\isor-2-UAT\app\WinServices\SendMailWinService\RB.Isor.SendMail.WinService.exe assembly's progress.
+The file is located at c:\_ISOR\isor-2-UAT\app\WinServices\SendMailWinService\RB.Isor.SendMail.WinService.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the c:\_ISOR\isor-2-UAT\app\WinServices\SendMailWinService\RB.Isor.SendMail.WinService.exe assembly's progress.
+The file is located at c:\_ISOR\isor-2-UAT\app\WinServices\SendMailWinService\RB.Isor.SendMail.WinService.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.
+
+Running a transacted installation.
+
+Beginning the Install phase of the installation.
+See the contents of the log file for the c:\_ISOR\isor-0-DEV\app\WinServices\SendMailWinService\RB.Isor.SendMail.WinService.exe assembly's progress.
+The file is located at c:\_ISOR\isor-0-DEV\app\WinServices\SendMailWinService\RB.Isor.SendMail.WinService.InstallLog.
+
+The Install phase completed successfully, and the Commit phase is beginning.
+See the contents of the log file for the c:\_ISOR\isor-0-DEV\app\WinServices\SendMailWinService\RB.Isor.SendMail.WinService.exe assembly's progress.
+The file is located at c:\_ISOR\isor-0-DEV\app\WinServices\SendMailWinService\RB.Isor.SendMail.WinService.InstallLog.
+
+The Commit phase completed successfully.
+
+The transacted install has completed.

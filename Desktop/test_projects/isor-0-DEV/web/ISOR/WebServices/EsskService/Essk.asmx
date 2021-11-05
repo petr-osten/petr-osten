@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="Essk.asmx.cs" Class="EsskWs.Essk" %>

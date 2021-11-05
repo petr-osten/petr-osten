@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CBLProcessResult RequestID="6994754">
+  <AppID>25127e5c-43ca-4ff0-8e2c-d9385d666b37</AppID>
+  <UserName>pbilek</UserName>
+  <RequestID>12345</RequestID>
+  <Err>
+	<Message>ErrorMessage</Message>
+	<ID>45</ID>
+  </Err>
+  <ResultData>
+    <Result>
+      <APPName>Manuální vstup</APPName>
+      <WFName>ISOR SubjectCheck</WFName>
+      <ContractID>
+      </ContractID>
+      <ReasonID>0</ReasonID>
+      <UserRoles>System Administrators</UserRoles>
+      <UserID>6c010a2a-431c-4172-93a3-6d3b3158c56c</UserID>
+      <FullUserName>Petr Bílek</FullUserName>
+      <UserBranch>
+      </UserBranch>
+      <RequestDate>2017-11-15T14:03:57.2440234+01:00</RequestDate>
+      <InputData>
+        <PIN>7606011358</PIN>
+        <CountryOfRegistration>SK</CountryOfRegistration>
+        <RegistrationNumber>12345678</RegistrationNumber>
+      </InputData>
+      <Status>1</Status>
+      <IBLData>
+        <IBL status="1" errID="0" errName="">
+          <Response>
+            <Data>
+              <PIN>7606011358</PIN>
+              <FirstName>Petr</FirstName>
+              <LastName>Vetrák</LastName>
+              <Birthdate>1976-06-01T00:00:00+02:00</Birthdate>
+              <Attribute>AD</Attribute>
+              <Reason />
+              <Damage>8570</Damage>
+              <AttributeLong>Aktuální dlužnost</AttributeLong>
+              <Product>Osobní účet - eKonto</Product>
+              <Source>2</Source>
+            </Data>
+            <Data>
+              <PIN>7606011358</PIN>
+              <FirstName>Petr</FirstName>
+              <LastName>Vetrák</LastName>
+              <Birthdate>1976-06-01T00:00:00+02:00</Birthdate>
+              <Segment>PI</Segment>
+              <LawForm>FO</LawForm>
+              <Street>OMLEJNICKÁ 563</Street>
+              <City>KAPLICE</City>
+              <ZIP>38241</ZIP>
+              <Country>Česká republika</Country>
+              <Attribute>EBA</Attribute>
+              <Reason>NPE - Non-performing exposure without any active forbearance </Reason>
+              <Created>2014-09-30T00:00:00+02:00</Created>
+              <ExpireDate>2064-09-30T00:00:00+02:00</ExpireDate>
+              <Damage>0</Damage>
+              <AttributeLong>EBA flag status</AttributeLong>
+              <Source>2</Source>
+            </Data>
+            <Data>
+              <PIN>7606011358</PIN>
+              <FirstName>Petr</FirstName>
+              <LastName>Vetrák</LastName>
+              <Birthdate>1976-06-01T00:00:00+02:00</Birthdate>
+              <Segment>PI</Segment>
+              <LawForm>FO</LawForm>
+              <Street>OMLEJNICKÁ 563</Street>
+              <City>KAPLICE</City>
+              <ZIP>38241</ZIP>
+              <Country>Česká republika</Country>
+              <Attribute>EX</Attribute>
+              <Reason>Nucená exekuce</Reason>
+              <Created>2011-11-07T05:14:23.55+01:00</Created>
+              <ExpireDate>2021-11-07T05:14:23.55+01:00</ExpireDate>
+              <Damage>20897</Damage>
+              <AttributeLong>Nucené exekuce</AttributeLong>
+              <Source>2</Source>
+            </Data>
+            <Data>
+              <PIN>7606011358</PIN>
+              <FirstName>Petr</FirstName>
+              <LastName>Vetrák</LastName>
+              <Birthdate>1976-06-01T00:00:00+02:00</Birthdate>
+              <Segment>PI</Segment>
+              <LawForm>FO</LawForm>
+              <Street>OMLEJNICKÁ 563</Street>
+              <City>KAPLICE</City>
+              <ZIP>38241</ZIP>
+              <Country>Česká republika</Country>
+              <Attribute>EX</Attribute>
+              <Reason>Nucená exekuce</Reason>
+              <Created>2013-01-04T09:53:21.34+01:00</Created>
+              <ExpireDate>2018-01-04T09:53:21.34+01:00</ExpireDate>
+              <Damage>16320</Damage>
+              <AttributeLong>Nucené exekuce</AttributeLong>
+              <Source>2</Source>
+            </Data>
+          </Response>
+        </IBL>
+        <IBL status="1" errID="0" errName="">
+          <Response>
+            <Data>
+              <PIN />
+              <FirstName />
+              <LastName />
+              <ICO>12345678</ICO>
+              <DIC />
+              <Company>HARAKAT SHAM AL-ISLAM</Company>
+              <Segment>PI</Segment>
+              <LawForm>PO</LawForm>
+              <ShippingCountry>cizinec</ShippingCountry>
+              <Attribute>NI</Attribute>
+              <Reason>Upozornění 3.strany</Reason>
+              <Created>2016-03-01T21:00:02.273+01:00</Created>
+              <ExpireDate>2026-03-01T21:00:02.273+01:00</ExpireDate>
+              <Damage>0</Damage>
+              <AttributeLong>Negativní informace o subjektu</AttributeLong>
+              <Source>0</Source>
+            </Data>
+          </Response>
+        </IBL>
+      </IBLData>
+      <IBLDetailData>
+        <IRResult>0</IRResult>
+      </IBLDetailData>
+      <IBLResult>2</IBLResult>
+      <BlockMessage>IBL (warning)</BlockMessage>
+      <CRIBISInputDataLog>
+        <CRIBISInputData>
+          <Country>CZ</Country>
+          <RegistrationNumber>12345678</RegistrationNumber>
+          <Level>0</Level>
+          <DaysToHistory>360</DaysToHistory>
+        </CRIBISInputData>
+      </CRIBISInputDataLog>
+      <CRIBISData>
+        <CRIBIS status="2" errID="7" errName="Došlo k chybě v implementaci univerzálního konektoru." />
+      </CRIBISData>
+      <CRIBISResult>2</CRIBISResult>
+      <BlockMessage>CRIBIS (error)</BlockMessage>
+      <CRIBISBOInputDataLog>
+        <CRIBISBOInputData>
+          <RegistrationNumber>12345678</RegistrationNumber>
+          <EconomicGroupMethodology>COS</EconomicGroupMethodology>
+          <EconomicGroupShare>20</EconomicGroupShare>
+          <FinalOwner>true</FinalOwner>
+        </CRIBISBOInputData>
+      </CRIBISBOInputDataLog>
+      <CRIBISBOData>
+        <CRIBISBO status="0" errID="0" errName="">
+          <UniversalFormatter>
+            <GetGlobalEconomicGroupOutput>
+              <Error C="NF" D="ICO Not found" />
+            </GetGlobalEconomicGroupOutput>
+          </UniversalFormatter>
+        </CRIBISBO>
+      </CRIBISBOData>
+      <CRIBISBOCData>
+        <CRIBISBOC>
+          <Subjects />
+        </CRIBISBOC>
+      </CRIBISBOCData>
+      <Result>0</Result>
+    </Result>
+  </ResultData>
+</CBLProcessResult>

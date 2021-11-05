@@ -1,0 +1,734 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DBLib</name>
+    </assembly>
+    <members>
+        <member name="P:cz.ctgroup.db.Condition.MultiCondition.AllConditions">
+            <summary>
+            Proleze vsechny podminky a vrati i "podpodminky"
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.db.Condition.MultiCondition.AddCondition(cz.ctgroup.db.Condition.Condition)">
+            <summary>
+            Prida podminku spojenou logickou spojkou ...
+            </summary>
+            <param name="c"></param>
+        </member>
+        <member name="M:cz.ctgroup.db.Condition.Greater.#ctor(System.String,System.Object)">
+            <summary>
+            Fieldname>value
+            </summary>
+            <param name="FieldName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:cz.ctgroup.db.Condition.GreaterEqual.#ctor(System.String,System.Object)">
+            <summary>
+            Fieldname>=value
+            </summary>
+            <param name="FieldName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="T:cz.ctgroup.db.Condition.Like">
+            <summary>
+            operator like, % si doplni kazdy sam
+            </summary>
+        </member>
+        <member name="T:cz.ctgroup.db.Condition.LikeNormalized">
+            <summary>
+            Hleda pomoci like v normalizovanem retezci - normalizuje i hodnotu. Vyhledavani musi byt samozrejme upraveno pomoci sea_searching
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.db.Condition.LikeNormalized.RemoveDiacritics(System.String)">
+            <summary>
+            odstrani diakritiku z neceho
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.db.Condition.Lower.#ctor(System.String,System.Object)">
+            <summary>
+            fieldname &lt; value
+            </summary>
+            <param name="FieldName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:cz.ctgroup.db.Condition.LowerEqual.#ctor(System.String,System.Object)">
+            <summary>
+            fieldname &lt;= value
+            </summary>
+            <param name="FieldName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:cz.ctgroup.db.Condition.Or.#ctor(cz.ctgroup.db.Condition.Condition[])">
+            <summary>
+            Jednotlive kolekce v parametru spoji pres and
+            </summary>
+            <param name="Conditions"></param>
+        </member>
+        <member name="P:cz.ctgroup.db.Condition.SingleParamCondition.ParamName">
+            <summary>
+            Nazev parametru
+            </summary>
+        </member>
+        <member name="T:cz.ctgroup.db.Condition.And">
+            <summary>
+            Kolekce podminek spojenych operatorem and
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.db.Condition.And.#ctor(cz.ctgroup.db.Condition.Condition[])">
+            <summary>
+            Jednotlive kolekce v parametru spoji pres and
+            </summary>
+            <param name="Conditions"></param>
+        </member>
+        <member name="T:cz.ctgroup.db.Condition.Condition">
+            <summary>
+            Trida pro vylepsene zadavani podminek. Tzn. tak, aby ze sama sklada selecty, mohla by potencionalne setrit nejakou praci...
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.db.Condition.Condition.FieldName">
+            <summary>
+            Nazev pole, ktereho se podminka tyka - "leva strana pominky"
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.db.Condition.Condition.SubSelect">
+            <summary>
+            Tuto vlastnost vyuziva BL aplikace pro spravne provazani se sql. Tzn. pokud set nema potrebne sloupecky apodminka vede na subselect, tak prave na tento.
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.db.DatabaseTraceListener.#ctor(cz.ctgroup.db.DBLib,System.String)">
+            <summary>
+            Vytvori novou instanci listeneru. Pozor! Nicemu zatim nenasloucha! 
+            </summary>
+            <param name="destDatabase">DB, do ktere se bude zapisovat</param>
+            <param name="name">Nazev logu</param>
+        </member>
+        <member name="P:cz.ctgroup.db.DBLib.IDUser">
+            <summary>
+            Umoznuje ulozeni IDUsera, muze byt pouzito pri logovani
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.db.DBLib.ModuleName">
+            <summary>
+            Nazev modulu - je videt ve v$session oracle
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.db.DBLib.ActionName">
+            <summary>
+            Nazev aktualni akce - je videt ve v$session oracle
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.db.DBLib.Context">
+            <summary>
+            Properta pro ulozeni libovolne tridy contextu.
+            </summary>
+        </member>
+        <member name="T:cz.ctgroup.db.DBLib.JournalEventType">
+            <summary>
+            Typy externe zurnalovanych operaci
+            </summary>
+        </member>
+        <member name="E:cz.ctgroup.db.DBLib.OnJournalEvent">
+            <summary>
+            Udalost je vyvolana pri kazde akci, ktera muze byt zurnalovana. Pokud je uvnitr vyhozena vyjimka, tak dojde k rollbacku transakce
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.db.DBLib.CommandTimeout">
+            <summary>
+            Nastavi timeout pro zadany prikaz. Pokud je 0, pouzije se implicitni.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.db.DBLib.LanguageCode">
+            <summary>
+            Kod jazyka. Tato properta tu proste jen tak je, nic nedela, ale da se pouzit v parametrech AddLanguageCode
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.db.DBLib.IsTransactionOpen">
+            <summary>
+            Vraci, zda je otevrena transakce
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.CreateDBLib(System.String,System.String,System.String)">
+            <summary>
+            Vytvori se instance pro prislusneho providera.
+            </summary>
+            <param name="provider">Poskytovatel pripojeni. MSSQL, ORACLE (oracle s id_gen), ORACLESEQ (oracle, ale id_gen vraci pouze id ze sekvence global_seq)</param>
+            <param name="initCommand">Prikaz, ktery se provadi  pri kazdem otevreni pripojeni.</param>
+            <param name="connString">Pripojovaci retezec</param>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.InitConnection(System.String)">
+            <summary>
+            Inicializace pripojeni - po ni musi byt connection nenull
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.CreateCommand">
+            <summary>
+            Metoda, ktera zalozi command
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.GetDataAdapter(System.Data.Common.DbCommand)">
+            <summary>
+            Vytvori adapter pro zadany prikaz. Adapter se pak pouzije pri plenni DataSetu
+            </summary>
+            <param name="command">prikaz</param>
+            <returns>adapter</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.CreateParameter">
+            <summary>
+            Vytvori parametr pro prislusnou platformu. 
+            </summary>
+            <returns>parametr</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.BeginTransaction">
+            <summary>
+            Otevre transakci, pokud jeste nebyla otevrena. Pokud jiz byla transakce otevrena, vraci se false.
+            </summary>
+            <returns>zda byla otevrena transakce</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.RollbackTransaction">
+            <summary>
+            Provede rollback, pokud je transakce otevrena, jinak neprovede nic.
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.TryRollbackTransaction">
+            <summary>
+            Rolback, opatreny try catch. Neprovede nic, pokud rollback nejde...
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.CommitTransaction">
+            <summary>
+            Provede commit. Pokud neni transakce otevrena, pousti vyvolanou vyjimku dal.
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.GetDataTable(System.String,cz.ctgroup.db.ParameterCollection)">
+            <summary>
+            Vrati DataTable pro zadany dotaz a parametry.
+            </summary>
+            <param name="sql">dotaz</param>
+            <param name="pc">parametry nebo null</param>
+            <returns>vysledek dotazu</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.FillDataTable(System.Data.DataTable,System.String,cz.ctgroup.db.ParameterCollection)">
+            <summary>
+            Naplni tabulku daty, existujici z ni premazne. Vhodne pro load metodu u TDS
+            </summary>
+            <param name="dtRet">Tabulka k naplneni</param>
+            <param name="sql">prikaz</param>
+            <param name="pc">parametry</param>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.GetDataTable(System.String,System.String,cz.ctgroup.db.ParameterCollection)">
+            <summary>
+            Vrati DataTable pro zadany dotaz a parametry. Message se pouziva pri logovani - je pak mozne v logu hledat prislusny dotaz, analyzovat jak dlouho kde trval.
+            </summary>
+            <param name="name">zprava, ktera se objevi pri zapnutem logovani</param>
+            <param name="sql">dotaz</param>
+            <param name="pc">parametry nebo null</param>
+            <returns>vysledek dotazu</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.GetArray(System.Data.DataTable,System.String)">
+            <summary>
+            Vrati pole ID pro zadany parametr sloupce a tabulky
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.GetHierarchyInt(System.String,cz.ctgroup.db.ParameterCollection,System.String,cz.ctgroup.db.ParameterCollection,System.String,System.String)">
+            <summary>
+            Vytvori tabulku obsahujiuci hierarchicka data
+            </summary>
+            <param name="rootSql">sql pro pocatecni uroven. Muze obsahovat order by</param>
+            <param name="rootPc"> </param>
+            <param name="childSql">sql pro vyber deti - musi obsahovat @par_level, kam se zobrazi level a @par_roots v podmince in - napr idparentfolder in (@par_roots)</param>
+            <param name="childPc"></param>
+            <param name="parentToChildColumn">sloupec z nadrizeneho setu, ke kteremu se vazou deti</param>
+            <param name="childToParentColumn">sloupce z podrizeneho setu, ke kteremu se vaze parent</param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.GetHierarchy(System.String,cz.ctgroup.db.ParameterCollection,System.String,System.String,System.String,System.Object)">
+            <summary>
+            Vytvori tabulku obsahujiuci hierarchicka data
+            </summary>
+            <param name="sql">sql pro vsechny urovne</param>
+            <param name="parentToChildColumn">sloupec z nadrizeneho setu, ke kteremu se vazou deti</param>
+            <param name="childToParentColumn">sloupce z podrizeneho setu, ke kteremu se vaze parent</param>
+            <param name="pc"></param>
+            <param name="startsWith">s jakou hodnotou zacina uvodni kolekce</param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.GetHierarchy(System.String,cz.ctgroup.db.ParameterCollection,System.String,System.String,System.String,System.String,cz.ctgroup.db.ParameterCollection)">
+            <summary>
+            Hierarchie - POZOR! Funguje tak, ze root set: parenttochild in (startsWithQuery where .. pcStartWith)
+            </summary>
+            <param name="sql"></param>
+            <param name="pc"></param>
+            <param name="nodeOrderBy"></param>
+            <param name="parentToChildColumn"></param>
+            <param name="childToParentColumn"></param>
+            <param name="startsWithQuery"></param>
+            <param name="pcStartWith"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.GetObject(System.String,cz.ctgroup.db.ParameterCollection)">
+            <summary>
+            Vrati objekt z DB - Execute Scalar - prvni radek prvni sloupec dotazu
+            </summary>
+            <param name="sql"></param>
+            <param name="pc"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.GetResult(System.String,cz.ctgroup.db.ParameterCollection)">
+            <summary>
+            Vraci vysledek z databaze - execute scalar, vysledek je prvni radek prvni sloupec.
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.GetLongResult(System.String,cz.ctgroup.db.ParameterCollection)">
+            <summary>
+            Vrati result Execute Scalar jako long, MinValue
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.GetDecimalResult(System.String,cz.ctgroup.db.ParameterCollection)">
+            <summary>
+            Vrati result Execute Scalar jako decimal, MinValue
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.GetNullableDecimalResult(System.String,cz.ctgroup.db.ParameterCollection)">
+            <summary>
+            Vrati result Execute Scalar jako nullable decimal
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.ExecuteNonQuery(System.String)">
+            <summary>
+            Spusti sql prikaz, vraci pocet ovlivnenych radku
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.ExecuteNonQuery(System.String,cz.ctgroup.db.ParameterCollection)">
+            <summary>
+            Spusti sql prikaz, vraci pocet ovlivnenych radku
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.ExecuteNonQuery(System.String,cz.ctgroup.db.ParameterCollection,System.Boolean)">
+            <summary>
+            Spusti sql prikaz, vraci pocet ovlivnenych radku
+            </summary>
+            <param name="sql">dotaz</param>
+            <param name="pc">parametry</param>
+            <param name="useTransaction">použitie tranzakcie</param>
+            <returns>pocet ovlivnenych radku</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.ExecuteProcedure(System.String,cz.ctgroup.db.ParameterCollection)">
+            <summary>
+            Provede ulozenou proceduru
+            </summary>
+            <param name="name">nazev</param>
+            <param name="pc">parametry</param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.GetDatabaseTime">
+            <summary>
+            Vraci datum a cas podle DB. Behem transakce se bere pouze jeden cas.
+            </summary>
+            <returns>aktualni hodnotu v DB</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.ConvertToStringDB(System.String)">
+            <summary>
+            Nahradi ' za ''. Primitivni, nevykonne, napouzivat.
+            </summary>
+            <param name="p">vstup</param>
+            <returns>zameneny vystup</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.FillCommandParameters(System.Data.Common.DbCommand,cz.ctgroup.db.ParameterCollection)">
+            <summary>
+            Naplni parametry v objektu command na zaklade platformy
+            </summary>
+            <param name="command">command</param>
+            <param name="pc">parametry</param>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.WriteTrace(System.DateTime,System.String,System.String,cz.ctgroup.db.ParameterCollection)">
+            <summary>
+            Zapisuje do objektu Trace
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.OpenConnection">
+            <summary>
+            Otevre spojeni s DB, pokud jiz neni otevreno
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.CloseConnection">
+            <summary>
+            Uzavre spojeni s DB
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.Finalize">
+            <summary>
+            pro jistotu pred connection leakem i v destruktoru.
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.GetSYSDATE">
+            <summary>
+            Vrati retezec pro aktualni cas (sysdate, getdate()). Pouzivejte radeji parametry!
+            </summary>
+            <returns>retezec s prikazem pro akt. cas</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.GetSYSDATE(System.Int32)">
+            <summary>
+            Vrati databazovy cas minus p vterin jako retezec prikazu. 
+            </summary>
+            <param name="p">pocet vterin</param>
+            <returns>napr sysdate-1/24/60/60</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.GetDataTable(System.String,cz.ctgroup.db.ParameterCollection,System.String,System.Int32,System.Int32)">
+            <summary>
+            Vraci data serazena podle orderby - optimalizovano pomocirwonum na nizkou zatez pri rozsahlem mnozsti dat.
+            </summary>
+            <param name="sql">dotaz</param>
+            <param name="pc">parametry nebo null</param>
+            <param name="rowFrom">cislo prvni radky ala rownum</param>
+            <param name="rowCount">maximalni pocet radek</param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.InsertOrUpdateRecord(System.String,System.String,System.String,System.Int64,cz.ctgroup.db.ParameterCollection)">
+            <summary>
+            Vytvori nebo updatne zaznam - insert pokud je idValue>0. Sloupecky tabulky se vysajou z kolekce parametru.
+            </summary>
+            <param name="tableName">Nazev tabulky</param>
+            <param name="idColumn">Sloupec s ID</param>
+            <param name="idValue">Hodnota ID</param>
+            <param name="pc">Ostatni sloupce + jejich hodnoty</param>
+            <returns>id ovlivneneho zaznamu</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.InsertOrUpdateRecord(System.String,System.String,System.String,System.Int64,System.Boolean,cz.ctgroup.db.ParameterCollection)">
+            <summary>
+            Vytvori nebo updatne zaznam - insert pokud (alwaysInsert || (idValue>0)) . Sloupecky tabulky se vysajou z kolekce parametru.
+            </summary>
+            <param name="tableName">Nazev tabulky</param>
+            <param name="idColumn">Sloupec s ID</param>
+            <param name="idValue">Hodnota ID</param>
+            <param name="pc">Ostatni sloupce + jejich hodnoty</param>
+            <param name="alwaysInsert">vlozi zaznam, i kdyz je idValue>0</param>
+            <returns>id ovlivneneho zaznamu</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.InsertOrUpdateRecord(System.String,System.String,System.String,System.Int64,System.Data.DataRow)">
+            <summary>
+            Vytvori nebo updatne zaznam - podle toho zda je idValue 0 nebo >0. Sloupecky tabulky se vysajou z radku dataTable, ktery je v parametru.
+            </summary>
+            <param name="tableName">Nazev tabulky</param>
+            <param name="idColumn">Sloupec s ID</param>
+            <param name="idValue">Hodnota ID</param>
+            <param name="DR">radek tabulky</param>
+            <returns>id ovlivneneho zaznamu</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.InsertOrUpdateRecord(System.String,System.String,System.String,System.Int64,System.Boolean,System.Data.DataRow)">
+            <summary>
+            Vytvori nebo updatne zaznam, ale krome idValue bere v uvahu i moznost pro ForcedID
+            </summary>
+            <param name="tableName"></param>
+            <param name="idColumn"></param>
+            <param name="idValue"></param>
+            <param name="alwaysInsert"></param>
+            <param name="DR"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.db.DBLib.IdGen(System.String,System.String)">
+            <summary>
+            Generuje nove ID
+            </summary>
+            <param name="EntityName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cz.ctgroup.db.Mapping.ColumnAttribute">
+            <summary>
+            Slouzi k definovani sloupce k properte v ramci tridy reprezentujici tabulku
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.db.Mapping.ColumnAttribute.ColumnName">
+            <summary>
+            Nazev DB sloupce
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.db.Mapping.ColumnAttribute.#ctor(System.String)">
+            <summary>
+            Vytvori definici sloupce pro danou propertu
+            </summary>
+            <param name="ColumnName"></param>
+        </member>
+        <member name="M:cz.ctgroup.db.Mapping.ColumnAttribute.#ctor">
+            <summary>
+            Vytvori definici sloupce pro danou propertu - nazev sloupce=nazev proeprty
+            </summary>
+        </member>
+        <member name="T:cz.ctgroup.db.Mapping.TableAttribute">
+            <summary>
+            Slouzi k definovani tabulky v ramci mapovani objektu do DB
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.db.Mapping.TableAttribute.TableName">
+            <summary>
+            Nazev tabulky
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.db.Mapping.TableAttribute.IdColumn">
+            <summary>
+            Nazev sloupecku s ID hodnotou
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.db.Mapping.TableAttribute.#ctor(System.String,System.String)">
+            <summary>
+            Vytvori definic tabulky ke tride
+            </summary>
+            <param name="TableName"></param>
+            <param name="IdColumn"></param>
+        </member>
+        <member name="T:cz.ctgroup.db.OracleLibSeq">
+            <summary>
+            Knihovna pro oracle, kde neni sada tabulek pro id_identification 
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.db.OracleLibSeq.IdGen(System.String,System.String)">
+            <summary>
+            Vraci dalsi cislo ze sekvence global_seq
+            </summary>
+            <param name="EntityName"></param>
+            <param name="ObjectName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:cz.ctgroup.db.OracleLib">
+            <summary>
+            Trida pro pripojeni k Oracle. Klient miscrosoft.
+            </summary>
+        </member>
+        <member name="T:cz.ctgroup.db.ParameterCollection">
+            <summary>
+            Kolekce parametru pro parametrizovane dotazy pomoci DBLib. 
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.db.ParameterCollection.Parameters">
+            <summary>
+            Kolekce parametru
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.db.ParameterCollection.#ctor(cz.ctgroup.db.DBLib)">
+            <summary>
+            Vytvori kolekci parametru. Odkaz na DB se predava pouze kvuli zjisteni DB platformy.
+            </summary>
+            <param name="DB"></param>
+        </member>
+        <member name="M:cz.ctgroup.db.ParameterCollection.AddArray(System.String,System.Object[])">
+            <summary>
+            pridani pole parametru. Pokud je pole prazdne, prida se null
+            </summary>
+            <param name="name"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.db.ParameterCollection.AddArray(System.String,System.Int64[])">
+            <summary>
+            pridani pole longu nebo intu. Pokud je pole prazdne, prida se (null)
+            </summary>
+            <param name="name"></param>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.db.ParameterCollection.Add(System.String,System.Int32)">
+            <summary>
+            Prida parametr typu int. Int.MinValue => null
+            </summary>
+            <param name="name">jmeno parametru</param>
+            <param name="value">hodnota</param>
+            <returns>Vlozeny parametr</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.ParameterCollection.Add(System.String,System.Int64)">
+            <summary>
+            Prida long parametr - long.MinValue je null
+            </summary>
+            <param name="name">jmeno</param>
+            <param name="value">hodnota</param>
+            <returns>Vlozeny parametr</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.ParameterCollection.Add(System.String,System.Byte[])">
+            <summary>
+            Prida byte[] parametr
+            </summary>
+            <param name="name">jmeno</param>
+            <param name="value">hodnota</param>
+            <returns>Vlozeny parametr</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.ParameterCollection.Add(System.String,System.DateTime)">
+            <summary>
+            Prida datumovou polozku. DateTime.MinValue je null
+            </summary>
+            <param name="name">nazev</param>
+            <param name="value">hodnota</param>
+            <returns>Vlozeny parametr</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.ParameterCollection.Add(System.String,System.String)">
+            <summary>
+            Prida string hodnotu. Prazdny string (Length=0) a string="\0" se prevadi na null.
+            </summary>
+            <param name="name">nazev</param>
+            <param name="value">hodnota</param>
+            <returns>Vlozeny parametr</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.ParameterCollection.Add(System.String,System.Char)">
+            <summary>
+            Prida char hodnotu. Prazdny char=\0 se prevadi na null.
+            </summary>
+            <param name="name">nazev</param>
+            <param name="value">hodnota</param>
+            <returns>Vlozeny parametr</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.ParameterCollection.Add(System.String,System.Decimal)">
+            <summary>
+            Prida decimal hodnotu. Decimal.MinValue se prevadi na null
+            </summary>
+            <param name="name">nazev</param>
+            <param name="value">hodnota</param>
+            <returns>Vlozeny parametr</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.ParameterCollection.Add(System.String,System.Double)">
+            <summary>
+            Prida double hodnotu. Double.MinValue je null
+            </summary>
+            <param name="name">nazev</param>
+            <param name="value">hodnota</param>
+            <returns>Vlozeny parametr</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.ParameterCollection.AddInt(System.String,System.Object)">
+            <summary>
+            Konvertuje value na int a prida do kolekce. Exception pokud neni objekt int. Pokud je null nebo int.MinValue je to null DB.
+            </summary>
+            <param name="name">nazev</param>
+            <param name="value">hodnota</param>
+            <returns>Vlozeny parametr</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.ParameterCollection.AddLong(System.String,System.Object)">
+            <summary>
+            Konvertuje value na long a prida do kolekce. Exception pokud neni objekt long. Pokud je null nebo long.MinValue je to null DB.
+            </summary>
+            <param name="name">nazev</param>
+            <param name="value">hodnota</param>
+            <returns>Vlozeny parametr</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.ParameterCollection.AddString(System.String,System.Object)">
+            <summary>
+            Konvertuje value na string pomoci ToString() a prida do kolekce. Pokud je retezec.Length==0 ulozi se null.
+            </summary>
+            <param name="name">nazev</param>
+            <param name="value">hodnota</param>
+            <returns>Vlozeny parametr</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.ParameterCollection.AddDouble(System.String,System.Object)">
+            <summary>
+            Konvertuje value na double a prida do kolekce. Exception pokud neni objekt double. Pokud je null nebo double.MinValue je to null DB.
+            </summary>
+            <param name="name">nazev</param>
+            <param name="value">hodnota</param>
+            <returns>Vlozeny parametr</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.ParameterCollection.AddDecimal(System.String,System.Object)">
+            <summary>
+            Konvertuje value na decimal a prida do kolekce. Exception pokud neni objekt decimal. Pokud je null nebo decimal.MinValue je to null DB.
+            </summary>
+            <param name="name">nazev</param>
+            <param name="value">hodnota</param>
+            <returns>Vlozeny parametr</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.ParameterCollection.AddDateTime(System.String,System.Object)">
+            <summary>
+            Konvertuje value na datetime a prida do kolekce. Exception pokud neni objekt datetime. Pokud je null nebo dateteime.MinValue je to null DB.
+            </summary>
+            <param name="name">nazev</param>
+            <param name="value">hodnota</param>
+            <returns>Vlozeny parametr</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.ParameterCollection.AddParameter(System.Data.Common.DbParameter)">
+            <summary>
+            Prida libovolny parametr
+            </summary>
+            <param name="par">parametr</param>
+            <returns>Vlozeny parametr</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.ParameterCollection.AddDatabaseTime(System.String)">
+            <summary>
+            Prida aktualni DB cas.
+            </summary>
+            <param name="name">aktualni DB cas</param>
+            <returns>Vlozeny parametr</returns>
+        </member>
+        <member name="M:cz.ctgroup.db.ParameterCollection.AddLanguageCode(System.String)">
+            <summary>
+            Prida kod jazyka
+            </summary>
+            <param name="name">nazev parametru</param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.db.ParameterCollection.GetSerialized">
+            <summary>
+            Serializes collection to xml document.
+            </summary>
+            <returns>xml</returns>
+        </member>
+        <member name="T:cz.ctgroup.isor.Frame.Db">
+            <summary>
+            Represents database connections to RM and RTL system
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.Frame.Db.InitConnectionString">
+            <summary>
+            Initializes connection string according to the web.config.
+            The function is called at application startup event.
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.Frame.Db.GetConnection">
+            <summary>
+            Returns database connection to RM system. Connection is stored internally on request level
+            for further usage.
+            </summary>
+            <returns>Connection to database</returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.Frame.Db.GetConnectionRtl">
+            <summary>
+            Returns database connection to RTL system. Connection is stored internally on request level
+            for further usage.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.Frame.Db.GetConnectionTS">
+            <summary>
+            Returns database connection to TS system. Connection is stored internally on request level
+            for further usage.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.Frame.Db.GetConnectionDWH">
+            <summary>
+            Returns database connection to DWH system. Connection is stored internally on request level
+            for further usage.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.isor.Frame.Db.CloseConnection">
+            <summary>
+            The function closes the database connection to RM system associated with request.
+            Do not call it explicitly, it is called automatically at the end of request event.
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.Frame.Db.CloseConnectionRtl">
+            <summary>
+            The function closes the database connection to RTL system associated with request.
+            Do not call it explicitly, it is called automatically at the end of request event.
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.Frame.Db.CloseConnectionTS">
+            <summary>
+            The function closes the database connection to TS system associated with request.
+            Do not call it explicitly, it is called automatically at the end of request event.
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.isor.Frame.Db.CloseConnectionDWH">
+            <summary>
+            The function closes the database connection to DWH system associated with request.
+            Do not call it explicitly, it is called automatically at the end of request event.
+            </summary>
+        </member>
+    </members>
+</doc>

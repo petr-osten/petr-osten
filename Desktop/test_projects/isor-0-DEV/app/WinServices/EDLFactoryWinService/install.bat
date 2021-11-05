@@ -1,0 +1,1 @@
+installutil EDL.Factory.WinService.exe

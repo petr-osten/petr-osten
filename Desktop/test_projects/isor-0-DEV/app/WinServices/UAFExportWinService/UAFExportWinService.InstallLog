@@ -1,0 +1,26 @@
+﻿Installing assembly 'c:\_ISOR\isor-2-UAT\app\WinServices\UAFExportWinService\UAFExportWinService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = c:\_ISOR\isor-2-UAT\app\WinServices\UAFExportWinService\UAFExportWinService.exe
+   logfile = c:\_ISOR\isor-2-UAT\app\WinServices\UAFExportWinService\UAFExportWinService.InstallLog
+Installing service ISOR UAFExportWinService UAT...
+Service ISOR UAFExportWinService UAT has been successfully installed.
+Creating EventLog source ISOR UAFExportWinService UAT in log Application...
+Committing assembly 'c:\_ISOR\isor-2-UAT\app\WinServices\UAFExportWinService\UAFExportWinService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = c:\_ISOR\isor-2-UAT\app\WinServices\UAFExportWinService\UAFExportWinService.exe
+   logfile = c:\_ISOR\isor-2-UAT\app\WinServices\UAFExportWinService\UAFExportWinService.InstallLog
+Installing assembly 'c:\_ISOR\isor-0-DEV\app\WinServices\UAFExportWinService\UAFExportWinService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = c:\_ISOR\isor-0-DEV\app\WinServices\UAFExportWinService\UAFExportWinService.exe
+   logfile = c:\_ISOR\isor-0-DEV\app\WinServices\UAFExportWinService\UAFExportWinService.InstallLog
+Installing service ISOR UAFExportWinService DEV...
+Service ISOR UAFExportWinService DEV has been successfully installed.
+Creating EventLog source ISOR UAFExportWinService DEV in log Application...
+Committing assembly 'c:\_ISOR\isor-0-DEV\app\WinServices\UAFExportWinService\UAFExportWinService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = c:\_ISOR\isor-0-DEV\app\WinServices\UAFExportWinService\UAFExportWinService.exe
+   logfile = c:\_ISOR\isor-0-DEV\app\WinServices\UAFExportWinService\UAFExportWinService.InstallLog

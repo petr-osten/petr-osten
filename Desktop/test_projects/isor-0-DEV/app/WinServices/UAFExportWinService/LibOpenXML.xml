@@ -1,0 +1,2215 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LibOpenXML</name>
+    </assembly>
+    <members>
+        <member name="T:cz.ctgroup.OpenXML.OpenXML">
+            <summary>
+            Trida poskytuje zakladni funkcnost pro praci s OpenXML souborem - rozbaleni archivu, praci s jednotlivymi soubory, praci s ContentTypes, vytvareni vystupniho souboru...
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.OpenXML.OpenXML.RootContentTypes">
+            <summary>
+            Datove uloziste pro [Content_Types].xml
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.OpenXML.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Rozbali "vzor" - template z templateDir do temporaryDir\SessionID\
+            - nacte Root node jako XmlDocument
+            - SessionID jsou Ticks vytvoreni
+            </summary>
+            <param name="TemporaryDir">Docasny adresar</param>
+            <param name="TemplateDir">Adresar se vzory</param>
+            <param name="TemplateName">Soubor se vzorem</param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.OpenXML.#ctor(System.String,System.Byte[])">
+            <summary>
+            Rozbali dodany soubor do temporary adresare a otevre ho.
+            - nacte Root node jako XmlDocument
+            - SessionID jsou Ticks vytvoreni
+            </summary>
+            <param name="TemporaryDir">Docasny adresar</param>
+            <param name="FileContent">Obsah souboru</param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.OpenXML.Finalize">
+            <summary>
+            Uklidi docasny adresare, konec instance.
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.OpenXML.SetAttributeValue(System.Xml.XmlDocument,System.Xml.XmlNode,System.String,System.String,System.Boolean)">
+            <summary>
+            Nastavi hodnotu attribute, pokud neexistuje, pak jej prida
+            </summary>
+            <param name="node"></param>
+            <param name="attributeName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.OpenXML.CopyNode(System.Xml.XmlDocument,System.Xml.XmlNode)">
+            <summary>
+            Zkopiruje XmlNode do dokumentu.
+            </summary>
+            <param name="doc">Dokument, ve kterem se vytvori zkopirovany node.</param>
+            <param name="node">Node, ktery se kopiruje.</param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.OpenXML.CopyContentType(cz.ctgroup.OpenXML.OpenXML,System.String)">
+            <summary>
+            Zkopiruje Content Type element.
+            </summary>
+            <param name="docFrom">Dokument, ze ktereho se kopiruje,</param>
+            <param name="extension">Pripona, ktera se kopiruje.</param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.OpenXML.XmlDocSelectString(System.Xml.XmlDocument,System.String)">
+            <summary>
+            Vybere Value ze SingleNode pro XPath v XML.
+            </summary>
+            <param name="doc">XML</param>
+            <param name="xPath">Dotaz</param>
+            <returns>retezec</returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.OpenXML.XmlDocSelectSingleNode(System.Xml.XmlDocument,System.String)">
+            <summary>
+            Vybere SingleNode z XML pomoci XPath (bez nutnosti ns)
+            </summary>
+            <param name="doc">XML</param>
+            <param name="xPath">Dotaz</param>
+            <returns>Node</returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.OpenXML.XmlDocSelectSingleNodeNoCache(System.Xml.XmlDocument,System.String)">
+            <summary>
+            Vybere SingleNode z XML pomoci XPath (bez nutnosti ns)
+            </summary>
+            <param name="doc">XML</param>
+            <param name="xPath">Dotaz</param>
+            <returns>Node</returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.OpenXML.XmlDocDeleteSingleNode(System.Xml.XmlDocument,System.String)">
+            <summary>
+            Smaze node z XML pomoci XPath (bez nutnosti ns)
+            </summary>
+            <param name="doc">XML</param>
+            <param name="xPath">Dotaz</param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.OpenXML.XmlDocDeleteSingleNode(System.Xml.XmlDocument,System.Xml.XmlNode)">
+            <summary>
+            Smaze node z XML pomoci XPath (bez nutnosti ns)
+            </summary>
+            <param name="doc">XML</param>
+            <param name="node">uzel</param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.OpenXML.XmlDocSelectNodes(System.Xml.XmlDocument,System.String)">
+            <summary>
+            Vybere vice nodu z XML pomoci XPath
+            </summary>
+            <param name="doc">XML</param>
+            <param name="xPath">Dotaz</param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.OpenXML.XmlDocSelectNodes(System.Xml.XmlNode,System.String)">
+            <summary>
+            Vybere vice nodu z XML pomoci XPath
+            </summary>
+            <param name="nod">Nadrizeny uzel</param>
+            <param name="xPath">Dotaz</param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.OpenXML.XmlFile(System.String)">
+            <summary>
+            Vytvori XmlDocument ze zadaneho souboru uvnitr OpenXML archivu
+            </summary>
+            <param name="filename">Jmeno souboru</param>
+            <returns>XML</returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.OpenXML.WriteData">
+            <summary>
+            Metoda, volana jako prvni pri zavolani GetOpenXMLFile(). 
+            Tato metoda by mela obsahovat zapis vsech dat v XMLDokumentech do souboru
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.OpenXML.GetOpenXMLFile">
+            <summary>
+            Vraci OpenXML soubor. (Zapise [Content_Types].xml a zazipuje vsecky soubory)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.OpenXML.XmlDocWriteToFile(System.Xml.XmlDocument,System.String)">
+            <summary>
+            Zapise XMLDocument do souboru v OpenXML archivu
+            </summary>
+            <param name="doc">XML</param>
+            <param name="filename">jmeno souboru</param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.OpenXML.DeleteSingleFile(System.String)">
+            <summary>
+            Smaze soubor z OpenXML archivu.
+            </summary>
+            <param name="filename">jmeno souboru</param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.OpenXML.GetOpenXmlNs(System.Xml.XmlNameTable)">
+            <summary>
+            Metoda se vola pro ziskani vsech ns pouzitych ve zdedenych objektech. 
+            Jeji pouziti pak umoznuje nespecifikovat ns pri kazdem XPath dotazu.
+            </summary>
+            <param name="nt">NameTable</param>
+            <returns>Vsechny nameSpace</returns>
+        </member>
+        <member name="P:cz.ctgroup.OpenXML.OpenXML.SessionID">
+            <summary>
+            ID Session, ke ktere se vaze dany soubor.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.OpenXML.LibXLSX.DOCX.XdDocument">
+            <summary>
+            XML dokument - soubor word/document.xml s datovym obsahem wordovskeho dokumentu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.OpenXML.LibXLSX.DOCX.XdFooters">
+            <summary>
+            pole paticek stranek v dokumentu obsahu wordovskeho dokumentu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.OpenXML.LibXLSX.DOCX.XdHeaders">
+            <summary>
+            pole hlavicek stranek v dokumentu obsahu wordovskeho dokumentu.
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.TextToFooter(System.String,System.String)">
+            <summary>
+            Metoda v libovolnem zapati dokumentu nahradi umistovaci znacku danym textem.
+            </summary>
+            <param name="PlaceMark">Umistovaci znacka.</param>
+            <param name="NewText">Text vkladany misto znacky do zapati.</param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.SetParagraphStyle(System.String,System.String)">
+            <summary>
+            Nastavi jmeno odstavce
+            </summary>
+            <param name="PlaceMark"></param>
+            <param name="StyleName"></param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.SetParagraphPageBefore(System.Xml.XmlNode)">
+            <summary>
+            Nastavi odstrankovani pred vlastnim odstavcem
+            </summary>
+            <param name="xnPm"></param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.AddText(System.String,System.String[])">
+            <summary>
+            Vlozi text pred oznaceny text (Placemark)
+            Vkladany text je specifikovan polem retezcu
+            </summary>
+            <param name="PlaceMark"></param>
+            <param name="Text"></param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.AddText(System.String,cz.ctgroup.OpenXML.LibXLSX.DOCX.Paragraph[])">
+            <summary>
+            Stejna jako predchozi funkce, ale vkladany text je vlozen z odstavcu
+            pripravenych predem
+            </summary>
+            <param name="PlaceMark"></param>
+            <param name="Paragraphs"></param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.AddText(System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Vlozi text pred oznaceny text (Placemark) a umozni pro nej nastavit
+            priznaky italic, bold a underlying a jejich kombinace
+            </summary>
+            <param name="PlaceMark"></param>
+            <param name="text"></param>
+            <param name="italic"></param>
+            <param name="bold"></param>
+            <param name="underlying"></param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.AddText2(cz.ctgroup.OpenXML.LibXLSX.DOCX,System.String,cz.ctgroup.OpenXML.LibXLSX.DOCX.Paragraph2[])">
+            <summary>
+            Neukladaly se mi dobre texty s bold, italic, undreline priznaky a take se mi nezobrazovaly spravne
+            texty s formatovanym textem uvnitr odstavce. Po urcitem studiu ulozenych souboru z Wordu 2007 jsem
+            rozsiril Text strukturu o dalsi polozky. Puvodni funkcionalita je zachovana pomoci puvodnich funkci a 
+            datovych struktur. Rozsirene jsou podobne, ale maji navic nektere priznaky, ktere jsou doufam samovysvetlujici.
+            </summary>
+            <param name="PlaceMark"></param>
+            <param name="Paragraphs"></param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.AddText2(System.String,cz.ctgroup.OpenXML.LibXLSX.DOCX.Paragraph2[])">
+            <summary>
+            Neukladaly se mi dobre texty s bold, italic, undreline priznaky a take se mi nezobrazovaly spravne
+            texty s formatovanym textem uvnitr odstavce. Po urcitem studiu ulozenych souboru z Wordu 2007 jsem
+            rozsiril Text strukturu o dalsi polozky. Puvodni funkcionalita je zachovana pomoci puvodnich funkci a 
+            datovych struktur. Rozsirene jsou podobne, ale maji navic nektere priznaky, ktere jsou doufam samovysvetlujici.
+            </summary>
+            <param name="PlaceMark"></param>
+            <param name="Paragraphs"></param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.AddText2(System.String,System.String,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Ekvivalent funkce AddText se stejnymi parametry
+            </summary>
+            <param name="PlaceMark"></param>
+            <param name="text"></param>
+            <param name="italic"></param>
+            <param name="bold"></param>
+            <param name="underlying"></param>
+            <param name="preserveSpace"></param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.AddTable(System.String,System.String,System.Data.DataTable,System.Boolean)">
+            <summary>
+            Naplni tabulku z vlozene datove tabulky. Pri formatovani tabulky je pouzita sablona
+            (tabulka ulozena ve stejnem dokumentu). Ta musi mit tri radky. Prvni je pouzit pro formatovani
+            zahlavi tabulky. Druhy pak pro vsechny ostatni radky krome posledniho. Pro ten je pouzit format
+            ze tretiho radku tabulky
+            </summary>
+            <param name="TemplateName">Urcuje jmeno tabulky, ktera je pouzita jako sablona.</param>
+            <param name="PlaceMark"></param>
+            <param name="data"></param>
+            <param name="Header">True - pak v prvnim radku tabulky je ulozen radek titulku</param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.CreateTable(System.String,cz.ctgroup.LibOpenXML.DocxElement.Table)">
+            <summary>
+            Metoda vlozi pred specifikovanou umistovaci znacku do vytvareneho dokumentu Wordu specifikovanou tabulku.
+            </summary>
+            <param name="PlaceMark">Umistovaci znacka.</param>
+            <param name="oTable">Umistovana tabulka.</param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.CreateParagraph(System.String,cz.ctgroup.LibOpenXML.DocxElement.Paragraph)">
+            <summary>
+            Metoda vlozi pred specifikovanou umistovaci znacku do vytvareneho dokumentu Wordu specifikovany odstavec.
+            </summary>
+            <param name="PlaceMark">Umistovaci znacka.</param>
+            <param name="oParagraph">Vkladany odstavec.</param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.AddTableRow(System.String,System.String[],cz.ctgroup.OpenXML.LibXLSX.DOCX.CellBorder[],System.Boolean)">
+            <summary>
+            Prida radek tabulky do jiz existujici tabulky a naplni jednotlive sloupce textem.
+            </summary>
+            <param name="TemplateName"></param>
+            <param name="Texts"></param>
+            <param name="Borders"></param>
+            <param name="copyLastBorder"></param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.AddTableRowShade(System.String,System.String[],cz.ctgroup.OpenXML.LibXLSX.DOCX.CellBorder[],System.Boolean,System.String)">
+            <summary>
+            Stejna jako predchozi funkce. Navic dovoli nastavit barvu pozadi radku
+            </summary>
+            <param name="TemplateName"></param>
+            <param name="Texts"></param>
+            <param name="Borders"></param>
+            <param name="copyLastBorder"></param>
+            <param name="Shade"></param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.AddTableRow(System.String,System.String,System.String[],cz.ctgroup.OpenXML.LibXLSX.DOCX.CellBorder[],System.Boolean)">
+            <summary>
+            Podobna predchozi funkci, ale umozni pridat radek z jedne tabulky v dokumentu do jine tabulky v dokumentu
+            </summary>
+            <param name="TemplateName"></param>
+            <param name="InsertBeforeTemplate"></param>
+            <param name="Texts"></param>
+            <param name="Borders"></param>
+            <param name="copyLastBorder"></param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.AddTableRowShade(System.String,System.String,System.String[],cz.ctgroup.OpenXML.LibXLSX.DOCX.CellBorder[],System.Boolean,System.String)">
+            <summary>
+            Stejna jako predchozi, ale navim s moznosti specifikovat barvu pozadi radku
+            </summary>
+            <param name="TemplateName"></param>
+            <param name="InsertBeforeTemplate"></param>
+            <param name="Texts"></param>
+            <param name="Borders"></param>
+            <param name="copyLastBorder"></param>
+            <param name="Shade"></param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.SetCellBorder(System.Xml.XmlNode,System.String,cz.ctgroup.OpenXML.LibXLSX.DOCX.BorderStyle)">
+            <summary>
+            Nastavi ohraniceni bunky tabulky
+            </summary>
+            <param name="xeTcBorders"></param>
+            <param name="elem"></param>
+            <param name="style"></param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.SetRowShade(System.Xml.XmlNode,System.String)">
+            <summary>
+            Nastavi barvu pozadi radku tabulky
+            </summary>
+            <param name="xnRow"></param>
+            <param name="Shade"></param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.FindTableTemplate(System.String)">
+            <summary>
+            Nalezne tabulku obsahujici dany text (TemplateName) a vraci tag tabulky
+            </summary>
+            <param name="TemplateName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.DeleteTableTemplate(System.String)">
+            <summary>
+            Odstrani danou tabulku z dokumentu
+            </summary>
+            <param name="TemplateName"></param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.FindTableRowTemplate(System.String)">
+            <summary>
+            Nalezne radek tabulky obsahujici specificky text (TemplateName).
+            Vraci tag radku tabulky
+            </summary>
+            <param name="TemplateName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.GetTableRowTemplates(System.String)">
+            <summary>
+            Vraci seznam vsech prvnich textu v tabulce obsahujici specificky text (RowTemplateName)
+            </summary>
+            <param name="RowTemplateName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.TableRowTemplateExists(System.String)">
+            <summary>
+            Testuje zda existuje v dokumentu radek s danym textem (TemplateName). Vraci
+            True, pokud je nalezen. False v opacnem pripade.
+            </summary>
+            <param name="TemplateName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.TableRowTemplateParentNode(System.String)">
+            <summary>
+            Vraci rodicovsky tag specifickeho radku v tabulce
+            </summary>
+            <param name="TemplateName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.DeleteTableRowTemplate(System.String)">
+            <summary>
+            Odstrani radek se specifickym textem (TemplateName) z dokumentu
+            </summary>
+            <param name="TemplateName"></param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.CheckBookmarks(System.String[])">
+            <summary>
+            Vraci true pokud nalezne vsechny zalozky uvedene v poli names. Jinak vraci false.
+            </summary>
+            <param name="names"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.GetBookmarkNodes(System.String)">
+            <summary>
+            Vraci vsechny tagy v dane zalozce. Zalozka musi zacinat odstavcem. Tag odstavce vsak
+            vracen neni. Jsou vraceny az vsechny tagy nasledujici za prvnim odstavcem.
+            </summary>
+            <param name="bookmarkName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.RemoveBookmarkNodes(System.String)">
+            <summary>
+            Vymaze danou zalozku a vsechny jeji vnitrni tagy
+            </summary>
+            <param name="bookmarkName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.InsertBeforePlacemark(cz.ctgroup.OpenXML.LibXLSX.DOCX,System.String,System.String)">
+            <summary>
+            Kopiruje vsechny tagy z dokumentu sablony do aktualniho dokumentu. Tagy jsou umisteny
+            pred specificky text (placemark). 
+            </summary>
+            <param name="docBookmark">Je trida dokumentu sablony</param>
+            <param name="bookmark">Jmeno zalozky, jejichz obsah je prekopirovan</param>
+            <param name="placemark">Text pred, ktery jsou tagy umisteny</param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.InsertImage(cz.ctgroup.OpenXML.LibXLSX.DOCX,System.String,System.String,System.Byte[])">
+            <summary>
+            Okopiruje obrazek, ale vlozi do nej externi data, tj. okopiruje atributy obrazku ale puvodni
+            data nahradi daty novymi.
+            </summary>
+            <param name="DocBookmark"></param>
+            <param name="Bookmark"></param>
+            <param name="placemark"></param>
+            <param name="imageData"></param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.InsertImage(System.String,System.String,System.Byte[])">
+            <summary>
+            Okopiruje obrazek, ale vlozi do nej externi data, tj. okopiruje atributy obrazku ale puvodni
+            data nahradi daty novymi.
+            </summary>
+            <param name="Bookmark"></param>
+            <param name="placemark"></param>
+            <param name="imageData"></param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.InsertImage(cz.ctgroup.OpenXML.LibXLSX.DOCX,System.String,System.String,System.Byte[],System.Double,System.Double)">
+            <summary>
+            Podobne jako predchozi pripad, ale navic umozni zadat sirku a vysku obrazku v cm
+            </summary>
+            <param name="DocBookmark"></param>
+            <param name="Bookmark"></param>
+            <param name="placemark"></param>
+            <param name="imageData"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.InsertImage(System.String,System.String,System.Byte[],System.Double,System.Double)">
+            <summary>
+            Podobne jako predchozi pripad, ale navic umozni zadat sirku a vysku obrazku v cm
+            </summary>
+            <param name="Bookmark"></param>
+            <param name="placemark"></param>
+            <param name="imageData"></param>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.CopyImage(cz.ctgroup.OpenXML.LibXLSX.DOCX,System.String,System.Byte[])">
+            <summary>
+            Prekopiruje obrazek z dokumentu sablony, ale nahradi data v obrazku daty novymi
+            </summary>
+            <param name="docFrom"></param>
+            <param name="IdRel"></param>
+            <param name="imgData"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.CopyImage(cz.ctgroup.OpenXML.LibXLSX.DOCX,System.String)">
+            <summary>
+            Prekopiruje obrazek z dokumentu sablony. Vraci nove Id obrazku.
+            Obrazek je specifikovan odkazem IdRel. Funkce je pouzivana InsertBeforePlacemark funkci.
+            </summary>
+            <param name="docFrom"></param>
+            <param name="IdRel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.CopyHyperlink(cz.ctgroup.OpenXML.LibXLSX.DOCX,System.String)">
+            <summary>
+            Prekopiruje odkaz z dokumentu sablony.  Funkce je pouzivana InsertBeforePlacemark funkci.
+            </summary>
+            <param name="docFrom"></param>
+            <param name="IdRel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.CopyFootnote(cz.ctgroup.OpenXML.LibXLSX.DOCX,System.String)">
+            <summary>
+            Prekopiruje informace o poznamce pod carou.  Funkce je pouzivana InsertBeforePlacemark funkci.
+            </summary>
+            <param name="docFrom"></param>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.CopyOLEObject(cz.ctgroup.OpenXML.LibXLSX.DOCX,System.String)">
+            <summary>
+            Obsolete - not used.  Funkce je pouzivana InsertBeforePlacemark funkci.
+            </summary>
+            <param name="docFrom"></param>
+            <param name="IdRel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.GetFileContent(System.String)">
+            <summary>
+            Nacte obsah souboru a vraci jeho obsah.
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.SaveFileContent(System.String,System.String,System.Byte[])">
+            <summary>
+            Zapise data do souboru.
+            </summary>
+            <param name="name"></param>
+            <param name="wordSubfolder"></param>
+            <param name="data"></param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.DOCX.AddWordRel(System.String,System.String,System.String)">
+            <summary>
+            Prida odkaz zadaneho typu s cile.
+            </summary>
+            <param name="id"></param>
+            <param name="type"></param>
+            <param name="target"></param>
+        </member>
+        <member name="P:cz.ctgroup.OpenXML.LibXLSX.DOCX.RootWordRels">
+            <summary>
+            Datove uloziste pro word/_rels/document.xml.rels
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.OpenXML.LibXLSX.DOCX.RootFooterWordRels">
+            <summary>
+            Datove uloziste pro word/_rels/footnotes.xml.rels
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.OpenXML.LibXLSX.DOCX.RootWordFootnotes">
+            <summary>
+            Datove uloziste pro word/footnotes.xml
+            </summary>
+        </member>
+        <member name="T:cz.ctgroup.OpenXML.LibXLSX.DOCX.Text2">
+            <summary>
+            Text2 rozsiruje puvodni Text o dalsi priznaky
+            </summary>
+        </member>
+        <member name="T:cz.ctgroup.OpenXML.LibXLSX.DOCX.Row2">
+            <summary>
+            Obsahuje radek rozsirenych textu
+            </summary>
+        </member>
+        <member name="T:cz.ctgroup.OpenXML.LibXLSX.DOCX.Paragraph2">
+            <summary>
+            Obsahuje paragraf rozsirenych textu
+            </summary>
+        </member>
+        <member name="T:cz.ctgroup.LibOpenXML.DocxElement.DataFieldText">
+            <summary>
+            Trida reprezentujici datove pole formulare ve Wordu.
+            </summary>
+        </member>
+        <member name="T:cz.ctgroup.LibOpenXML.DocxElement.WordElementBase">
+            <summary>
+            Trida spolecnych funkcnosti pro vsechny pouzivane elementy dokumentu MS Wordu.
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.WordElementBase.GetPercentValue(System.Int32)">
+            <summary>
+            Provede prepocet danych procent na sirku pro MS Word vyjadrujici tato procenta.
+            </summary>
+            <param name="intPercent">Procentualni sirka.</param>
+            <returns>Vysledna sirka v jednotkach MS Wordu.</returns>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.WordElementBase.GetWordFontWidth(System.Int32)">
+            <summary>
+            Metoda prevede vysku fontu v pixelech do jednotek Wordu.
+            </summary>
+            <param name="FontPixelWidth">Vyska fontu v pixelech</param>
+            <returns>Retezev vysky fontu v jednotkach Wordu.</returns>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.WordElementBase.GetWordHorizontalAlignment(cz.ctgroup.LibOpenXML.DocxElement.HorizontalAlignmentType)">
+            <summary>
+            Metoda prevede specifikovany zpusob zarovnani na definici MS Wordu.
+            </summary>
+            <param name="VAlignType">Horizontalni zarovnani k prevodu.</param>
+            <returns>Textove vyjadreni horizontalniho zarovnani dle pozadavku Wordu.</returns>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.WordElementBase.GetWordUnitValue(System.Int32)">
+            <summary>
+            Provede prepocet dane hodnoty v pixelech na rozmerove jednotky Wordu pro tloustky ruznych elementu.
+            </summary>
+            <param name="Pixels">Rozmer v pixelech.</param>
+            <returns>Vraci rozmer v jednotkach Wordu.</returns>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.WordElementBase.GetWordVerticalAlignment(cz.ctgroup.LibOpenXML.DocxElement.VerticalAlignmentType)">
+            <summary>
+            Metoda prevede specifikovany zpusob zarovnani na definici MS Wordu.
+            </summary>
+            <param name="VAlignType">Vertikalni zarovnani k prevodu.</param>
+            <returns>Textove vyjadreni vertikalniho zarovnani dle pozadavku Wordu.</returns>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.WordElementBase.SetAttributesForBorderNode(System.Xml.XmlNode@,System.Xml.XmlDocument,System.String,System.String,System.Int32,System.Int32)">
+            <summary>
+            Procedura nastavi hodnoty atributu pro specifikovany nod ohraniceni.
+            </summary>
+            <param name="oBorderNode">Objekt nodu ohraniceni.</param>
+            <param name="oXMLDocument">Objekt XML dokumentu, v nemz se data generuji.</param>
+            <param name="Color">Barva ohraniceni.</param>
+            <param name="Value">Hodnota ohraniceni</param>
+            <param name="PixelsSize">Velikost ohraniceni v pixelech.</param>
+            <param name="PixelsSpace">Mezera v pixelech u ohraniceni.</param>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.DataFieldText.BookmarkEndNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni konce zalozky v dokumentu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.DataFieldText.BookmarkStartNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni zacatku zalozky v dokumentu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.DataFieldText.CalculateOnExitNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni specifikace zmen hodnot v datovych polich dokumentu, kdyz je aktualni datove pole opusteno kurzorem.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.DataFieldText.DefaultNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni defaultni hodnoty zobrazovane v textovem poli.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.DataFieldText.EnabledNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni dostupnosti obsahu datoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.DataFieldText.FieldCharacterNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni pole znaku.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.DataFieldText.FieldCharacterTypeAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci typu pole znaku.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.DataFieldText.FormFieldDataNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni datoveho pole formulare.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.DataFieldText.IdAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci identifikatoru elementu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.DataFieldText.InStringNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni 
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.DataFieldText.NameAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci jmena elementu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.DataFieldText.NameNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni jmena datoveho pole ve formulari Word.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.DataFieldText.NoProofNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni 
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.DataFieldText.SpaceAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci vplneni prostoru obsahu nodu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.DataFieldText.TextInputNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni hodnoty vlozene do datoveho textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.DataFieldText.ValueAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci zakldani hodnoty prislusneho XML uzlu.
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.DataFieldText.#ctor">
+            <summary>
+            Konstruktor vytvori objekt a nastavi pocatecni hodnoty internich promennych a vlastnosti.
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.DataFieldText.CreateWordDataFieldTextNode(System.Xml.XmlDocument,System.Xml.XmlNode@)">
+            <summary>
+            Metoda naplni specifikovany rodicovsky nod odstavce strukturou XML nodu datoveho pole textu.
+            </summary>
+            <param name="XMLDocumentObject">Objekt XML dokumentu, ktery se generuje.</param>
+            <param name="ParagraphNode">Objekt rodicovskeho nodu pdstavce.</param>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.DataFieldText.DocumentItemId">
+            <summary>
+            Vraci a nastavuje ID polozky dokumentu, k nemuz reprezentovane datove pole patri.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.DataFieldText.Id">
+            <summary>
+            Vraci a nastavuje jedinecne Id datoveho pole.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.DataFieldText.Name">
+            <summary>
+            Vraci a nastavuje jmeno datoveho pole.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.DataFieldText.Text">
+            <summary>
+            Vraci a nastavuje text, ktery se ma do datoveho textoveho pole vlozit defaultne.
+            </summary>
+        </member>
+        <member name="T:cz.ctgroup.LibOpenXML.DocxElement.Paragraph">
+            <summary>
+            Trida pro reprezentaci jednoho odstavce ve Wordu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.AlignParagraphNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni zarovnani odstavce v bunce.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.BoldNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni specifikace tucneho textu ve vybrane casti odstavce.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.ContentParagraphNode">
+            <summary>
+            Nazev nodu XML Wordoveho dokumentu pro zapouzdreni dat obsahu jednoho odstavce.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.ContentRowNode">
+            <summary>
+            Nazev nodu XML Wordoveho dokumentu pro zapouzdreni dat obsahu jednoho radku uvnitr odstavce.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.ContentRowPropertyNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro zadani parametru textove radky v odstavci.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.ContentTextNode">
+            <summary>
+            Nazev nodu XML Wordoveho dokumentu pro zapouzdreni dat obsahu jednoho textu uvnitr radku v odstavci.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.ItalicNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni specifikace textu zapsaneho kurzivou ve vybrane casti odstavce.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.KeepNextNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro specifikaci vlastnosti odstavce, ze je svazany s nasledujicim.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.ParagraphPropertyNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro zadani vlastnosti odstavce.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.ParagraphStyleNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro urceni stylu pouziteho v odstavci.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.SizeCsNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro zadani velikosti CS znaku.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.SizeNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro zadani velikosti znaku fontu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.UnderlineNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni specifikace podtrzeneho textu ve vybrane casti odstavce.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.BreakNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni zlomu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.PageAttributeValue">
+            <summary>
+            Hodnota atributu pro zalomeni stranky.
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.#ctor">
+            <summary>
+            Konstruktor vytvori objekt a nastavi pocatecni hodnoty internich promennych a valstnosti.
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.CreateWordParagraphNode(System.Xml.XmlDocument)">
+            <summary>
+            Metoda vytvori objekt XML nodu odstavce reprezentovaneho timto objektem.
+            </summary>
+            <param name="XMLDocumentObject">Objekt XML dokumentu, do nejz se generovani provadi.</param>
+            <returns>Objekt XML nodu odstavce.</returns>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.GetTexts">
+            <summary>
+            Procedura rozdeli text odstavce na mensi pripadne formatovane casti dle stylu a pisma.
+            </summary>
+            <returns>Seznam textu vkladanych do radku.</returns>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.Bold">
+            <summary>
+            Vraci a nastavuje specifikaci, zda cely text odstavce je tucnym pismem.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.DataFields">
+            <summary>
+            Vraci a nastavuje seznam datovych poli v odstavci.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.DocumentItemId">
+            <summary>
+            Vraci a nastavuje ID polozky dokumentu, k nemuz reprezentovane datove pole patri.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.FontSize">
+            <summary>
+            Vraci a nastavuje vysku fontu pouziteho v bunce.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.HorizontalAlignment">
+            <summary>
+            Vraci a nastavuje zpusob horizontalniho zarovani obsahu bunky tabulky.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.Italic">
+            <summary>
+            Vraci a nastavuje specifikaci, zda cely text odstavce je pismem typu kurziva.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.KeepNext">
+            <summary>
+            Vraci a nastavuje, zda reprezentovany odstavec je svazan s nasledujicim.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.ParagraphStyle">
+            <summary>
+            Vraci a nastavuje styl, ktery se ma pro odstavec pouzit.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.Text">
+            <summary>
+            Vraci a nastavuje vlastni text odstavce.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.TextFields">
+            <summary>
+            Vraci a nastavuje kolekci textovych poli pro jejich pripadne umisteni do odstavce.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.Paragraph.Underline">
+            <summary>
+            Vraci a nastavuje specifikaci, zda cely text odstavce je podtrzeny.
+            </summary>
+        </member>
+        <member name="T:cz.ctgroup.LibOpenXML.DocxElement.Table">
+            <summary>
+            Trida pro reprezentaci objektu elementu libovolne tabulky pro vkladani do DOCX dokumentu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Table.Auto">
+            <summary>
+            Oznaceni automaticke hodnoty ve Wordu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Table.BorderBottomNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ohraniceni tabulky zdola.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Table.BorderInsideHorizontalNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro vodorovne cary mezi bunkami uvnitr tabulky.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Table.BorderInsideVerticalNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro svisle cary mezi bunkami uvnitr tabulky.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Table.BorderLeftNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ohraniceni tabulky zleva.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Table.BorderRightNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ohraniceni tabulky zprava.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Table.BordersNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ohraniceni a rozdeleni tabulky carami.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Table.BorderTopNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro udaje o ohraniceni tabulky shora.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Table.ColorAttribute">
+            <summary>
+            Nazev atributu pro ulozeni hodnoty barvy v nejakem nodu ve strukture tabulky.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Table.DTX">
+            <summary>
+            Oznaceni typu jednotky centimetru pri specifikaci rozmeru.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Table.GridColumnNode">
+            <summary>
+            azev nodu v XML Wordoveho dokumentu pro udaje o sloupci gridu tabulky.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Table.GridNode">
+            <summary>
+            azev nodu v XML Wordoveho dokumentu pro udaje o gridu tabulky.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Table.None">
+            <summary>
+            Specifikace zadne hodnoty ve Wordu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Table.Percent">
+            <summary>
+            Oznaceni jednotky procent jako typu jednotky pro urceni sirky tabulky.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Table.Single">
+            <summary>
+            Oznaceni jednoduche plne cary ohraniceni tabulky ci jeji bunky.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Table.SizeAttribute">
+            <summary>
+            Nazev atributu pro ulozeni udaje o velikosti v nejakem nodu ve strukture tabulky.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Table.SpaceAttribute">
+            <summary>
+            Nazev atributu pro ulozeni udaje o miste v nejakem nodu ve strukture tabulky.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Table.TableNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro zapouzdreni dat obsahu tabulky.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Table.TablePropertyNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro data vzhledovych vlastnosti tabulky.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Table.TableWidthNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro zadani udaju o sirce tabulky.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Table.ValueAttribute">
+            <summary>
+            Nazev atributu pro ulozeni hlavni hodnoty v nejakem nodu ve strukture tabulky.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Table.WidthTypeAttribute">
+            <summary>
+            Nazev atributu pro ulozeni typu jednotky sirky tabulky.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.Table.WidthValueAttribute">
+            <summary>
+            Nazev atributu pro ulozeni hodnoty vlastni sirky tabulky.
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.Table.AddRow(cz.ctgroup.LibOpenXML.DocxElement.TableRow)">
+            <summary>
+            Metoda prida do tabulky specifikovany radek.
+            </summary>
+            <param name="ActualRow">Objekt radku pridavany do tabulky.</param>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.Table.CheckFormatAndContent">
+            <summary>
+            Metoda provede kontrolu zadanych udaju u reprezentovane tabulce, aby mela smysluplny obsah i format jednotlivych soucasti.
+            </summary>
+            <returns>Vraci True - je-li obsah i formatovani tabulky vporadku, jinak False.</returns>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.Table.CreateWordTableNode(System.Xml.XmlDocument)">
+            <summary>
+            Metoda vygeneruje XML nod datoveho obsahu ve formatu tabulky pro MS Word v souboru word/document.xml.
+            </summary>
+            <param name="XMLDocumentObject">XML objekt dokumentu pouzivany pro vytvoreni XML nodu.</param>
+            <returns>Vraci objekt XML nodu.</returns>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.Table.SetAttributesForTableBorderNode(System.Xml.XmlNode@,System.Xml.XmlDocument)">
+            <summary>
+            Procedura nastavi hodnoty atributu pro specifikovany nod ohraniceni tabulky.
+            </summary>
+            <param name="oBorderNode">Objekt nodu ohraniceni tabulky.</param>
+            <param name="oXMLDocument">Objekt XML dokumentu, v nemz se data generuji.</param>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.Table.Border">
+            <summary>
+            Vraci a nastavuje sirku okraje pouzitou v cele tabulce.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.Table.ColumnCount">
+            <summary>
+            Vraci a nastavuje definovany pozadovany pocet sloupcu v tabulce. Nemusi odpovidat poctu bunek ve vsech radcich, ale v zadnem radku nema byt vyssi pocet bunek.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.Table.ColumnWidthsInPercent">
+            <summary>
+            Definice sirek jednotlivych sloupcu tabulky v procentech z celkove sirky tabulky.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.Table.DataFields">
+            <summary>
+            Vraci a nastavuje seznam datovych poli pro pouziti v ramci objektu radku tabulky.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.Table.DocumentItemId">
+            <summary>
+            Vraci a nastavuje ID polozky dokumentu, k nemuz reprezentovana tabulka patri.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.Table.KeepTogether">
+            <summary>
+            Vraci a nastavuje, zda maji vsechny radky tabulky byt spojeny na jedne strance.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.Table.RowCount">
+            <summary>
+            Vraci a nastavuje definovany pocet radku tabulky (mel by odpovidat skutecnemu).
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.Table.SpaceAfter">
+            <summary>
+            Vraci a nastavuje mezeru pred tabulkou v pixelech.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.Table.SpaceBefore">
+            <summary>
+            Vraci a nastavuje mezeru za tabulkou v pixelech.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.Table.TextFields">
+            <summary>
+            Vraci a nastavuje seznam textovych poli pouzivany uvnitr tabulky.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.Table.Width">
+            <summary>
+            Vraci a nastavuje sirku tabulky v procentech vzhledem ke strance.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.Table.Rows">
+            <summary>
+            Vraci seznam radku tabulky.
+            </summary>
+        </member>
+        <member name="T:cz.ctgroup.LibOpenXML.DocxElement.TableCell">
+            <summary>
+            Trida reprezentujici jednu bunku elementu tabulky pro DOCX.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TableCell.BordersNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni udaju o ohraniceni bunky v tabulce.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TableCell.CellNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro zapouzdreni dat obsahu jedne bunky tabulky.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TableCell.CellPropertyNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro specifikaci formatovacich vlastnosti bunky tabulky.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TableCell.ColSpanAttribute">
+            <summary>
+            Nazev atributu s poctem sloucenych sloupcu v bunce.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TableCell.GridSpanNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro specifikaci slouceni bunek tabulky v dane bunce tabulky.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TableCell.PaddingCellNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro specifikaci okraje bunky tabulky.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TableCell.VAlignNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro specifikaci vertikalniho zarovnani obsahu bunky.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TableCell.WidthNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro specifikaci sirky bunky v tabulce. (Ostatni nazvy shodne s tabulkou.)
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.TableCell.#ctor">
+            <summary>
+            Konstruktor vytvori objekt a nastavi pocatecni hodnoty internich promennych a vlastnosti.
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.TableCell.CheckFormatAndContent">
+            <summary>
+            Metoda provede kontrolu zadanych udaju v reprezentovane bunce tabulky, aby mela smysluplny obsah i format jednotlivych soucasti.
+            </summary>
+            <returns>Vraci True - je-li obsah i formatovani bunky tabulky v poradku, jinak False.</returns>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.TableCell.CreateWordTableCellNode(System.Xml.XmlDocument)">
+            <summary>
+            Metoda vygeneruje XML nod datoveho obsahu ve formatu bunky tabulky pro MS Word v souboru word/document.xml.
+            </summary>
+            <param name="XMLDocumentObject">XML objekt dokumentu pouzivany pro vytvoreni XML nodu.</param>
+            <returns>Vraci objekt XML nodu.</returns>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.TableCell.SetAttributesForTableCellBorderNode(System.Xml.XmlNode@,System.Xml.XmlDocument,System.Int32)">
+            <summary>
+            Procedura nastavi hodnoty atributu pro specifikovany nod ohraniceni bunky tabulky.
+            </summary>
+            <param name="oBorderNode">Objekt nodu ohraniceni bunky tabulky.</param>
+            <param name="oXMLDocument">Objekt XML dokumentu, v nemz se data generuji.</param>
+            <param name="intBorder">Sirka prislusneho ohraniceni.</param>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.TableCell.SetAttributesForTableCellPaddingNode(System.Xml.XmlNode@,System.Xml.XmlDocument,System.Int32)">
+            <summary>
+            Procedura nastavi hodnoty atributu pro specifikovany nod tabulky.
+            </summary>
+            <param name="oPaddingNode">Nod vnitrniho okraje bunky.</param>
+            <param name="oXMLDocument">Objekt XML dokumentu, v nemz se data generuji.</param>
+            <param name="intPadding">Velikost okraje mezi ohranicenim a textem v pixelech.</param>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TableCell.BackgroundColor">
+            <summary>
+            Vraci a nastavuje barvu pozadi bunky v tabulce.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TableCell.BorderWidthBottom">
+            <summary>
+            Vraci a nastavuje sirku ohraniceni bunky dole.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TableCell.BorderWidthLeft">
+            <summary>
+            Vraci a nastavuje sirku ohraniceni bunky vlevo.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TableCell.BorderWidthRight">
+            <summary>
+            Vraci a nastavuje sirku ohraniceni bunky vpravo.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TableCell.BorderWidthTop">
+            <summary>
+            Vraci a nastavuje sirku ohraniceni bunky nahore.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TableCell.ColSpan">
+            <summary>
+            Vraci a nastavuje pres kolik sloupcu tabulky je bunka roztazena.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TableCell.ContentParagraph">
+            <summary>
+            Vraci odstavec tvorici datovy obsah bunky v tabulce.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TableCell.DataFields">
+            <summary>
+            Vraci a nastavuje seznam datovych poli uvnitr bunky tabulky.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TableCell.DocumentItemId">
+            <summary>
+            Vraci a nastavuje ID polozky dokumentu, k nemuz reprezentovana bunka tabulky patri.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TableCell.Height">
+            <summary>
+            Vraci a nastavuje pevne danou vysku bunky, nebo 0, neni-li nastaveno.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TableCell.PaddingBottom">
+            <summary>
+            Vraci a nastavuje sirku vnitrniho okraje bunky mezi obsahem bunky a ohranicenim pri dolnim okraji.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TableCell.PaddingLeft">
+            <summary>
+            Vraci a nastavuje sirku vnitrniho okraje bunky mezi obsahem bunky a ohranicenim pri levem okraji.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TableCell.PaddingRight">
+            <summary>
+            Vraci a nastavuje sirku vnitrniho okraje bunky mezi obsahem bunky a ohranicenim pri pravem okraji.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TableCell.PaddingTop">
+            <summary>
+            Vraci a nastavuje sirku vnitrniho okraje bunky mezi obsahem bunky a ohranicenim pri hornim okraji.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TableCell.TextFields">
+            <summary>
+            Vracio a nastavuje seznam textovych poli uvnitr bunky tabulky.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TableCell.VerticalAlignment">
+            <summary>
+            Vraci a nastavuje zpusob vertikalniho zarovnani obsahu bunky tabulky.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TableCell.ParentRow">
+            <summary>
+            Vraci a nastavuje rodicovsky radek, do nejz bunka patri.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TableCell.ParentTable">
+            <summary>
+            Vraci a nastavuje rodicovskou tabulku, do niz radek patri.
+            </summary>
+        </member>
+        <member name="T:cz.ctgroup.LibOpenXML.DocxElement.TableRow">
+            <summary>
+            Trida reprezentujici jeden radek elementu tabulky pro DOCX.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TableRow.RowNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro zapouzdreni dat obsahu jednoho radku tabulky.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TableRow.RowHeightNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro specifikaci vysky radku v jednotkach wordu (tj. 1440 na palec).
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TableRow.RowPropertyNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro parametry radku.
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.TableRow.#ctor">
+            <summary>
+            Konstruktor vytvori objekt a nastavi pocatecni hodnoty internich promennych a vlastnosti.
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.TableRow.AddCell(cz.ctgroup.LibOpenXML.DocxElement.TableCell)">
+            <summary>
+            Metoda prida bunku do radku tabulky.
+            </summary>
+            <param name="ActualCell">Objekt pridavane bunky.</param>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.TableRow.CheckFormatAndContent">
+            <summary>
+            Metoda provede kontrolu zadanych udaju v reprezentovanem radku tabulky, aby mela smysluplny obsah i format jednotlivych soucasti.
+            </summary>
+            <returns>Vraci True - je-li obsah i formatovani radku tabulky v poradku, jinak False.</returns>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.TableRow.CreateWordTableRowNode(System.Xml.XmlDocument)">
+            <summary>
+            Metoda vygeneruje XML nod datoveho obsahu ve formatu radku tabulky pro MS Word v souboru word/document.xml.
+            </summary>
+            <param name="XMLDocumentObject">XML objekt dokumentu pouzivany pro vytvoreni XML nodu.</param>
+            <returns>Vraci objekt XML nodu.</returns>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.TableRow.GetCellWidthInPercent(cz.ctgroup.LibOpenXML.DocxElement.TableCell)">
+            <summary>
+            Metoda zjisti sirku pozadovanou pro specifikovanou bunku v radku s ohledem na sloucene bunky.
+            </summary>
+            <param name="ActualCell">Bunka tabulky, jejiz sirka se hleda.</param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.TableRow.GetHeight">
+            <summary>
+            Prcoedura zjisti pozadovanou nejmensi vysku radku v pixelech.
+            </summary>
+            <returns>Vraci vysku v pixelech, ci 0 neni/li nastaveno.</returns>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TableRow.DataFields">
+            <summary>
+            Vraci a nastavuje seznam datovych poli pro pouziti v ramci objektu radku tabulky.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TableRow.DocumentItemId">
+            <summary>
+            Vraci a nastavuje ID polozky dokumentu, k nemuz reprezentovany radek tabulky patri.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TableRow.TextFields">
+            <summary>
+            Vraci a nastavuje seznam textovych poli pro pouziti v ramci objektu radku tabulky.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TableRow.ContactWithNext">
+            <summary>
+            Vraci a nastavuje, zda ma byt tento radek tabulky svazan s nasledujicim tak, aby oba byly v dokumentu Wordu na jedne strance.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TableRow.Cells">
+            <summary>
+            Vraci a nastavuje seznam bunek tabulky v MS Wordu v reprezentovanem radku.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TableRow.ParentTable">
+            <summary>
+            Vraci a nastavuje rodicovskou tabulku, do niz radek patri.
+            </summary>
+        </member>
+        <member name="T:cz.ctgroup.LibOpenXML.DocxElement.TextField">
+            <summary>
+            Trida reprezentujici textove pole vkladane do dokumentu Wordu. Pole ma predvyplneny specifikovany text v jednom odstavci.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.AdjustValueListNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni seznamu opravnych hodnot.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.AlignNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni udaje o zpusobu zarovnani elementu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.AllowOverlapAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci prekryvani textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.AlternateContentNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni vsech udaju textoveho pole jako alternativniho obsahu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.AnchorAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci ukotveni tela textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.AnchorControlAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci prvku k ukotveni tela textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.AnchorNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni zpusobu ukotveni textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.AnchoryAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.BAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci efektu spojenych s ohranicenim u dolniho okraje.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.BehindDocAttribute">
+            <summary>
+            Nazev atributu XML nodu pro nastaveni co bude za textovym polem.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.BlackWhiteModeAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci nastaveni cernobileho modu textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.BottomInsideAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci vnitniho oddeleni tela a ohraniceni textoveho pole z dola.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.CameraNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni o kamere pro nahled 3D efektu nad textovym polem.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.ChoiceNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni vybranych udaju textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.ConnectTypeAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci typu spojeni textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.CoordinateSizeAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci velikosti souradnicoveho systemu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.CXAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci rozlohy textoveho pole ve vodorovnem smeru.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.CYAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci rozlohy textoveho pole ve svislem smeru.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.DirectionAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci smeru nasviceni textoveho pole pro 3D efekty.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.DistanceBAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci vzdalenosti mezi spodnim okrajem a obsahem textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.DistanceLAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci vzdalenosti mezi levym okrajem a obsahem textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.DistanceRAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci vzdalenosti mezi pravym okrajem a obsahem textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.DistanceTAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci vzdalenosti mezi hornim okrajem a obsahem textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.DocumentPropertyNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni identifikacnich udaju a vlastnosti elementu v ramci dokumentu Word.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.DrawingNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni specifikace vykresleni textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.EffectExtentNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni ohraniceni rozlohy elementu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.ExtentNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni rozlohy elementu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.ExtentsNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni rozlohy dokumentu v jeho grafickych udajich.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.FallbackNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni zaloznich udaju textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.FillColorArrtibute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci barvy vyplne.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.GradientShapeOkAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci gradientu ohranceni.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.GraphicDataNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni kompletnich dat o graficke podobe textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.GraphicFrameLocksNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni specifikace uzamceni grafickeho vzhledu elementu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.GraphicFramePropertyNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni specifikace grafickych vlastnosti ramecku elementu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.GraphicNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni kompletnich grafickych udaju o textovem poli v dokumentu Wordu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.HeadEndNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni udaju o konci hlavicky textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.IdAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci ID elementu v XML Wordu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.InsetAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci vnitrniho usporadani okraju textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.JoinStyleAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci stylu svazani textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.LAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci efektu souvisejicich s ohranicenim na levek okraji textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.LayoutInCellAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci usporadani obsahu v bunce textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.LeftInsideAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci vnitniho oddeleni tela a ohraniceni textoveho pole zleva.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.LightRigNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni udaju o nasviceni textoveho pole pro promitnuti 3D efektu v jeho zobrazeni.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.LimitAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci omezeni =
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.LockedAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci uzamceni textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.LuminanceModulationNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni udaju o uprave nasviceni textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.MiterNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni zpusobu orezavani udaju kolem textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.NameAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci jmena elementu v textu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.NoAutoFitNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni specifikace automatickeho neorezavani.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.NoChangeArrowheadsAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci nastaveni nemennosti umisteni.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.NoFillNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni specifikace nevyplnovani okoli textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.NonvisualSpacePropertyNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni udaju neviditelnych vlastnosti ohraniceni textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.OffsetNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni ofsetovych udaju transformace ohraniceni textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.OutlineNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni udaju o okoli textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.PathAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.PathNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni ohraniceni textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.PercentHeightNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni procentualni vysky elementu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.PercentWidthNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni procentualni sirky elementu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.PictNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni zaloznich udaju textoveho pole jako obrazku, na principu obrazku.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.PositionHNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni pozice elementu v horizontalnim smeru.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.PositionVNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni pozice elementu ve vertikalnim smeru.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.PresetGeometryNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni udajo o prednastavenem vzhledu geometrickeho utvaru znazornujiciho textove pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.PresetAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci prednastaveneho formatu textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.RAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci efektu souvisejicich s ohranicenim na pravem okraji textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.RelativeFromAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci relativniho umisteni textoveho pole vzhledem k nejake entite v dokumentu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.RelativeHeightAttribute">
+            <summary>
+            Nazev atributu XML nodu pro relativni vysku.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.RequiresAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci pozadovaneho jmenneho prostoru v XML dokumentu pro dany nod.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.RigAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci umisteni nasviceni textoveho pole pro 3D efekty.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.RightInsideAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci vnitniho oddeleni tela a ohraniceni textoveho pole zprava.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.RotationAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci rotace tela textove zpravy.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.Scene3DTypeNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni vsech udaju pro zajisteni 3D efektu ve vzhledu textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.SchemeColorNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni barevneho schematu vyplne textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.Shape3DTypeNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni udaju o typu 3D obrazce znazornujiciho textove pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.ShapeNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni udaju obsahu utvaru textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.ShapeTypeNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni udaju typu a vlastnosti utvaru textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.SimplePositionNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni specifikace jdnoducheho pozicovani elementu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.SizeRelativeHNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni relativni velikosti elementu v horizontalnim smeru.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.ShapeLocksNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni uzamcenosti ohraniceni textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.ShapePropertiesNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni komplexnich udaju o ohraniceni textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.SizeRelativeVNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni relativni velikosti elementu ve vertikalnim smeru.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.SolidFillNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni udaju o vnitrnim vyplneni textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.SpidAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.SptAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.StrokedAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.StrokeNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni seriznuti ohraniceni textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.StrokeWeightAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.StyleAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci stylu pro reprezentovany element.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.TailEndNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni zakonceni textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.TAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci efektu souvisejicich s ohranicenim na hornim okraji textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.TextBodyPropertiesNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni vlastnosti tela textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.TextBoxAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci, zda se parametry uzlu tykaji textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.TextboxContentNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni textoveho obsahu textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.TextBoxInfoNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni udaju obsahu tela textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.TextboxNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni udaju vlastniho textoveho pole a jeho obsahu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.TopInsideAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci vnitniho oddeleni tela a ohraniceni textoveho pole shora.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.TransformNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni udaju vzhledu textoveho pole v 2D.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.TypeAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci typu ramecku.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.ValueAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci zakladni hodnoty zakladniho parametru uzlu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.VerticalAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci vertikalniho smerovani tela textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.WordShapeProcessNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni kompletnich udaju ohraniceni textoveho pole pro jeho zpracovani ve Wordu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.WrapAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci zarezavani obsahu tela textoveho pole.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.WrapNode">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.WrapSquareNode">
+            <summary>
+            Nazev nodu v XML Wordoveho dokumentu pro ulozeni udaju obtekani elementu.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.WrapTextAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci zpusobu oriznuti textu v textovem poli.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.XAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci umisteni textoveho pole ve smeru osy x v souradnicich nadrazene entity.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.TextField.YAttribute">
+            <summary>
+            Nazev atributu XML nodu pro specifikaci umisteni textoveho pole ve smeru osy y v souradnicich nadrazene entity.
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.TextField.#ctor">
+            <summary>
+            Konstruktor vytvori objekt a nastavi pocatecni hodnoty internich promennych a vlastnosti.
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.TextField.CreateWordTextFieldNode(System.Xml.XmlDocument)">
+            <summary>
+            Metoda vygeneruje XML nod datoveho obsahu ve formatu textoveho pole pro MS Word v souboru word/document.xml.
+            </summary>
+            <param name="XMLDocumentObject">XML objekt dokumentu pouzivany pro vytvoreni XML nodu.</param>
+            <returns>Objekt nodu textoveho pole.</returns>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.TextField.CreateChoiceNode(System.Xml.XmlDocument)">
+            <summary>
+            Procedura vytvori uzel vybranych udaju textoveho pole.
+            </summary>
+            <param name="oXMLDocument">XML objekt dokumentu pouzivany pro vytvoreni XML nodu.</param>
+            <returns>Objekt nodu vybranych udaju.</returns>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.TextField.CreateFallbackNode(System.Xml.XmlDocument)">
+            <summary>
+            Procedura vytvori uzel nahradnich udaju textoveho pole.
+            </summary>
+            <param name="oXMLDocument">XML objekt dokumentu pouzivany pro vytvoreni XML nodu.</param>
+            <returns>Objekt nodu nahradnich udaju.</returns>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.TextField.CreateGraphicNode(System.Xml.XmlDocument)">
+            <summary>
+            Procedura vytvori uzel grafickeho obsahu pro textove pole.
+            </summary>
+            <param name="oXMLDocument">XML objekt dokumentu pouzivany pro vytvoreni XML nodu.</param>
+            <returns>Objekt nodu grafickeho obsahu textoveho pole.</returns>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.TextField.CreateShapeNode(System.Xml.XmlDocument)">
+            <summary>
+            Procedura vytvori uzel obsahu utvaru textoveho pole.
+            </summary>
+            <param name="oXMLDocument">XML objekt dokumentu pouzivany pro vytvoreni XML nodu.</param>
+            <returns>Objekt nodu tvaru predstavujiciho obsah textoveho pole.</returns>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.TextField.CreateShapeTypeNode(System.Xml.XmlDocument)">
+            <summary>
+            Procedura vytvori uzel typu a vlastnosti utvaru obsahu textoveho pole.
+            </summary>
+            <param name="oXMLDocument">XML objekt dokumentu pouzivany pro vytvoreni XML nodu.</param>
+            <returns>Objekt nodu typ tvaru pro obsah textoveho pole.</returns>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TextField.DocumentItemId">
+            <summary>
+            Vraci a nastavuje ID polozky dokumentu, k nemuz reprezentovane datove pole patri.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TextField.Id">
+            <summary>
+            Vraci a nastavuje ciselne Id textoveho pole v danem dokumentu Wordu.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TextField.Name">
+            <summary>
+            Vraci a nastavuje jmeno jednoznacne identifikace textoveho pole v dokumentu Wordu.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TextField.TextContent">
+            <summary>
+            Vraci a nastavuje text, ktery bude predvyplnen v reprezentovanem textovem poli v jeho jedinem odstavci.
+            </summary>
+        </member>
+        <member name="T:cz.ctgroup.LibOpenXML.DocxElement.TextForParagraph">
+            <summary>
+            Trida samostatnych textu pro odstavec Wordu. Pomocna trida jen interne pouzivana.
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.LibOpenXML.DocxElement.TextForParagraph.#ctor">
+            <summary>
+            Konstruktor vytvori objekt a nastavi pocatecni hodnoty vlastnosti a internich promennych.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TextForParagraph.Bold">
+            <summary>
+            Vraci a nastavuje, zda je zastupovany text tucnym pismem.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TextForParagraph.Content">
+            <summary>
+            Vraci a nastavuje datovy obsah vlastniho textu.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TextForParagraph.Italic">
+            <summary>
+            Vraci a nastavuje, zda je zastupovany text kurzivou.
+            </summary>
+        </member>
+        <member name="P:cz.ctgroup.LibOpenXML.DocxElement.TextForParagraph.Underline">
+            <summary>
+            Vraci a nastavuje, zda je zastupovany text podtrzenym pismem.
+            </summary>
+        </member>
+        <member name="T:cz.ctgroup.LibOpenXML.DocxElement.HorizontalAlignmentType">
+            <summary>
+            Vyctovy typ definujici moznosti zarovnani obsahu bunky tabulky v horizontalnim smeru.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.HorizontalAlignmentType.None">
+            <summary>
+            Zarovnani neni specifikovano.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.HorizontalAlignmentType.Left">
+            <summary>
+            Zarovnani obsahu doleva.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.HorizontalAlignmentType.Center">
+            <summary>
+            Zarovnani obsahu na stred.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.HorizontalAlignmentType.Right">
+            <summary>
+            Zarovnani obsahu doprava.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.HorizontalAlignmentType.Block">
+            <summary>
+            Zarovnani obsahu do bloku.
+            </summary>
+        </member>
+        <member name="T:cz.ctgroup.LibOpenXML.DocxElement.VerticalAlignmentType">
+            <summary>
+            Vyctovy typ definujici moznosti zarovnani obsahu bunky tabulky ve vertikalnim smeru.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.VerticalAlignmentType.None">
+            <summary>
+            Zarovnani neni specifikovano.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.VerticalAlignmentType.Top">
+            <summary>
+            Zarovnani k hornimu okraji.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.VerticalAlignmentType.Middle">
+            <summary>
+            Zarovnani na stred.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.LibOpenXML.DocxElement.VerticalAlignmentType.Bottom">
+            <summary>
+            Zarovnani k dolnimu okraji.
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.ExtendedMethodes.GetDataFieldTextById(System.Collections.Generic.List{cz.ctgroup.LibOpenXML.DocxElement.DataFieldText},System.Int32)">
+            <summary>
+            Metoda najde v kolekci identifikatorem specifikovane datove pole.
+            </summary>
+            <param name="MyObject">Objekt zdrojove kolekce datovych poli dokumentu.</param>
+            <param name="ActualName">Identifikator hledaneho datoveho pole.</param>
+            <returns>Nalezeny objekt datoveho pole dle identifikatoru, nebo null.</returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.ExtendedMethodes.GetDataFieldTextByName(System.Collections.Generic.List{cz.ctgroup.LibOpenXML.DocxElement.DataFieldText},System.String,System.Int32)">
+            <summary>
+            Metoda najde v kolekci jmenem specifikovane datove pole.
+            </summary>
+            <param name="MyObject">Objekt zdrojove kolekce datovych poli dokumentu.</param>
+            <param name="ActualName">Jmeno hledaneho datoveho pole.</param>
+            <param name="ActualDocumentItemId">ID polozky dokumentu, pod niz ma datove pole patrit</param>
+            <returns>Nalezeny objekt datoveho pole dle jmena, nebo null.</returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.ExtendedMethodes.GetOpenXmlNsManager(System.Object,System.Xml.XmlNameTable)">
+            <summary>
+            
+            </summary>
+            <param name="MyObject">Objekt pouzivajici tuto metodu.</param>
+            <param name="nt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.ExtendedMethodes.GetTextFieldById(System.Collections.Generic.List{cz.ctgroup.LibOpenXML.DocxElement.TextField},System.Int32)">
+            <summary>
+            Metoda najde v kolekci identifikatorem specifikovane textove pole.
+            </summary>
+            <param name="MyObject">Objekt zdrojove kolekce textovych poli dokumentu.</param>
+            <param name="ActualName">Identifikator hledaneho textoveho pole.</param>
+            <returns>Nalezeny objekt textoveho pole dle identifikatoru, nebo null.</returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.ExtendedMethodes.GetTextFieldByName(System.Collections.Generic.List{cz.ctgroup.LibOpenXML.DocxElement.TextField},System.String,System.Int32)">
+            <summary>
+            Metoda najde v kolekci jmenem specifikovane textove pole.
+            </summary>
+            <param name="MyObject">Objekt zdrojove kolekce textovych poli dokumentu.</param>
+            <param name="ActualName">Jmeno hledaneho textoveho pole.</param>
+            <param name="ActualDocumentItemId">ID polozky dokumentu, pod niz ma textove pole patrit</param>
+            <returns>Nalezeny objekt textoveho pole dle jmena, nebo null.</returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.ExtendedMethodes.XmlDocSelectSingleNode(System.Object,System.Xml.XmlNode,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="MyObject">Objekt pouzivajici tuto metodu.</param>
+            <param name="nod">XML nod, v nemz se vybira jeho dcerinny nod dle dane cesty.</param>
+            <param name="xPath">Cesta k hledanemu nodu</param>
+            <returns>Vraci nod nalezeny dle cesty.</returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.ExtendedMethodes.GetParagraphPPr(System.Object,System.Xml.XmlDocument,System.Xml.XmlNode)">
+            <summary>
+            
+            </summary>
+            <param name="MyObject">Objekt pouzivajici tuto metodu.</param>
+            <param name="XdDocument">XML dokument v nemz se pracuje.</param>
+            <param name="xnPm">Nod odstavce.</param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.ExtendedMethodes.SetParagraphStyle(System.Object,System.Xml.XmlDocument,System.Xml.XmlNode,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="MyObject">Objekt pouzivajici tuto metodu.</param>
+            <param name="XdDocument">XML dokument v nemz se pracuje.</param>
+            <param name="xnPm"></param>
+            <param name="StyleName"></param>
+        </member>
+        <member name="T:cz.ctgroup.OpenXML.LibXLSX.XLSX">
+            <summary>
+            Reprezentace Exceloveho souboru
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.OpenXML.LibXLSX.XLSX.XdShared">
+            <summary>
+            XML sdilenych Retezcu
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.OpenXML.LibXLSX.XLSX.XdStyles">
+            <summary>
+            XML Listu se Styly
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.OpenXML.LibXLSX.XLSX.SdSharedStrings">
+            <summary>
+            Kolekce pro urychleni prace se sharedStrings.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.OpenXML.LibXLSX.XLSX.DicSheets">
+            <summary>
+            Kolekce se vsemi listy.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.OpenXML.LibXLSX.XLSX.Workbook">
+            <summary>
+            XML s informacemi o listech a sesite.
+            </summary>
+        </member>
+        <member name="F:cz.ctgroup.OpenXML.LibXLSX.XLSX.WorkBookRels">
+            <summary>
+            XML vztahu mezi sesitem a listy
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.XLSX.GetSheet(System.String)">
+            <summary>
+            Vrati zadany list
+            </summary>
+            <param name="sheetName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.XLSX.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Vytvori rozzipovane OpenXML, nacte informaci o sharedStrings a zjisti pritomnost listu se styly
+            Soubor se vzorem musi obsahovat list Styles. Tento list se pri ziskani souboru smaze.
+            </summary>
+            <param name="TemporaryDir">Docasny adresar</param>
+            <param name="TemplateDir">Adresar se vzory</param>
+            <param name="TemplateName">Soubor se vzorem</param>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.XLSX.GetSharedStringFN">
+            <summary>
+            Nazev souboru se SharedStrings,pouziti pri nacitani a ukladani
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.XLSX.GetWorkBookFN">
+            <summary>
+            Nazev souboru s WorkBook,pouziti pri nacitani a ukladani
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.XLSX.GetWorkBookRelsFN">
+            <summary>
+            Nazev souboru s WorkBookRels,pouziti pri nacitani a ukladani, nemusi fungovat spravne u ne MS souboru
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.XLSX.GetSpreadSheetFN(System.String)">
+            <summary>
+            Nazev souboru se SpreadSheetem,pouziti pri nacitani a ukladani, nemusi fungovat spravne u ne MS souboru
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.XLSX.GetRelationFN(System.String)">
+            <summary>
+            Vraci nazev souboru do _rels pro zadane FN - Neznam presny algoritmus tovrby nazvu ! Mozna BUG!
+            </summary>
+            <param name="FN"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.XLSX.IsStyle(System.String)">
+            <summary>
+            Kontrola, zda styleName je stylem
+            </summary>
+            <param name="styleName">nazev</param>
+            <returns>true kdyz nazev je stylem</returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.XLSX.IsSheet(System.String)">
+            <summary>
+            test na nazev listu
+            </summary>
+            <param name="sheetName">nazev</param>
+            <returns>true kdyz nazev je list</returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.XLSX.CreateCell(System.String,System.String,System.Int32,System.Object,System.String)">
+            <summary>
+            Vytvori bunku - jako XMLNode
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.XLSX.GetOpenXmlNs(System.Xml.XmlNameTable)">
+            <summary>
+            Vytvori vsechny pouzite ns v XLSX.
+            </summary>
+            <param name="nt"></param>
+            <returns></returns>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.XLSX.WriteData">
+            <summary>
+            Zapise vsechny otevrene XML do prislusnych datovych souboru.
+            </summary>
+        </member>
+        <member name="M:cz.ctgroup.OpenXML.LibXLSX.XLSX.IntToColumn(System.Int32)">
+            <summary>
+            Konverze cisla na pismeno sloupce ("A" az "ZZZ")
+            Sloupce zacinaji 1=A 
+            </summary>
+            <param name="value">cislo sloupce</param>
+            <returns>pismena sloupce</returns>
+        </member>
+    </members>
+</doc>

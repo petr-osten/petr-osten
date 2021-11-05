@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="SubjectDirectoryServiceForTIF.asmx.cs" Class="SubjectDirectory.WebService.SubjectDirectoryServiceForTIF" %>

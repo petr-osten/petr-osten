@@ -1,0 +1,238 @@
+5/21/2021 11:27:51 AM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{branch_ISOR_LC_vyvoj - Upozornění na změnu v úkolu v KU pro partnera Pupenec (IČO:12345)} / Body{Úkol byl předán dále ke zpracování.
+S kódem TASK/2021/05/000017 typu Změna péče (Partner) s termínem splnění 26.5.2021 od uživatele Kadoch Pavel pro partnera Pupenec (IČO:12345).
+
+http://localhost:65353/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1127456}
+5/21/2021 2:21:43 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{branch_ISOR_LC_vyvoj - Upozornění na změnu v úkolu v KU} / Body{Úkol byl předán dále ke zpracování.
+S kódem TASK/2021/05/000018 typu Změna péče (GCC) s termínem splnění 26.5.2021 od uživatele Kadoch Pavel.
+
+http://localhost:65353/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1127457}
+5/21/2021 2:22:44 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{branch_ISOR_LC_vyvoj - Upozornění na změnu v úkolu v KU pro partnera Pupenec (IČO:12345)} / Body{Úkol byl předán dále ke zpracování.
+S kódem TASK/2021/05/000019 typu Změna péče (Partner) s termínem splnění 26.5.2021 od uživatele Kadoch Pavel pro partnera Pupenec (IČO:12345).
+
+http://localhost:65353/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1127458}
+5/21/2021 2:23:03 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{branch_ISOR_LC_vyvoj - Upozornění na změnu v úkolu v KU pro partnera Sabelkin Vjaceslav Vladimirovic (RČ:160919/68)} / Body{Úkol byl předán dále ke zpracování.
+S kódem TASK/2021/05/000020 typu Změna péče (Partner) s termínem splnění 26.5.2021 od uživatele Kadoch Pavel pro partnera Sabelkin Vjaceslav Vladimirovic (RČ:160919/68).
+
+http://localhost:65353/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1127459}
+5/24/2021 2:04:57 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Upozornění na změnu v úkolu v KU pro partnera A & A (IČO:111111)} / Body{Úkol byl předán dále ke zpracování.
+S kódem TASK/2021/05/000021 typu Finální schválení FI/SOV v GEM s termínem splnění 25.5.2021 od uživatele Kadoch Pavel pro partnera A & A (IČO:111111).
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1127476}
+5/24/2021 2:05:04 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Upozornění na změnu v úkolu v KU pro partnera Koblasa (IČO:50054004)} / Body{Úkol byl předán dále ke zpracování.
+S kódem TASK/2021/05/000022 typu Finální schválení FI/SOV v GEM s termínem splnění 25.5.2021 od uživatele Kadoch Pavel pro partnera Koblasa (IČO:50054004).
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1127477}
+5/24/2021 2:05:11 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Info do RBI} / Body{Ve složce [AF/2021/04/000002] byla nastavena hodnota Pro informaci = [COVID Bylaws].
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?IdFolder=1102467&IdTab=ESS&PgUrl=EssCorp/CorporateFolderDetail.ascx}
+5/24/2021 2:05:20 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Schválení složky} / Body{Byla dokončena složka s kódem: AF/2021/04/000002 pro partnera: ManyMuch Groop s rozhodnutím Schváleno.
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=EssCorp/CorporateFolderDetail.ascx&IdTab=ESS&IdFolder=1102467}
+5/25/2021 2:23:57 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{branch_ISOR_LC_vyvoj - Upozornění na změnu v úkolu v KU} / Body{Změna péče v Siebelu pro rolu RISK MANAGER na uživatele Kadoch Pavel u následujících GCC/Partnerů:
+Partner: 1. Cukerní spolecnost Praha, s.r.o., 27128903 (PARTY_ID = 1005583)
+.
+
+http://localhost:65353/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1127496}
+5/25/2021 2:30:44 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{branch_ISOR_LC_vyvoj - Upozornění na změnu v úkolu v KU} / Body{Změna péče v Siebelu pro rolu RISK MANAGER na uživatele Kadoch Pavel u následujících GCC/Partnerů:
+Partner: 1. Cukerní spolecnost Praha, s.r.o., 27128903 (PARTY_ID = 1005583)
+.
+
+http://localhost:65353/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1127496}
+6/1/2021 4:13:32 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{ - Upozornení na neodeslání mailu při založení úkolu na kontrolu žádosti pro partnera BOK Jirí (RČ: 520206/349)} / Body{Z důvodu nedostatečné konfigurace nebyl odeslán notifikační email o založení úkolu na kontrolu žádosti. Kontaktuje svého administrátora.
+Odkaz na žádost: http://isor4-test:8210/ISRFrame/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1127521
+
+Odkaz na úkol na kontrolu žádosti: http://isor4-test:8210/ISRFrame/app/MainFrame.aspx?PgUrl=Application/LoanRequest.ascx&IdTab=KU&ApplicationId=100001604}
+6/1/2021 4:33:13 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{ - Upozornení na neodeslání mailu při založení úkolu na kontrolu žádosti pro partnera BOK Jirí (RČ: 520206/349)} / Body{Z důvodu nedostatečné konfigurace nebyl odeslán notifikační email o založení úkolu na kontrolu žádosti. Kontaktuje svého administrátora.
+Odkaz na žádost: http://isor4-test:8210/ISRFrame/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1127522
+
+Odkaz na úkol na kontrolu žádosti: http://isor4-test:8210/ISRFrame/app/MainFrame.aspx?PgUrl=Application/LoanRequest.ascx&IdTab=KU&ApplicationId=100001606}
+6/3/2021 1:08:53 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Schválení složky} / Body{Byla dokončena složka s kódem: AF/2021/04/000001 pro partnera: 1. Cukerní spolecnost Praha, s.r.o. s rozhodnutím Schváleno.
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=EssCorp/CorporateFolderDetail.ascx&IdTab=ESS&IdFolder=1102447}
+6/3/2021 1:42:24 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Schválení složky} / Body{Byla dokončena složka s kódem: AF/2021/04/000001 pro partnera: 1. Cukerní spolecnost Praha, s.r.o. s rozhodnutím Schváleno.
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=EssCorp/CorporateFolderDetail.ascx&IdTab=ESS&IdFolder=1102447}
+6/3/2021 3:40:44 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Upozornění na změnu v úkolu v KU pro partnera 1. Cukerní spolecnost Praha, s.r.o. (IČO:27128903)} / Body{Úkol byl předán dále ke zpracování.
+S kódem TASK/2021/06/000008 typu Finální schválení FI/SOV v GEM s termínem splnění 4.6.2021 od uživatele Kadoch Pavel pro partnera 1. Cukerní spolecnost Praha, s.r.o. (IČO:27128903).
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1127536}
+6/3/2021 3:40:51 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Info do RBI} / Body{Ve složce [AF/2021/04/000001] byla nastavena hodnota Pro informaci = [COVID Bylaws].
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?IdFolder=1102447&IdTab=ESS&PgUrl=EssCorp/CorporateFolderDetail.ascx}
+6/3/2021 3:40:59 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Schválení složky} / Body{Byla dokončena složka s kódem: AF/2021/04/000001 pro partnera: 1. Cukerní spolecnost Praha, s.r.o. s rozhodnutím Schváleno.
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=EssCorp/CorporateFolderDetail.ascx&IdTab=ESS&IdFolder=1102447}
+6/3/2021 4:10:41 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Upozornění na změnu v úkolu v KU pro partnera 1. Cukerní spolecnost Praha, s.r.o. (IČO:27128903)} / Body{Úkol byl předán dále ke zpracování.
+S kódem TASK/2021/06/000009 typu Finální schválení FI/SOV v GEM s termínem splnění 4.6.2021 od uživatele Kadoch Pavel pro partnera 1. Cukerní spolecnost Praha, s.r.o. (IČO:27128903).
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1127537}
+6/3/2021 4:10:48 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Info do RBI} / Body{Ve složce [AF/2021/04/000001] byla nastavena hodnota Pro informaci = [COVID Bylaws].
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?IdFolder=1102447&IdTab=ESS&PgUrl=EssCorp/CorporateFolderDetail.ascx}
+6/3/2021 4:10:56 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Schválení složky} / Body{Byla dokončena složka s kódem: AF/2021/04/000001 pro partnera: 1. Cukerní spolecnost Praha, s.r.o. s rozhodnutím Schváleno.
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=EssCorp/CorporateFolderDetail.ascx&IdTab=ESS&IdFolder=1102447}
+6/3/2021 4:58:57 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Upozornění na změnu v úkolu v KU pro partnera 1. Cukerní spolecnost Praha, s.r.o. (IČO:27128903)} / Body{Úkol byl předán dále ke zpracování.
+S kódem TASK/2021/06/000010 typu Finální schválení FI/SOV v GEM s termínem splnění 4.6.2021 od uživatele Kadoch Pavel pro partnera 1. Cukerní spolecnost Praha, s.r.o. (IČO:27128903).
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1127538}
+6/3/2021 4:59:03 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Info do RBI} / Body{Ve složce [AF/2021/04/000001] byla nastavena hodnota Pro informaci = [COVID Bylaws].
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?IdFolder=1102447&IdTab=ESS&PgUrl=EssCorp/CorporateFolderDetail.ascx}
+6/3/2021 4:59:10 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Schválení složky} / Body{Byla dokončena složka s kódem: AF/2021/04/000001 pro partnera: 1. Cukerní spolecnost Praha, s.r.o. s rozhodnutím Schváleno.
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=EssCorp/CorporateFolderDetail.ascx&IdTab=ESS&IdFolder=1102447}
+6/3/2021 5:39:30 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Upozornění na změnu v úkolu v KU pro partnera 1. Cukerní spolecnost Praha, s.r.o. (IČO:27128903)} / Body{Úkol byl předán dále ke zpracování.
+S kódem TASK/2021/06/000011 typu Finální schválení FI/SOV v GEM s termínem splnění 4.6.2021 od uživatele Kadoch Pavel pro partnera 1. Cukerní spolecnost Praha, s.r.o. (IČO:27128903).
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1127539}
+6/3/2021 5:39:36 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Info do RBI} / Body{Ve složce [AF/2021/04/000001] byla nastavena hodnota Pro informaci = [COVID Bylaws].
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?IdFolder=1102447&IdTab=ESS&PgUrl=EssCorp/CorporateFolderDetail.ascx}
+6/3/2021 5:39:44 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Schválení složky} / Body{Byla dokončena složka s kódem: AF/2021/04/000001 pro partnera: 1. Cukerní spolecnost Praha, s.r.o. s rozhodnutím Schváleno.
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=EssCorp/CorporateFolderDetail.ascx&IdTab=ESS&IdFolder=1102447}
+6/4/2021 11:53:20 AM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Upozornění na změnu v úkolu v KU pro partnera A & A (IČO:111111)} / Body{Úkol byl předán dále ke zpracování.
+S kódem TASK/2021/06/000012 typu Finální schválení FI/SOV v GEM s termínem splnění 5.6.2021 od uživatele Kadoch Pavel pro partnera A & A (IČO:111111).
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1127556}
+6/4/2021 11:53:26 AM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Info do RBI} / Body{Ve složce [AF/2021/04/000002] byla nastavena hodnota Pro informaci = [COVID Bylaws].
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?IdFolder=1102467&IdTab=ESS&PgUrl=EssCorp/CorporateFolderDetail.ascx}
+6/4/2021 11:53:35 AM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Schválení složky} / Body{Byla dokončena složka s kódem: AF/2021/04/000002 pro partnera: ManyMuch Groop s rozhodnutím Schváleno.
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=EssCorp/CorporateFolderDetail.ascx&IdTab=ESS&IdFolder=1102467}
+6/7/2021 5:08:07 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Upozornění na změnu v úkolu v KU pro partnera A & A (IČO:111111)} / Body{Úkol byl předán dále ke zpracování.
+S kódem TASK/2021/06/000013 typu Finální schválení FI/SOV v GEM s termínem splnění 8.6.2021 od uživatele Kadoch Pavel pro partnera A & A (IČO:111111).
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1127576}
+6/7/2021 5:08:15 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Upozornění na změnu v úkolu v KU pro partnera Koblasa (IČO:50054004)} / Body{Úkol byl předán dále ke zpracování.
+S kódem TASK/2021/06/000014 typu Finální schválení FI/SOV v GEM s termínem splnění 8.6.2021 od uživatele Kadoch Pavel pro partnera Koblasa (IČO:50054004).
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1127577}
+6/7/2021 5:08:22 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Info do RBI} / Body{Ve složce [AF/2021/04/000002] byla nastavena hodnota Pro informaci = [COVID Bylaws].
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?IdFolder=1102467&IdTab=ESS&PgUrl=EssCorp/CorporateFolderDetail.ascx}
+6/7/2021 5:08:29 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Schválení složky} / Body{Byla dokončena složka s kódem: AF/2021/04/000002 pro partnera: ManyMuch Groop s rozhodnutím Schváleno.
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=EssCorp/CorporateFolderDetail.ascx&IdTab=ESS&IdFolder=1102467}
+6/7/2021 6:02:03 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Info do RBI} / Body{Ve složce [AF/2015/10/000091] byla nastavena hodnota Pro informaci = [COVID Bylaws].
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?IdFolder=1091988&IdTab=ESS&PgUrl=EssCorp/CorporateFolderDetail.ascx}
+6/7/2021 6:02:11 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Schválení složky} / Body{Byla dokončena složka s kódem: AF/2015/10/000091 pro partnera: Mamut group s rozhodnutím Schváleno.
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=EssCorp/CorporateFolderDetail.ascx&IdTab=ESS&IdFolder=1091988}
+6/15/2021 8:26:31 AM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{ISOR služba pro generování reportů DWH} / Body{Služba na generování reportů pro DWH havarovala a byla zastavena. Detaily naleznete v logu služby.}
+6/22/2021 3:29:11 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{branch_ISOR_LC_vyvoj - AVIZO_Požaduje se komentář k účetním datům -  chybějící doklady} / Body{U účetních dat 654687 subjektu FirmaPUP01 (IČO: 10000001) byl dne 22.06.2021 přidán uživatelem PKadoch nový komentář typu Zhoršení – čekáme na odpovědi s textem sdsssf g.
+
+Do 30 dnů od obdržení tohoto emailu je nutné pečujícímu RA zaslat chybějící informace.
+Odkaz na účetní data: http://localhost:65353/app/MainFrame.aspx?IdTab=RCB&PgUrl=Rcb/DHView.ascx&PageIndexItems=0&ShowErrorOnly=0&IDDataHeader=1124361}
+6/23/2021 4:10:29 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{ISOR - Chyba při zpracování požadavku} / Body{Při zpracování Vašeho požadavku schválení složky na složce AF/2021/04/000002 došlo k neočekávané chybě AproveAndMoveNext: Zajištění (id=17646429) je uzamčeno uživatelem s id=1006581. Podrobnosti o chybě byly zaznamenány v logu a byl informován aplikační support.}
+6/23/2021 4:10:29 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Chyba Core.FolderAction,WinService!} / Body{Došlo k chybě AproveAndMoveNext: Zajištění (id=17646429) je uzamčeno uživatelem s id=1006581 ve službě ISOR FolderActionService DEV 
+System.Exception: AproveAndMoveNext: Zajištění (id=17646429) je uzamčeno uživatelem s id=1006581 ---> System.Exception: AproveAndMoveNext: Zajištění (id=17646429) je uzamčeno uživatelem s id=1006581 ---> System.Exception: Zajištění (id=17646429) je uzamčeno uživatelem s id=1006581 ---> System.Exception: Zajištění (id=17646429) je uzamčeno uživatelem s id=1006581 ---> System.Exception: Zajištění (id=17646429) je uzamčeno uživatelem s id=1006581
+   at RB.Isor.KartaZajisteni.Bll.LimitDluznikBll.ZapisLimituDluznikuZESS(DBLib db_KZ, DBLib db_essrcb, Int64 idUzivatel, List`1 seznamIdZajisteni, List`1 zajisteniLimityDluznici_kodebrani, List`1 zajisteniLimityDluznici_kpridani, Dictionary`2 aDrawingLimits, String codeLanguage) in D:\_ISOR_solutions\ISOR_Original\SourceCodes\ISOR_Core_linie\KartaZajisteni.Bll\LimityDluzniciBll.cs:line 559
+   --- End of inner exception stack trace ---
+   at RB.Isor.KartaZajisteni.Bll.LimitDluznikBll.ZapisLimituDluznikuZESS(DBLib db_KZ, DBLib db_essrcb, Int64 idUzivatel, List`1 seznamIdZajisteni, List`1 zajisteniLimityDluznici_kodebrani, List`1 zajisteniLimityDluznici_kpridani, Dictionary`2 aDrawingLimits, String codeLanguage) in D:\_ISOR_solutions\ISOR_Original\SourceCodes\ISOR_Core_linie\KartaZajisteni.Bll\LimityDluzniciBll.cs:line 768
+   at cz.ctgroup.ISRCorporateBase.isrCollateralSheetNew.UpdateDiscountsAndWriteCsToKz(DBLib aDb, DBLib aWfDb, Int64 aIdFolder, Int64 aIdDocument, Int64 aIdApprovalProcedure, String codeLanguage, Int64 aIdUser, String aUser) in D:\_ISOR_solutions\ISOR_Original\SourceCodes\ISOR_Core_linie\ISRCorporateBase\isrCollateralSheetNew.cs:line 1535
+   --- End of inner exception stack trace ---
+   at cz.ctgroup.ISRCorporateBase.isrCollateralSheetNew.UpdateDiscountsAndWriteCsToKz(DBLib aDb, DBLib aWfDb, Int64 aIdFolder, Int64 aIdDocument, Int64 aIdApprovalProcedure, String codeLanguage, Int64 aIdUser, String aUser) in D:\_ISOR_solutions\ISOR_Original\SourceCodes\ISOR_Core_linie\ISRCorporateBase\isrCollateralSheetNew.cs:line 1541
+   at cz.ctgroup.ISRCorporateBase.isrEssApprovalFolder.FinalApprovalOfProcedure(Int64 aIdUser, String aUser, String appUrl) in D:\_ISOR_solutions\ISOR_Original\SourceCodes\ISOR_Core_linie\ISRCorporateBase\isrEssApprovalFolder.cs:line 4374
+   at cz.ctgroup.ISRCorporateBase.isrEssApprovalFolder.AproveAndMoveNext(Int64 aIdNextOwner, Int64 aIdUser, String aUser, String appUrl, String aNextStepCode) in D:\_ISOR_solutions\ISOR_Original\SourceCodes\ISOR_Core_linie\ISRCorporateBase\isrEssApprovalFolder.cs:line 3965
+   --- End of inner exception stack trace ---
+   at cz.ctgroup.ISRCorporateBase.isrEssApprovalFolder.AproveAndMoveNext(Int64 aIdNextOwner, Int64 aIdUser, String aUser, String appUrl, String aNextStepCode) in D:\_ISOR_solutions\ISOR_Original\SourceCodes\ISOR_Core_linie\ISRCorporateBase\isrEssApprovalFolder.cs:line 4011
+   at Core.FolderAction.WinService.Executor.Approve(FolderActionRequest req) in D:\_ISOR_solutions\ISOR_Original\SourceCodes\ISOR_Core_linie\Core.FolderAction.WinService\Executor\Executor.cs:line 115
+   --- End of inner exception stack trace ---
+   at Core.FolderAction.WinService.Executor.ExecuteNextRequest() in D:\_ISOR_solutions\ISOR_Original\SourceCodes\ISOR_Core_linie\Core.FolderAction.WinService\Executor\Executor.cs:line 62
+   at Core.FolderAction.WinService.FolderActionWinService.ServiceMain() in D:\_ISOR_solutions\ISOR_Original\SourceCodes\ISOR_Core_linie\Core.FolderAction.WinService\FolderActionWinService.cs:line 148}
+6/23/2021 4:20:07 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Info do RBI} / Body{Ve složce [AF/2018/09/000001] byla nastavena hodnota Pro informaci = [COVID Bylaws].
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?IdFolder=1098479&IdTab=ESS&PgUrl=EssCorp/CorporateFolderDetail.ascx}
+6/23/2021 4:20:16 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Schválení složky} / Body{Byla dokončena složka s kódem: AF/2018/09/000001 pro partnera: GCC - Evy skupina s rozhodnutím Schváleno.
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=EssCorp/CorporateFolderDetail.ascx&IdTab=ESS&IdFolder=1098479}
+6/23/2021 4:20:16 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Předání složky} / Body{Byla Vám ke zpracování předána složka s kódem: AF/2018/09/000001 pro partnera: GCC - Evy skupina.
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=EssCorp/CorporateFolderDetail.ascx&IdTab=ESS&IdFolder=1098479}
+7/8/2021 10:46:19 AM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Info do RBI} / Body{Ve složce [AF/2017/05/000039] byla nastavena hodnota Pro informaci = [COVID Bylaws].
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?IdFolder=1095580&IdTab=ESS&PgUrl=EssCorp/CorporateFolderDetail.ascx}
+7/8/2021 10:46:28 AM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Schválení složky} / Body{Byla dokončena složka s kódem: AF/2017/05/000039 pro partnera: Pupek svjeta s rozhodnutím Schváleno.
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=EssCorp/CorporateFolderDetail.ascx&IdTab=ESS&IdFolder=1095580}
+7/8/2021 2:49:31 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Info do RBI} / Body{Ve složce [AF/2021/07/000001] byla nastavena hodnota Pro informaci = [COVID Bylaws].
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?IdFolder=1102627&IdTab=ESS&PgUrl=EssCorp/CorporateFolderDetail.ascx}
+7/8/2021 2:49:40 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Schválení složky} / Body{Byla dokončena složka s kódem: AF/2021/07/000001 pro partnera: GCC - Evy skupina s rozhodnutím Schváleno.
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=EssCorp/CorporateFolderDetail.ascx&IdTab=ESS&IdFolder=1102627}
+8/3/2021 11:50:00 AM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Info do RBI} / Body{Ve složce [AF/2015/10/000091] byla nastavena hodnota Pro informaci = [COVID Bylaws].
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?IdFolder=1091988&IdTab=ESS&PgUrl=EssCorp/CorporateFolderDetail.ascx}
+8/3/2021 11:50:08 AM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Schválení složky} / Body{Byla dokončena složka s kódem: AF/2015/10/000091 pro partnera: Mamut group s rozhodnutím Schváleno.
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=EssCorp/CorporateFolderDetail.ascx&IdTab=ESS&IdFolder=1091988}
+8/3/2021 4:33:04 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{branch_ISOR_LC_vyvoj - Upozornění na změnu v úkolu v KU} / Body{Úkol byl předán dále ke zpracování.
+S kódem TASK/2021/08/000002 typu Změna skupiny ESSK (AUT) s termínem splnění 13.8.2021 od uživatele Mensdorffova Petra.
+
+http://localhost:49978/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1127637}
+8/3/2021 4:33:55 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{branch_ISOR_LC_vyvoj - Upozornění na změnu v úkolu v KU} / Body{Úkol byl předán dále ke zpracování.
+S kódem TASK/2021/08/000003 typu Změna skupiny ESSK (AUT) s termínem splnění 13.8.2021 od uživatele Mensdorffova Petra.
+
+http://localhost:49978/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1127638}
+8/3/2021 4:34:02 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{branch_ISOR_LC_vyvoj - Upozornění na změnu v úkolu v KU} / Body{Úkol byl předán dále ke zpracování.
+S kódem TASK/2021/08/000004 typu Změna skupiny ESSK (AUT) s termínem splnění 13.8.2021 od uživatele Mensdorffova Petra.
+
+http://localhost:49978/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1127639}
+8/3/2021 4:34:11 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{branch_ISOR_LC_vyvoj - Upozornění na změnu v úkolu v KU} / Body{Úkol byl předán dále ke zpracování.
+S kódem TASK/2021/08/000005 typu Změna skupiny ESSK (AUT) s termínem splnění 13.8.2021 od uživatele Mensdorffova Petra.
+
+http://localhost:49978/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1127640}
+8/3/2021 4:34:19 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{branch_ISOR_LC_vyvoj - Upozornění na změnu v úkolu v KU} / Body{Úkol byl předán dále ke zpracování.
+S kódem TASK/2021/08/000006 typu Změna skupiny ESSK (AUT) s termínem splnění 13.8.2021 od uživatele Mensdorffova Petra.
+
+http://localhost:49978/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1127641}
+8/3/2021 4:35:35 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{branch_ISOR_LC_vyvoj - Upozornění na změnu v úkolu v KU} / Body{Úkol byl předán dále ke zpracování.
+S kódem TASK/2021/08/000007 typu Změna skupiny ESSK (AUT) s termínem splnění 13.8.2021 od uživatele Mensdorffova Petra.
+
+http://localhost:49978/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1127642}
+8/3/2021 4:35:46 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{branch_ISOR_LC_vyvoj - Upozornění na změnu v úkolu v KU} / Body{Úkol byl předán dále ke zpracování.
+S kódem TASK/2021/08/000008 typu Změna skupiny ESSK (AUT) s termínem splnění 13.8.2021 od uživatele Mensdorffova Petra.
+
+http://localhost:49978/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1127643}
+8/30/2021 9:21:39 AM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{branch_ISOR_LC_vyvoj - Předání složky} / Body{Byla Vám ke zpracování předána složka s kódem: AF/2021/08/000001 pro partnera: ManyMuch Groop.
+
+http://localhost:65353/app/MainFrame.aspx?PgUrl=EssCorp/CorporateFolderDetail.ascx&IdTab=ESS&IdFolder=1102748}
+9/14/2021 1:00:57 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Info do RBI} / Body{Ve složce [AF/2021/09/000001] byla nastavena hodnota Pro informaci = [COVID Bylaws].
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?IdFolder=1102827&IdTab=ESS&PgUrl=EssCorp/CorporateFolderDetail.ascx}
+9/14/2021 1:01:06 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Schválení složky} / Body{Byla dokončena složka s kódem: AF/2021/09/000001 pro partnera: ManyMuch Groop s rozhodnutím Schváleno.
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=EssCorp/CorporateFolderDetail.ascx&IdTab=ESS&IdFolder=1102827}
+9/24/2021 3:18:43 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{branch_ISOR_LC_vyvoj - RCB: Přiřazení složky ocenění} / Body{Byla vám přiřazena složka s kódem VF/2019/10/000003 pro partnera: Polosin Pavlo . http://localhost:53217/app/MainFrame.aspx?IdFolder=1099988&IdTab=RCB&PgUrl=Rcb/ValuationFolder.ascx}
+9/27/2021 12:18:49 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Upozornění na změnu v úkolu v KU pro partnera A A (RČ:790405/0000)} / Body{Úkol byl předán dále ke zpracování.
+S kódem TASK/2021/09/000005 typu Finální schválení FI/SOV v GEM s termínem splnění 28.9.2021 od uživatele Didigova Xeniya pro partnera A A (RČ:790405/0000).
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1127797}
+9/27/2021 12:18:56 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Info do RBI} / Body{Ve složce [AF/2021/09/000001] byla nastavena hodnota Pro informaci = [COVID Bylaws].
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?IdFolder=1102827&IdTab=ESS&PgUrl=EssCorp/CorporateFolderDetail.ascx}
+9/27/2021 12:19:04 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Schválení složky} / Body{Byla dokončena složka s kódem: AF/2021/09/000001 pro partnera: ManyMuch Groop s rozhodnutím Schváleno.
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=EssCorp/CorporateFolderDetail.ascx&IdTab=ESS&IdFolder=1102827}
+9/27/2021 12:19:04 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Předání složky} / Body{Byla Vám ke zpracování předána složka s kódem: AF/2021/09/000001 pro partnera: ManyMuch Groop.
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=EssCorp/CorporateFolderDetail.ascx&IdTab=ESS&IdFolder=1102827}
+9/27/2021 12:19:04 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Ukončení zpracování složky} / Body{Bylo ukončeno zpracování složky s kódem: AF/2021/09/000001 pro partnera: ManyMuch Groop}
+9/29/2021 11:51:16 AM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{branch_ISOR_LC_vyvoj - Upozornění na změnu v úkolu v KU pro partnera Cevora Eva (RČ:541031/0543)} / Body{Úkol byl uzavřen.
+S kódem TASK/2018/10/000004 typu Čerpání_Drawing s termínem splnění 26.10.2018 od uživatele Didigova Xeniya pro partnera Cevora Eva (RČ:541031/0543).
+
+http://localhost:53217/app/MainFrame.aspx?PgUrl=Rcb/TaskDetailView.ascx&IdTab=KU&IdTask=1121691}
+10/11/2021 3:57:24 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Info do RBI} / Body{Ve složce [AF/2021/10/000001] byla nastavena hodnota Pro informaci = [COVID Bylaws].
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?IdFolder=1102887&IdTab=ESS&PgUrl=EssCorp/CorporateFolderDetail.ascx}
+10/11/2021 3:57:33 PM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Schválení složky} / Body{Byla dokončena složka s kódem: AF/2021/10/000001 pro partnera: ManyMuch Groop s rozhodnutím Schváleno.
+
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?PgUrl=EssCorp/CorporateFolderDetail.ascx&IdTab=ESS&IdFolder=1102887}
+10/15/2021 10:09:41 AM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Info do RBI} / Body{Ve složce [AF/2021/10/000001] byla nastavena hodnota Pro informaci = [COVID Bylaws].
+http://isor4-test:8110/ISRFrame/app/MainFrame.aspx?IdFolder=1102887&IdTab=ESS&PgUrl=EssCorp/CorporateFolderDetail.ascx}
+10/15/2021 10:09:50 AM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{ISOR - Chyba při zpracování požadavku} / Body{Při zpracování Vašeho požadavku schválení složky na složce AF/2021/10/000001 došlo k neočekávané chybě AproveAndMoveNext: isrEnvelope.InsertFolderIntoEnvelope (C): Object reference not set to an instance of an object.. Podrobnosti o chybě byly zaznamenány v logu a byl informován aplikační support.}
+10/15/2021 10:09:50 AM    >> SendMail(string Sender, string Recipient, string Subject, string Body, out int MailId) / Sender{administrator@isor4.dev.cz} / Recipient{System.String[]} / Subject{Chyba Core.FolderAction,WinService!} / Body{Došlo k chybě AproveAndMoveNext: isrEnvelope.InsertFolderIntoEnvelope (C): Object reference not set to an instance of an object. ve službě ISOR FolderActionService DEV 
+System.Exception: AproveAndMoveNext: isrEnvelope.InsertFolderIntoEnvelope (C): Object reference not set to an instance of an object. ---> System.Exception: AproveAndMoveNext: isrEnvelope.InsertFolderIntoEnvelope (C): Object reference not set to an instance of an object. ---> System.Exception: isrEnvelope.InsertFolderIntoEnvelope (C): Object reference not set to an instance of an object. ---> System.Exception: isrEnvelope.InsertFolderIntoEnvelope (C): Object reference not set to an instance of an object. ---> System.NullReferenceException: Object reference not set to an instance of an object.
+   at cz.ctgroup.ISRCorporateBase.isrEnvelope.InsertFolderIntoEnvelope(DBLib aDb, DBLib aWfDb, Int64 aIdEnvelope, Int64 aIdFolder, DateTime aValidFrom, DateTime aValidTo, String aCreatedBy, DateTime aCreateDat) in D:\_ISOR_solutions\ISOR_Original\SourceCodes\ISOR_Core_linie\ISRCorporateBase\isrEnvelope.cs:line 123
+   --- End of inner exception stack trace ---
+   at cz.ctgroup.ISRCorporateBase.isrEnvelope.InsertFolderIntoEnvelope(DBLib aDb, DBLib aWfDb, Int64 aIdEnvelope, Int64 aIdFolder, DateTime aValidFrom, DateTime aValidTo, String aCreatedBy, DateTime aCreateDat) in D:\_ISOR_solutions\ISOR_Original\SourceCodes\ISOR_Core_linie\ISRCorporateBase\isrEnvelope.cs:line 158
+   at cz.ctgroup.ISRCorporateBase.isrRcbAnalysisFolder.AutoCreateProceduresAndExecuteSteps(DBLib aDb, DBLib aWfDb, Int64 aIdFolder) in D:\_ISOR_solutions\ISOR_Original\SourceCodes\ISOR_Core_linie\ISRCorporateBase\isrRcbAnalysisFolder.cs:line 1958
+   --- End of inner exception stack trace ---
+   at cz.ctgroup.ISRCorporateBase.isrRcbAnalysisFolder.AutoCreateProceduresAndExecuteSteps(DBLib aDb, DBLib aWfDb, Int64 aIdFolder) in D:\_ISOR_solutions\ISOR_Original\SourceCodes\ISOR_Core_linie\ISRCorporateBase\isrRcbAnalysisFolder.cs:line 1969
+   at cz.ctgroup.ISRCorporateBase.isrEssApprovalFolder.AproveAndMoveNext(Int64 aIdNextOwner, Int64 aIdUser, String aUser, String appUrl, String aNextStepCode) in D:\_ISOR_solutions\ISOR_Original\SourceCodes\ISOR_Core_linie\ISRCorporateBase\isrEssApprovalFolder.cs:line 3977
+   --- End of inner exception stack trace ---
+   at cz.ctgroup.ISRCorporateBase.isrEssApprovalFolder.AproveAndMoveNext(Int64 aIdNextOwner, Int64 aIdUser, String aUser, String appUrl, String aNextStepCode) in D:\_ISOR_solutions\ISOR_Original\SourceCodes\ISOR_Core_linie\ISRCorporateBase\isrEssApprovalFolder.cs:line 4011
+   at Core.FolderAction.WinService.Executor.Approve(FolderActionRequest req) in D:\_ISOR_solutions\ISOR_Original\SourceCodes\ISOR_Core_linie\Core.FolderAction.WinService\Executor\Executor.cs:line 122
+   --- End of inner exception stack trace ---
+   at Core.FolderAction.WinService.Executor.ExecuteNextRequest() in D:\_ISOR_solutions\ISOR_Original\SourceCodes\ISOR_Core_linie\Core.FolderAction.WinService\Executor\Executor.cs:line 69
+   at Core.FolderAction.WinService.FolderActionWinService.ServiceMain() in D:\_ISOR_solutions\ISOR_Original\SourceCodes\ISOR_Core_linie\Core.FolderAction.WinService\FolderActionWinService.cs:line 148}

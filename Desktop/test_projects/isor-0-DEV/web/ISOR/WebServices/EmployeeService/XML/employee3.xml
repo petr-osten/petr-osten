@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="windows-1250" ?>
+<employee id="10001" code="11074" authname="eb\pbilek" xmlns="">
+  <name>Bílek Petr</name>
+  <forename>Petr</forename>
+  <surname>Bílek</surname>
+  <email>pbilek@ebanka.cz</email>
+  <position code="P0035">Expert rizik</position>
+  <department code="D0040">Divize Operační riziko a metodika</department>
+  <location code="L0002">Praha - Myslbek</location>
+</employee>

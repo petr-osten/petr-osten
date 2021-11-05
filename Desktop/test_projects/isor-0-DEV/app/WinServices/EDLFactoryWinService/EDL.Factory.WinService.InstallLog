@@ -1,0 +1,13 @@
+﻿Installing assembly 'c:\_ISOR\isor-0-DEV\app\WinServices\EDLFactoryWinService\EDL.Factory.WinService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = c:\_ISOR\isor-0-DEV\app\WinServices\EDLFactoryWinService\EDL.Factory.WinService.exe
+   logfile = c:\_ISOR\isor-0-DEV\app\WinServices\EDLFactoryWinService\EDL.Factory.WinService.InstallLog
+Installing service ISOR EDLFactoryService DEVDEV...
+Service ISOR EDLFactoryService DEVDEV has been successfully installed.
+Creating EventLog source ISOR EDLFactoryService DEVDEV in log Application...
+Committing assembly 'c:\_ISOR\isor-0-DEV\app\WinServices\EDLFactoryWinService\EDL.Factory.WinService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = c:\_ISOR\isor-0-DEV\app\WinServices\EDLFactoryWinService\EDL.Factory.WinService.exe
+   logfile = c:\_ISOR\isor-0-DEV\app\WinServices\EDLFactoryWinService\EDL.Factory.WinService.InstallLog

@@ -1,0 +1,13 @@
+﻿Installing assembly 'c:\_ISOR\isor-1-TEST\app\WinServices\FolderActionWinService\Core.FolderAction.WinService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = c:\_ISOR\isor-1-TEST\app\WinServices\FolderActionWinService\Core.FolderAction.WinService.exe
+   logfile = c:\_ISOR\isor-1-TEST\app\WinServices\FolderActionWinService\Core.FolderAction.WinService.InstallLog
+Installing service ISOR FolderActionService TEST...
+Service ISOR FolderActionService TEST has been successfully installed.
+Creating EventLog source ISOR FolderActionService TEST in log Application...
+Committing assembly 'c:\_ISOR\isor-1-TEST\app\WinServices\FolderActionWinService\Core.FolderAction.WinService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = c:\_ISOR\isor-1-TEST\app\WinServices\FolderActionWinService\Core.FolderAction.WinService.exe
+   logfile = c:\_ISOR\isor-1-TEST\app\WinServices\FolderActionWinService\Core.FolderAction.WinService.InstallLog

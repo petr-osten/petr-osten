@@ -1,0 +1,2 @@
+﻿<%-- <% @ ServiceHost Language="C#" Debug="true" Service="RB.Isor.Integration.AsyncProcessingWcfService.AsyncProcessingService" CodeBehind="AsyncProcessingService.svc.cs" % > %>
+<%@ ServiceHost Language="C#" Debug="true" Service="RB.Isor.Integration.AsyncProcessingWcfLibrary.AsyncProcessingService" %>

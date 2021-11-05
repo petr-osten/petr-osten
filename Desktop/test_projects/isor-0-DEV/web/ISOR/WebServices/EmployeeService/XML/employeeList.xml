@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="windows-1250" ?>
+<employeeList>
+    <employee id="2" code="10002" authName="EB\pbilek">
+        <name>Petr Bílek</name>
+        <forename>Petr</forename>
+        <surname>Bílek</surname>
+        <email>pbilek@ebanka.cz</email>
+        <position code="P0034">Expert rizik</position>
+        <department code="D0001">Divize Operační riziko a metodika</department>
+        <location code="L0001">Praha - Myslbek</location>
+    </employee>
+    <employee id ="10001" code="10001" authName="CLANCE\jblaha2">
+        <name>Jan Blaha</name>
+        <forename>Jan</forename>
+        <surname>Blaha</surname>
+        <email>jblaha2@cleverlance.com</email>
+        <position code="P0034">Expert rizik</position>
+        <department code="D0001">Divize Operační riziko a metodika</department>
+        <location code="L0001">Praha - Myslbek</location>
+    </employee>
+</employeeList> 

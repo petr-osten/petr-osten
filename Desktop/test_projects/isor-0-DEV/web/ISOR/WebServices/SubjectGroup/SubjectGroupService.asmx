@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="SubjectGroupService.asmx.cs" Class="SubjectGroup.WebService.SubjectGroupService" %>

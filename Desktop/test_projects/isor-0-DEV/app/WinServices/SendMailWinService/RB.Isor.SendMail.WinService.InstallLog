@@ -1,0 +1,26 @@
+﻿Installing assembly 'c:\_ISOR\isor-2-UAT\app\WinServices\SendMailWinService\RB.Isor.SendMail.WinService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = c:\_ISOR\isor-2-UAT\app\WinServices\SendMailWinService\RB.Isor.SendMail.WinService.exe
+   logfile = c:\_ISOR\isor-2-UAT\app\WinServices\SendMailWinService\RB.Isor.SendMail.WinService.InstallLog
+Installing service ISOR SendMailService UAT...
+Service ISOR SendMailService UAT has been successfully installed.
+Creating EventLog source ISOR SendMailService UAT in log Application...
+Committing assembly 'c:\_ISOR\isor-2-UAT\app\WinServices\SendMailWinService\RB.Isor.SendMail.WinService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = c:\_ISOR\isor-2-UAT\app\WinServices\SendMailWinService\RB.Isor.SendMail.WinService.exe
+   logfile = c:\_ISOR\isor-2-UAT\app\WinServices\SendMailWinService\RB.Isor.SendMail.WinService.InstallLog
+Installing assembly 'c:\_ISOR\isor-0-DEV\app\WinServices\SendMailWinService\RB.Isor.SendMail.WinService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = c:\_ISOR\isor-0-DEV\app\WinServices\SendMailWinService\RB.Isor.SendMail.WinService.exe
+   logfile = c:\_ISOR\isor-0-DEV\app\WinServices\SendMailWinService\RB.Isor.SendMail.WinService.InstallLog
+Installing service ISOR SendMailService DEV...
+Service ISOR SendMailService DEV has been successfully installed.
+Creating EventLog source ISOR SendMailService DEV in log Application...
+Committing assembly 'c:\_ISOR\isor-0-DEV\app\WinServices\SendMailWinService\RB.Isor.SendMail.WinService.exe'.
+Affected parameters are:
+   logtoconsole = 
+   assemblypath = c:\_ISOR\isor-0-DEV\app\WinServices\SendMailWinService\RB.Isor.SendMail.WinService.exe
+   logfile = c:\_ISOR\isor-0-DEV\app\WinServices\SendMailWinService\RB.Isor.SendMail.WinService.InstallLog

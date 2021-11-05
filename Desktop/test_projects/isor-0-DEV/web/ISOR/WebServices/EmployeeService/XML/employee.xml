@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="windows-1250" ?>
+<employee id ="10001" code="10001" authName="CLANCE\jblaha2">
+    <name>Jan Blaha</name>
+    <forename>Jan</forename>
+    <surname>Blaha</surname>
+    <email>janblaha2@cleverlance.com</email>
+    <position code="P0034">Expert rizik</position>
+    <department code="D0001">Divize Operační riziko a metodika</department>
+    <location code="L0001">Praha - Myslbek</location>
+</employee> 

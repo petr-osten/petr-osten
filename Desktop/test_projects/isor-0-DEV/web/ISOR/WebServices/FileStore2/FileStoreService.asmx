@@ -1,0 +1,1 @@
+﻿<%@ WebService Language="C#" CodeBehind="FileStoreService.asmx.cs" Class="FileStore.WebService.FileStoreService" %>

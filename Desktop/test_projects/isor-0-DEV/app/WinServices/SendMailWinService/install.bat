@@ -1,0 +1,1 @@
+installutil RB.Isor.SendMail.WinService.exe
